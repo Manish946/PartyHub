@@ -106,7 +106,7 @@
                     </Button.Style>
                     <StackPanel Orientation="Horizontal" Width="323" >
                         <Image VerticalAlignment="Center" Source=".\Content\Dashboard.png" Width="35" Height="35" Margin="0,0,13,0"></Image>
-                        <TextBlock Margin="0,5" VerticalAlignment="Center" FontSize="26" FontFamily="Candara Light">Dashboard</TextBlock>
+                        <TextBlock Margin="0,5" VerticalAlignment="Center" FontSize="26" FontFamily="Candara Light">Dashboard 1</TextBlock>
                     </StackPanel>
                 </Button>
 
