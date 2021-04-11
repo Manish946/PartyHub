@@ -27,3 +27,17 @@ E:\P3 Projekt\PartyHub\bin\Debug\RestSharp.xml
 E:\P3 Projekt\PartyHub\obj\Debug\PartyHub.csproj.CopyComplete
 E:\P3 Projekt\PartyHub\bin\Debug\SpotifyAPI.Web.dll
 E:\P3 Projekt\PartyHub\bin\Debug\SpotifyAPI.Web.xml
+E:\P3 Projekt\PartyHub\bin\Debug\PartyHub.exe.manifest
+E:\P3 Projekt\PartyHub\bin\Debug\PartyHub.application
+E:\P3 Projekt\PartyHub\obj\Debug\PartyHub.exe.manifest
+E:\P3 Projekt\PartyHub\obj\Debug\PartyHub.application
+E:\P3 Projekt\PartyHub\bin\Debug\EmbedIO.dll
+E:\P3 Projekt\PartyHub\bin\Debug\MusConv.Lib.Spotify.dll
+E:\P3 Projekt\PartyHub\bin\Debug\Swan.Lite.dll
+E:\P3 Projekt\PartyHub\bin\Debug\System.ValueTuple.dll
+E:\P3 Projekt\PartyHub\bin\Debug\EmbedIO.xml
+E:\P3 Projekt\PartyHub\bin\Debug\Swan.Lite.xml
+E:\P3 Projekt\PartyHub\bin\Debug\System.ValueTuple.xml
+E:\P3 Projekt\PartyHub\obj\Debug\LoginWindow.g.cs
+E:\P3 Projekt\PartyHub\obj\Debug\LoginWindow.baml
+E:\P3 Projekt\PartyHub\obj\Debug\GeneratedInternalTypeHelper.g.cs

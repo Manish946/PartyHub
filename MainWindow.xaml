@@ -3,18 +3,19 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:PartyHub"
+        xmlns:local="clr-namespace:PartyHub"       
         mc:Ignorable="d"
-        Title="Party Hub" Height="900" Width="1820" WindowStartupLocation="Manual" Background="#FF1D1D1D" ResizeMode="CanMinimize" WindowStyle="ThreeDBorderWindow" Icon="logo.PNG" MinHeight="700" MinWidth="1400" WindowState="Maximized">
-
+        MouseDown="Window_MouseDown"
+        Title="Party Hub" Height="900" Width="1820" WindowStartupLocation="CenterScreen" Background="#FF1D1D1D" Icon="logo.PNG" MinHeight="700" MinWidth="1400" ResizeMode="CanMinimize" WindowStyle="None">
     <Window.Resources>
         <ImageBrush x:Key="notification_hover_image" ImageSource=".\Content\notificationHover.png" Stretch="None"></ImageBrush>
-        
+        <local:ImageConverter x:Key="ImageConverter"/>
     </Window.Resources>
+
     <Grid Background="#FF5392BD">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="75"/>
             <RowDefinition Height="212*"/>
             <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
@@ -27,15 +28,11 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Row="0" Grid.Column="0" Background="#FF171717">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Border Background="#FF52AEEE" BorderThickness="1" CornerRadius="7">
-                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="45" Foreground="white"  Padding="5,0,5,0">Party</TextBlock>
+                <Border Background="#FF00C2FB" BorderThickness="1" CornerRadius="7">
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="45" Foreground="white"  Padding="5,0,5,0" Height="63">Party</TextBlock>
                 </Border>
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="45" Foreground="White" Margin="8,0">Hub</TextBlock>
-
-
-
             </StackPanel>
-
         </Grid>
 
         <Grid Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" Background="#FF171717">
@@ -46,11 +43,16 @@
                     </Separator.RenderTransform>
                 </Separator>
 
-                <StackPanel Margin="5,0,0,0" Orientation="Horizontal">
+                <StackPanel Margin="10,0,0,0" Orientation="Horizontal">
 
-                    <Image Source=".\Content\Profile.png" Width="85" Height="85"></Image>
+                    <Ellipse Height="80" Width="80">
+                        <Ellipse.Fill>
+                            <ImageBrush x:Name="userImage" ImageSource=".\Content\Profile.png"></ImageBrush>
+
+                        </Ellipse.Fill>
+                    </Ellipse>
                     <StackPanel Orientation="Vertical" Margin="0,10,0,0">
-                        <Label VerticalAlignment="Center" Content="Manish Shrestha" FontFamily="Candara Light" FontSize="20" FontWeight="DemiBold" Foreground="White"></Label>
+                        <Label x:Name="fullname" VerticalAlignment="Center" Content="Full Name" FontFamily="Candara Light" FontSize="20" FontWeight="DemiBold" Foreground="White"></Label>
                         <StackPanel Orientation="Horizontal">
                             <Image Margin="0,0,0,3" VerticalAlignment="Bottom" Source=".\Content\online.png" Width="21" Height="21"></Image>
                             <Label Foreground="White" FontWeight="ExtraLight" FontSize="13" VerticalAlignment="Center">
@@ -69,14 +71,14 @@
                 </Separator>
                 <Label Margin="0,10,0,0" HorizontalAlignment="Center" FontSize="15" Foreground="#FF52AEEE">MAIN NAVIGATION</Label>
 
-                <Button Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="60" Width="323" Click="Dashboard_Click"  >
+                <Button Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="60" Width="323" Click="Dashboard_Click"  >
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Background" Value="Transparent"></Setter>
                             <Setter Property="BorderBrush" Value="Orange"></Setter>
                             <Setter Property="BorderThickness" Value="0"></Setter>
                             <Setter Property="Foreground" Value="White"></Setter>
-                            <Setter Property="Opacity" Value="0.7"></Setter>
+                            <Setter Property="Opacity" Value="0.8"></Setter>
                             <Setter Property="Template">
                                 <Setter.Value>
                                     <ControlTemplate TargetType="{x:Type Button}">
@@ -106,19 +108,19 @@
                     </Button.Style>
                     <StackPanel Orientation="Horizontal" Width="323" >
                         <Image VerticalAlignment="Center" Source=".\Content\Dashboard.png" Width="35" Height="35" Margin="0,0,13,0"></Image>
-                        <TextBlock Margin="0,5" VerticalAlignment="Center" FontSize="26" FontFamily="Candara Light">Dashboard 1</TextBlock>
+                        <TextBlock Margin="0,5" VerticalAlignment="Center" FontSize="26" FontFamily="Candara Light">Dashboard</TextBlock>
                     </StackPanel>
                 </Button>
 
 
-                <Button Margin="5,0,0,0" Width="323" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Height="60">
+                <Button Margin="10,0,0,0" Width="323" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Height="60">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Background" Value="Transparent"></Setter>
                             <Setter Property="BorderBrush" Value="Orange"></Setter>
                             <Setter Property="BorderThickness" Value="0"></Setter>
                             <Setter Property="Foreground" Value="White"></Setter>
-                            <Setter Property="Opacity" Value="0.7"></Setter>
+                            <Setter Property="Opacity" Value="0.8"></Setter>
 
                             <Setter Property="Template">
                                 <Setter.Value>
@@ -156,14 +158,14 @@
                 </Button>
 
 
-                <Button Margin="5,0,0,0" Width="323" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Height="60">
+                <Button Margin="10,0,0,0" Width="323" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Height="60">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Background" Value="Transparent"></Setter>
                             <Setter Property="BorderBrush" Value="Orange"></Setter>
                             <Setter Property="BorderThickness" Value="0"></Setter>
                             <Setter Property="Foreground" Value="White"></Setter>
-                            <Setter Property="Opacity" Value="0.7"></Setter>
+                            <Setter Property="Opacity" Value="0.8"></Setter>
 
                             <Setter Property="Template">
                                 <Setter.Value>
@@ -200,14 +202,14 @@
                 </Button>
 
 
-                <Button Margin="5,0,0,0" Width="323" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Height="60">
+                <Button Margin="10,0,0,0" Width="323" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Height="60">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Background" Value="Transparent"></Setter>
                             <Setter Property="BorderBrush" Value="Orange"></Setter>
                             <Setter Property="BorderThickness" Value="0"></Setter>
                             <Setter Property="Foreground" Value="White"></Setter>
-                            <Setter Property="Opacity" Value="0.7"></Setter>
+                            <Setter Property="Opacity" Value="0.8"></Setter>
 
                             <Setter Property="Template">
                                 <Setter.Value>
@@ -244,14 +246,14 @@
                 </Button>
 
 
-                <Button Margin="5,0,0,0" Width="323" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Height="60">
+                <Button Margin="10,0,0,0" Width="323" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Height="60">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Background" Value="Transparent"></Setter>
                             <Setter Property="BorderBrush" Value="Orange"></Setter>
                             <Setter Property="BorderThickness" Value="0"></Setter>
                             <Setter Property="Foreground" Value="White"></Setter>
-                            <Setter Property="Opacity" Value="0.7"></Setter>
+                            <Setter Property="Opacity" Value="0.8"></Setter>
 
                             <Setter Property="Template">
                                 <Setter.Value>
@@ -288,14 +290,14 @@
                 </Button>
 
 
-                <Button Margin="5,0,0,0" Width="323" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Height="60">
+                <Button Margin="10,0,0,0" Width="323" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Height="60">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Background" Value="Transparent"></Setter>
                             <Setter Property="BorderBrush" Value="Orange"></Setter>
                             <Setter Property="BorderThickness" Value="0"></Setter>
                             <Setter Property="Foreground" Value="White"></Setter>
-                            <Setter Property="Opacity" Value="0.7"></Setter>
+                            <Setter Property="Opacity" Value="0.8"></Setter>
 
                             <Setter Property="Template">
                                 <Setter.Value>
@@ -331,13 +333,13 @@
                 </Button>
 
 
-                <Button Margin="5,0,0,0" Width="323" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Height="60">
+                <Button Margin="10,0,0,0" Width="323" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Height="60">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Background" Value="Transparent"></Setter>
                             <Setter Property="BorderBrush" Value="Orange"></Setter>
                             <Setter Property="BorderThickness" Value="0"></Setter>
-                            <Setter Property="Opacity" Value="0.7"></Setter>
+                            <Setter Property="Opacity" Value="0.8"></Setter>
                             <Setter Property="Foreground" Value="White"></Setter>
                             <Setter Property="Template">
                                 <Setter.Value>
@@ -370,8 +372,88 @@
                         <TextBlock HorizontalAlignment="Left" Margin="0,5" VerticalAlignment="Center" FontSize="26" FontFamily="Candara Light">Indstillinger</TextBlock>
                     </StackPanel>
                 </Button>
+                <Button Margin="10,0,0,0" Width="323" HorizontalContentAlignment="Left" Click="logud_click" HorizontalAlignment="Left" Height="60">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="Transparent"></Setter>
+                            <Setter Property="BorderBrush" Value="Orange"></Setter>
+                            <Setter Property="BorderThickness" Value="0"></Setter>
+                            <Setter Property="Opacity" Value="0.8"></Setter>
+                            <Setter Property="Foreground" Value="White"></Setter>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="myBorder" Background="{TemplateBinding Background}" BorderBrush="#FF52AEEE" BorderThickness="0" Margin="0" Padding="0">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="BorderThickness" TargetName="myBorder" Value="5,0,0,0"></Setter>
+                                                <Setter Property="Opacity" Value="1"></Setter>
+                                                <Setter Property="Cursor" Value="Hand"></Setter>
+                                                <Setter Property="BorderBrush" TargetName="myBorder" Value="#FF52AEEE"></Setter>
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Background" Value="#FF5392BD"></Setter>
+                                            </Trigger>
+                                            <Trigger Property="IsFocused" Value="True">
+                                                <Setter Property="Opacity" Value="1"></Setter>
+                                                <Setter Property="BorderThickness" TargetName="myBorder" Value="5,0,0,0"></Setter>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="323">
+                        <Image HorizontalAlignment="Left" VerticalAlignment="Center" Source=".\Content\logout.png" Width="35" Height="35" Margin="0,0,13,0"></Image>
+                        <Image x:Name="logouthref"></Image>
+                        <TextBlock HorizontalAlignment="Left" Margin="0,5" VerticalAlignment="Center" FontSize="26" FontFamily="Candara Light">Log ud</TextBlock>
+                    </StackPanel>
+                </Button>
 
+                <Button Margin="10,0,0,0" Width="323" HorizontalContentAlignment="Left" Click="OnAfslutClick" HorizontalAlignment="Left" Height="60">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="Transparent"></Setter>
+                            <Setter Property="BorderBrush" Value="Orange"></Setter>
+                            <Setter Property="BorderThickness" Value="0"></Setter>
+                            <Setter Property="Opacity" Value="0.8"></Setter>
+                            <Setter Property="Foreground" Value="White"></Setter>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="myBorder" Background="{TemplateBinding Background}" BorderBrush="#FF52AEEE" BorderThickness="0" Margin="0" Padding="0">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="BorderThickness" TargetName="myBorder" Value="5,0,0,0"></Setter>
+                                                <Setter Property="Opacity" Value="1"></Setter>
+                                                <Setter Property="Cursor" Value="Hand"></Setter>
+                                                <Setter Property="BorderBrush" TargetName="myBorder" Value="#FF52AEEE"></Setter>
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Background" Value="#FF5392BD"></Setter>
+                                            </Trigger>
+                                            <Trigger Property="IsFocused" Value="True">
+                                                <Setter Property="Opacity" Value="1"></Setter>
+                                                <Setter Property="BorderThickness" TargetName="myBorder" Value="5,0,0,0"></Setter>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="323">
+                        <Image HorizontalAlignment="Left" VerticalAlignment="Center" Source=".\Content\shutdown.png" Width="35" Height="35" Margin="0,0,13,0"></Image>
+                        <TextBlock  HorizontalAlignment="Left" Margin="0,5" VerticalAlignment="Center" FontSize="26" FontFamily="Candara Light" Foreground="IndianRed">Afslut</TextBlock>
+                    </StackPanel>
+                </Button>
 
+                <Frame x:Name="iframe"></Frame>
 
             </StackPanel>
         </Grid>
@@ -386,6 +468,40 @@
 
         <Grid Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right">
             <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" Margin="23,0,0,0">
+                    <Image Source=".\Content\Profile.png" Width="35" Height="35"></Image>
+                    <Label x:Name="UserName" Content="UserName" VerticalAlignment="Center" Foreground="White" FontSize="20"></Label>
+                </StackPanel>
+
+
+                <Button Background="Transparent" BorderBrush="Transparent" Width="35" Height="35" Margin="65,0,0,0">
+                    <Image Source=".\Content\notification.png" Width="35" Height="35" ></Image>
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="myBorder" Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="Transparent"></Setter>
+                                            </Trigger>
+
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+
+
+                <Image Source=".\Content\Indstillinger.png" Width="35" Height="35" Margin="10,0,10,0"></Image>
+                
                 <StackPanel Orientation="Horizontal">
                     <Button Background="Transparent" BorderBrush="Transparent" Height="35" Width="35" >
                         <Button.Content>
@@ -412,40 +528,11 @@
                             </Style>
                         </Button.Style>
                     </Button>
-                    <Label Content="Need Help?" VerticalAlignment="Center" FontSize="20" Foreground="White"></Label>
+                    <Label Content="" VerticalAlignment="Center" FontSize="20" Foreground="White"></Label>
                 </StackPanel>
-
-                <Button Background="Transparent" BorderBrush="Transparent" Width="35" Height="35" Margin="65,0,0,0">
-                    <Image Source=".\Content\notification.png" Width="35" Height="35" ></Image>
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="{x:Type Button}">
-                                        <Border x:Name="myBorder" Background="{TemplateBinding Background}">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                        </Border>
-                                        <ControlTemplate.Triggers>
-
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Background" Value="Transparent"></Setter>
-                                            </Trigger>
-
-                                        </ControlTemplate.Triggers>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </Button.Style>
-                </Button>
-
-                <StackPanel Orientation="Horizontal" Margin="23,0,0,0">
-                    <Image Source=".\Content\Profile.png" Width="35" Height="35"></Image>
-                    <Label Content="Manish946" VerticalAlignment="Center" Foreground="White" FontSize="20"></Label>
-                </StackPanel>
-
-                <Image Source=".\Content\Indstillinger.png" Width="35" Height="35" Margin="10,0,0,0"></Image>
+                   
             </StackPanel>
+
         </Grid>
 
     </Grid>
