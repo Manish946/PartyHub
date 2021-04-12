@@ -88,6 +88,7 @@
       <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -107,6 +108,30 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Content_Page\Dashboard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Content_Page\GlobalListe.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Content_Page\Indstillinger.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Content_Page\Minliste.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Content_Page\Minprofil.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Content_Page\Party.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Content_Page\Swipe.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -132,6 +157,24 @@
     </Compile>
     <Compile Include="Content_Page\Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content_Page\GlobalListe.xaml.cs">
+      <DependentUpon>GlobalListe.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content_Page\Indstillinger.xaml.cs">
+      <DependentUpon>Indstillinger.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content_Page\Minliste.xaml.cs">
+      <DependentUpon>Minliste.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content_Page\Minprofil.xaml.cs">
+      <DependentUpon>Minprofil.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content_Page\Party.xaml.cs">
+      <DependentUpon>Party.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content_Page\Swipe.xaml.cs">
+      <DependentUpon>Swipe.xaml</DependentUpon>
     </Compile>
     <Compile Include="Content_Page\UserLogin.xaml.cs">
       <DependentUpon>UserLogin.xaml</DependentUpon>
@@ -218,6 +261,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

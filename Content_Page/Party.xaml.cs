@@ -10,19 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace PartyHub.Content_Page
 {
     /// <summary>
-    /// Interaction logic for UserLogin.xaml
+    /// Interaction logic for Party.xaml
     /// </summary>
-    public partial class UserLogin : Window
+    public partial class Party : Page
     {
-        public UserLogin()
+        public Party()
         {
             InitializeComponent();
-            DataContext = this.DataContext;
         }
     }
 }

@@ -113,7 +113,7 @@
                 </Button>
 
 
-                <Button Margin="10,0,0,0" Width="323" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Height="60">
+                <Button Margin="10,0,0,0" Width="323" HorizontalContentAlignment="Left" Click="Swipe_click" HorizontalAlignment="Left" Height="60">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Background" Value="Transparent"></Setter>
@@ -158,7 +158,7 @@
                 </Button>
 
 
-                <Button Margin="10,0,0,0" Width="323" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Height="60">
+                <Button Margin="10,0,0,0" Width="323" HorizontalContentAlignment="Left" Click="Party_click" HorizontalAlignment="Left" Height="60">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Background" Value="Transparent"></Setter>
@@ -202,7 +202,7 @@
                 </Button>
 
 
-                <Button Margin="10,0,0,0" Width="323" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Height="60">
+                <Button Margin="10,0,0,0" Width="323" HorizontalContentAlignment="Left" Click="Globalliste_click" HorizontalAlignment="Left" Height="60">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Background" Value="Transparent"></Setter>
@@ -246,7 +246,7 @@
                 </Button>
 
 
-                <Button Margin="10,0,0,0" Width="323" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Height="60">
+                <Button Margin="10,0,0,0" Width="323" HorizontalContentAlignment="Left" Click="Minliste_click" HorizontalAlignment="Left" Height="60">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Background" Value="Transparent"></Setter>
@@ -290,7 +290,7 @@
                 </Button>
 
 
-                <Button Margin="10,0,0,0" Width="323" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Height="60">
+                <Button Margin="10,0,-33,0" HorizontalContentAlignment="Left" Click="Minprofil_click" Height="60">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Background" Value="Transparent"></Setter>
@@ -333,7 +333,7 @@
                 </Button>
 
 
-                <Button Margin="10,0,0,0" Width="323" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Height="60">
+                <Button Margin="10,0,0,0" Width="323" HorizontalContentAlignment="Left" Click="Indstillinger_click" HorizontalAlignment="Left" Height="60">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Background" Value="Transparent"></Setter>
@@ -372,7 +372,7 @@
                         <TextBlock HorizontalAlignment="Left" Margin="0,5" VerticalAlignment="Center" FontSize="26" FontFamily="Candara Light">Indstillinger</TextBlock>
                     </StackPanel>
                 </Button>
-                <Button Margin="10,0,0,0" Width="323" HorizontalContentAlignment="Left" Click="logud_click" HorizontalAlignment="Left" Height="60">
+                <Button Margin="10,0,0,0" Width="323" HorizontalContentAlignment="Left" Click="Logud_click" HorizontalAlignment="Left" Height="60">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Background" Value="Transparent"></Setter>
@@ -462,6 +462,7 @@
         <Grid Grid.Column="2" Grid.Row="1" Background="Transparent">
             <Border CornerRadius="12,12,12,12" BorderThickness="6" Padding="4" Background="#FF171717">
                 <Frame x:Name="Frame_Partyhub" NavigationUIVisibility="Hidden">
+
                 </Frame>
             </Border>
         </Grid>
@@ -501,7 +502,7 @@
 
 
                 <Image Source=".\Content\Indstillinger.png" Width="35" Height="35" Margin="10,0,10,0"></Image>
-                
+
                 <StackPanel Orientation="Horizontal">
                     <Button Background="Transparent" BorderBrush="Transparent" Height="35" Width="35" >
                         <Button.Content>
@@ -530,7 +531,7 @@
                     </Button>
                     <Label Content="" VerticalAlignment="Center" FontSize="20" Foreground="White"></Label>
                 </StackPanel>
-                   
+
             </StackPanel>
 
         </Grid>

@@ -44,19 +44,6 @@ namespace PartyHub
 
         }
         
-        public void stopServer()
-        {
-            try
-            {
-                auth.StartHttpServer();
-                auth.DoAuth();
-            }
-            finally
-            {
-                auth.StopHttpServer();
-            }
-
-        }
         
         private void Auth_OnResponseReceivedEvent(AutorizationCodeAuthResponse response)
         {

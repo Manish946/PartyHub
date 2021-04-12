@@ -74,13 +74,48 @@ namespace PartyHub
             Environment.Exit(Environment.ExitCode);
         }
 
-        private void logud_click(object sender, RoutedEventArgs e) 
+        private void Logud_click(object sender, RoutedEventArgs e) 
         {
            System.Diagnostics.Process.Start("https://accounts.spotify.com/en/logout");
             LoginWindow loginWin = new LoginWindow();
            // loginWin.stopServer();
             loginWin.Show();
             Close();
+        }
+
+        private void Swipe_click(object sender, RoutedEventArgs e)
+        {
+            Frame_Partyhub.Content = new Content_Page.Swipe();
+        }
+
+        private void Party_click(object sender, RoutedEventArgs e)
+        {
+            Frame_Partyhub.Content = new Content_Page.Party();
+
+        }
+
+        private void Globalliste_click(object sender, RoutedEventArgs e)
+        {
+            Frame_Partyhub.Content = new Content_Page.GlobalListe();
+
+        }
+
+        private void Minliste_click(object sender, RoutedEventArgs e)
+        {
+            Frame_Partyhub.Content = new Content_Page.Minliste();
+
+        }
+
+        private void Minprofil_click(object sender, RoutedEventArgs e)
+        {
+            Frame_Partyhub.Content = new Content_Page.Minprofil();
+
+        }
+
+        private void Indstillinger_click(object sender, RoutedEventArgs e)
+        {
+            Frame_Partyhub.Content = new Content_Page.Indstillinger();
+
         }
     }
     [ValueConversion(typeof(string), typeof(BitmapImage))]
