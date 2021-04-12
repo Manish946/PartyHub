@@ -22,6 +22,7 @@ namespace PartyHub.Content_Page
         public UserLogin()
         {
             InitializeComponent();
+            DataContext = this.DataContext;
         }
     }
 }
