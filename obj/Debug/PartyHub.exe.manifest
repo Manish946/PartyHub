@@ -78,14 +78,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PartyHub.exe" size="1214968">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PartyHub.exe" size="1269752">
       <assemblyIdentity name="PartyHub" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ONpTrRgCk3VK16cuJ+F8n+sdZnPBXy+Zxoq43j+RLZ8=</dsig:DigestValue>
+        <dsig:DigestValue>FIe5tjeNVB28++HJjr987rvn8RPOYhaZpENFUyUdBrc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -98,6 +98,102 @@
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
         <dsig:DigestValue>Z24A6PgbbCXhIid9VaVtKJJKTMME8WCtHfuAPo0upZQ=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SharpVectors.Converters.Wpf.dll" size="126976">
+      <assemblyIdentity name="SharpVectors.Converters.Wpf" version="1.7.1.0" publicKeyToken="B532964B8548BE77" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>W0DLpD1RYLf3eUG96QO4mKDqVR1mnF/EU2TN9iisocI=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SharpVectors.Core.dll" size="182784">
+      <assemblyIdentity name="SharpVectors.Core" version="1.7.1.0" publicKeyToken="7407205E337C98EF" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>ODKvhj5DeHagD4YFH/yeYayznEy6hF+A3g4FWL04R84=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SharpVectors.Css.dll" size="90624">
+      <assemblyIdentity name="SharpVectors.Css" version="1.7.1.0" publicKeyToken="7A46E3F532FDB787" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>PaRAT7/QU3oYHfGblM50MhH86iLU8mD3vnWl+dkegpc=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SharpVectors.Dom.dll" size="33280">
+      <assemblyIdentity name="SharpVectors.Dom" version="1.7.1.0" publicKeyToken="517340B6277B1A7A" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>8rd42udcdTJRZluc6koUwXg4gMX710xAS27t5pMxEEo=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SharpVectors.Model.dll" size="1027072">
+      <assemblyIdentity name="SharpVectors.Model" version="1.7.1.0" publicKeyToken="2236CFC76B505845" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>PWdT3lPO9JMtX6tvBZZ1kg9suZKkok32gcINPM/NXJg=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SharpVectors.Rendering.Gdi.dll" size="98304">
+      <assemblyIdentity name="SharpVectors.Rendering.Gdi" version="1.7.1.0" publicKeyToken="03902092284347E3" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>xVpCcn7vUPyH7SCaNWHtKRBzUFxkSmvB1S1woQy7ZFc=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SharpVectors.Rendering.Wpf.dll" size="197120">
+      <assemblyIdentity name="SharpVectors.Rendering.Wpf" version="1.7.1.0" publicKeyToken="D0902381100DF30E" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>SLj1ZZSsNM/tJ5jaMFdLhsF1nrZKGv1+2YcKS+mo6k4=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SharpVectors.Runtime.Wpf.dll" size="73216">
+      <assemblyIdentity name="SharpVectors.Runtime.Wpf" version="1.7.1.0" publicKeyToken="D16E717F0A981FB9" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>iAiyhJPysPzwto3Hygsskggh43h3pidnJl4nf0C0Ixg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -153,6 +249,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Partyicon.svg" size="18533">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>L9OKpeEehs++W+9lfBTDrlwz+us9S1Do0HB7sva+0I8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="fonts\FontAwesome.otf" size="134808">
