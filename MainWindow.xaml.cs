@@ -29,6 +29,10 @@ namespace PartyHub
         public MainWindow()
         {
             InitializeComponent();
+            MaxHeight = SystemParameters.VirtualScreenHeight -60;
+            MaxWidth = SystemParameters.VirtualScreenWidth -60;
+            MinHeight = SystemParameters.VirtualScreenHeight-60;
+            MinWidth = SystemParameters.VirtualScreenWidth-60;
             Frame_Partyhub.Content = new Content_Page.Dashboard();
             //Displayname
             headers.Add("Authorization", "Bearer " + LoginWindow.SpotifyLogin.AccessToken);

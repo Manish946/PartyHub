@@ -78,14 +78,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PartyHub.exe" size="1269752">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PartyHub.exe" size="1270264">
       <assemblyIdentity name="PartyHub" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>FIe5tjeNVB28++HJjr987rvn8RPOYhaZpENFUyUdBrc=</dsig:DigestValue>
+        <dsig:DigestValue>cfjsg/J0NGqusH/5oc2lUWjGLCYEww9EfCxJmOZzmB0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -233,22 +233,22 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Content\font-awesome.css" size="37414">
+  <file name="Content\font-awesome.css" size="39751">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>NuCn4IvuZXdBaFKJOAcsU2Q3ZpwbdFisd5dux4jkQ5w=</dsig:DigestValue>
+      <dsig:DigestValue>YIHlqxkiJtENTMuzIHC9EfZaB5RniGr7kF7juUQJUuc=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\font-awesome.min.css" size="31000">
+  <file name="Content\font-awesome.min.css" size="31004">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=</dsig:DigestValue>
+      <dsig:DigestValue>gg4WnOJIJAZtmXP9S2Vhqunc1tvvZDXakF1aHWSCmXw=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Partyicon.svg" size="18533">
@@ -278,13 +278,13 @@
       <dsig:DigestValue>e/yrbbmdXPvxcFygU23ceFhUMsxfpBu9etDwCQM7KXk=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="fonts\fontawesome-webfont.svg" size="444379">
+  <file name="fonts\fontawesome-webfont.svg" size="447050">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>rWFXkmwWIrpOHQPUePFUE2hSS/xG9R5C/g2UX37zI+Q=</dsig:DigestValue>
+      <dsig:DigestValue>/DeCMvna1QCJCqngvdAwpT0vMX1Rc5OjuRQAtN3OTHw=</dsig:DigestValue>
     </hash>
   </file>
   <file name="fonts\fontawesome-webfont.ttf" size="165548">

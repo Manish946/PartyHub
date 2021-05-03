@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PartyHub"       
         mc:Ignorable="d"
         MouseDown="Window_MouseDown"
-        Title="Party Hub" Height="900" Width="1820" WindowStartupLocation="CenterScreen" Background="#FF1D1D1D" Icon="logo.PNG" MinHeight="700" MinWidth="1400" ResizeMode="CanMinimize" WindowStyle="None">
+        Title="Party Hub" Height="900" Width="1820" WindowStartupLocation="CenterScreen" Background="#FF1D1D1D" Icon="logo.PNG" MinHeight="700" MinWidth="1100" ResizeMode="CanMinimize" WindowStyle="None">
     <Window.Resources>
         <ImageBrush x:Key="notification_hover_image" ImageSource=".\Content\notificationHover.png" Stretch="None"></ImageBrush>
         <local:ImageConverter x:Key="ImageConverter"/>
