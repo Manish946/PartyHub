@@ -85,7 +85,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>4SWT53wcb1YhDF/01Z/L1wP8bsD6RMT8r32Idztxa/M=</dsig:DigestValue>
+        <dsig:DigestValue>iKobofZ8c7okZ0XQnXBSk0/feQirLSJM6b84o5/y0Bs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -233,22 +233,22 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Content\font-awesome.css" size="39751">
+  <file name="Content\font-awesome.css" size="37414">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>YIHlqxkiJtENTMuzIHC9EfZaB5RniGr7kF7juUQJUuc=</dsig:DigestValue>
+      <dsig:DigestValue>NuCn4IvuZXdBaFKJOAcsU2Q3ZpwbdFisd5dux4jkQ5w=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\font-awesome.min.css" size="31004">
+  <file name="Content\font-awesome.min.css" size="31000">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>gg4WnOJIJAZtmXP9S2Vhqunc1tvvZDXakF1aHWSCmXw=</dsig:DigestValue>
+      <dsig:DigestValue>eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Partyicon.svg" size="18533">
@@ -278,13 +278,13 @@
       <dsig:DigestValue>e/yrbbmdXPvxcFygU23ceFhUMsxfpBu9etDwCQM7KXk=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="fonts\fontawesome-webfont.svg" size="447050">
+  <file name="fonts\fontawesome-webfont.svg" size="444379">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>/DeCMvna1QCJCqngvdAwpT0vMX1Rc5OjuRQAtN3OTHw=</dsig:DigestValue>
+      <dsig:DigestValue>rWFXkmwWIrpOHQPUePFUE2hSS/xG9R5C/g2UX37zI+Q=</dsig:DigestValue>
     </hash>
   </file>
   <file name="fonts\fontawesome-webfont.ttf" size="165548">
