@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\P3 Projekt\PartyHub\obj\Debug\
+C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\
 PartyHub
 none
 false
 DEBUG;TRACE
-E:\P3 Projekt\PartyHub\App.xaml
-4-487295466
-8-554976
-7-457417829
-181947723632
-Content_Page\Dashboard.xaml;Content_Page\UserLogin.xaml;FontawsomeResources.xaml;MainWindow.xaml;
+C:\Users\msh\Documents\GitHub\PartyHub\App.xaml
+13-144484649
+9-744581337
+16116282267
+31-1341108876
+Content_Page\CreatePartyWindow.xaml;Content_Page\Dashboard.xaml;Content_Page\GlobalListe.xaml;Content_Page\Indstillinger.xaml;Content_Page\JoinPartyWindow.xaml;Content_Page\Minliste.xaml;Content_Page\Minprofil.xaml;Content_Page\Party.xaml;Content_Page\Swipe.xaml;Content_Page\UserLogin.xaml;FontawsomeResources.xaml;LoginWindow.xaml;MainWindow.xaml;
 
 False
 

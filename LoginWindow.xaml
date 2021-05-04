@@ -1,0 +1,86 @@
+﻿<Window x:Class="PartyHub.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PartyHub"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="680" Width="450" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" WindowStyle="None">
+    <Border BorderBrush="#FF5392BD" BorderThickness="6">
+
+        <Grid Background="White">
+
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="90"></RowDefinition>
+                <RowDefinition Height="360"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Grid.Column="0" Background="#FF5392BD">
+
+                <Border CornerRadius="8" Background="#FF5392BD">
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Border Background="#FF00C2FB" BorderThickness="1" CornerRadius="7">
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="45" Foreground="white"  Padding="5,0,5,0" Height="63">Party</TextBlock>
+                        </Border>
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="45" Foreground="White" Margin="8,0">Hub</TextBlock>
+                    </StackPanel>
+                </Border>
+
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="0" Background="#FF5392BD">
+                <Border Background="White" BorderThickness="0,0,0,0" CornerRadius="10,10,0,0">
+                    
+                <StackPanel>
+                    <!--
+                    <Separator Background="#FF5392BD"  Margin="0">
+                        <Separator.RenderTransform>
+                            <ScaleTransform ScaleY="9" />
+                        </Separator.RenderTransform>
+                    </Separator>
+                    -->
+                    <Image Source=".\Content\spotifylogo.png" Height="230"></Image>
+
+                    <Button BorderThickness="0" Height="50" FontSize="20" Width="300" Background="#FF1ED760" Foreground="White"  Content="Login Med Spotify" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Login_Med_Spotify" FontFamily="Dubai">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="8"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+
+
+
+                    <Button Margin="0,25,0,0" BorderThickness="0" Height="50" FontSize="20" Width="300"  Background="IndianRed" Foreground="White"  Content="Afslut" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Afslut_click" FontFamily="Dubai">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="8"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+
+                </StackPanel>
+
+                </Border>
+
+            </Grid>
+
+            <Grid Grid.Row="3" Grid.Column="0">
+                <Grid.Background>
+                    <ImageBrush Stretch="UniformToFill" ImageSource=".\Content\crowd1.png"></ImageBrush>
+                </Grid.Background>
+            </Grid>
+                
+                
+        </Grid>
+
+    </Border>
+
+</Window>
