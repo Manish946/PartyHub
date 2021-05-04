@@ -8,8 +8,85 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="GlobalListe">
 
-    <Grid>
-        <TextBlock Text="Global Liste" HorizontalAlignment="Center" Foreground="White" FontSize="55"></TextBlock>
+        
+    
+    <Grid Background="#FF171717">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="9*"></RowDefinition>
+            <RowDefinition Height="50*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" >
+
+            <Label Content="Global Liste" Foreground="White" HorizontalAlignment="Center" FontSize="35"></Label>
+        </Grid>
+        <Grid Grid.Row="1" Margin="0" >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+                <Button Content="Spotify" Height="50" Width="180" Margin="0,0,105,0">
+
+                </Button>
+
+                <Button Content="Party Hub" Height="50" Width="180" >
+                </Button>
+            </StackPanel>
+            <Separator Height="8" Background="#FF5392BD" VerticalAlignment="Bottom"></Separator>
+
+        </Grid>
+        <Grid Grid.Row="2">
+            <DataGrid x:Name="GlobalTop50"  RowHeight="100" Margin="0,0,0,0" AutoGenerateColumns="False" IsReadOnly="True" Background="Transparent" RowBackground="Transparent" FontSize="16" GridLinesVisibility="None" HeadersVisibility="None" VerticalScrollBarVisibility="Hidden" BorderThickness="0">
+                <DataGrid.Columns>
+
+                    <DataGridTextColumn  Header="" Width="55" Binding="{Binding Track.Popularity}" Foreground="White">
+
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextAlignment" Value="Center"></Setter>
+                                <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+
+
+                    <DataGridTemplateColumn Header="" Width="100" IsReadOnly="True" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Width="100" Height="100" x:Name="ImageTemp" Source="{Binding Track.Album.UrlImage}" ></Image>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn  Header="" Width="490" Binding="{Binding Track.Name}" Foreground="White">
+                       
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextAlignment" Value="Center"></Setter>
+                                <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+
+                    <DataGridTextColumn  Header="" Width="220" Binding="{Binding Track.Artists[0].Name}"  Foreground="White">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextAlignment" Value="Center"></Setter>
+                                <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    
+                    <DataGridTextColumn Header="" Width="270" Binding="{Binding Track.GetDuration}" Foreground="White">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextAlignment" Value="Center"></Setter>
+                                <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+               
+            </DataGrid>
+        </Grid>
 
     </Grid>
 </Page>

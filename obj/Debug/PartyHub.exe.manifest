@@ -78,14 +78,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PartyHub.exe" size="1270264">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PartyHub.exe" size="1272824">
       <assemblyIdentity name="PartyHub" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>cfjsg/J0NGqusH/5oc2lUWjGLCYEww9EfCxJmOZzmB0=</dsig:DigestValue>
+        <dsig:DigestValue>4SWT53wcb1YhDF/01Z/L1wP8bsD6RMT8r32Idztxa/M=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

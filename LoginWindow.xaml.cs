@@ -43,8 +43,8 @@ namespace PartyHub
             auth.OnResponseReceivedEvent += Auth_OnResponseReceivedEvent;
 
         }
-        
-        
+
+
         private void Auth_OnResponseReceivedEvent(AutorizationCodeAuthResponse response)
         {
             if (response.Error == null)
@@ -62,11 +62,11 @@ namespace PartyHub
                         MainWindow main = new MainWindow();
                         main.Show();
                         this.Visibility = Visibility.Hidden;
-                        if (main.WindowState == WindowState.Minimized)
-                        {
-                            main.WindowState = WindowState.Normal;
 
-                        }
+                        main.WindowState = WindowState.Normal;
+                        main.Focus();
+                        main.Activate();
+
                     }
                 });
             }
@@ -79,14 +79,14 @@ namespace PartyHub
         private void Login_Med_Spotify(object sender, RoutedEventArgs e)
         {
             Autorization();
-            
+
         }
 
         private void Autorization()
         {
 
-                auth.StartHttpServer();
-                auth.DoAuth();
+            auth.StartHttpServer();
+            auth.DoAuth();
 
 
         }

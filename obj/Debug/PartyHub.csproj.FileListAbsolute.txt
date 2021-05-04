@@ -1,78 +1,3 @@
-E:\P3 Projekt\PartyHub\obj\Debug\FontawsomeResources.baml
-E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\Dashboard.g.cs
-E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\UserLogin.g.cs
-E:\P3 Projekt\PartyHub\obj\Debug\LoginWindow.g.cs
-E:\P3 Projekt\PartyHub\obj\Debug\MainWindow.g.cs
-E:\P3 Projekt\PartyHub\obj\Debug\App.g.cs
-E:\P3 Projekt\PartyHub\obj\Debug\PartyHub_Content.g.cs
-E:\P3 Projekt\PartyHub\obj\Debug\GeneratedInternalTypeHelper.g.cs
-E:\P3 Projekt\PartyHub\obj\Debug\PartyHub_MarkupCompile.cache
-E:\P3 Projekt\PartyHub\obj\Debug\PartyHub_MarkupCompile.lref
-E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\Swipe.g.cs
-E:\P3 Projekt\PartyHub\bin\Debug\PartyHub.exe.config
-E:\P3 Projekt\PartyHub\bin\Debug\PartyHub.exe.manifest
-E:\P3 Projekt\PartyHub\bin\Debug\PartyHub.application
-E:\P3 Projekt\PartyHub\bin\Debug\PartyHub.exe
-E:\P3 Projekt\PartyHub\bin\Debug\PartyHub.pdb
-E:\P3 Projekt\PartyHub\bin\Debug\EmbedIO.dll
-E:\P3 Projekt\PartyHub\bin\Debug\MusConv.Lib.Spotify.dll
-E:\P3 Projekt\PartyHub\bin\Debug\Newtonsoft.Json.dll
-E:\P3 Projekt\PartyHub\bin\Debug\RestSharp.dll
-E:\P3 Projekt\PartyHub\bin\Debug\SpotifyAPI.Web.dll
-E:\P3 Projekt\PartyHub\bin\Debug\Swan.Lite.dll
-E:\P3 Projekt\PartyHub\bin\Debug\System.ValueTuple.dll
-E:\P3 Projekt\PartyHub\bin\Debug\EmbedIO.xml
-E:\P3 Projekt\PartyHub\bin\Debug\Newtonsoft.Json.xml
-E:\P3 Projekt\PartyHub\bin\Debug\RestSharp.xml
-E:\P3 Projekt\PartyHub\bin\Debug\SpotifyAPI.Web.xml
-E:\P3 Projekt\PartyHub\bin\Debug\Swan.Lite.xml
-E:\P3 Projekt\PartyHub\bin\Debug\System.ValueTuple.xml
-E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\GlobalListe.g.cs
-E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\Indstillinger.g.cs
-E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\Minliste.g.cs
-E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\Minprofil.g.cs
-E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\Party.g.cs
-E:\P3 Projekt\PartyHub\obj\Debug\App.baml
-E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\Dashboard.baml
-E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\UserLogin.baml
-E:\P3 Projekt\PartyHub\obj\Debug\LoginWindow.baml
-E:\P3 Projekt\PartyHub\obj\Debug\MainWindow.baml
-E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\Swipe.baml
-E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\GlobalListe.baml
-E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\Indstillinger.baml
-E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\Minliste.baml
-E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\Minprofil.baml
-E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\Party.baml
-E:\P3 Projekt\PartyHub\obj\Debug\PartyHub.g.resources
-E:\P3 Projekt\PartyHub\obj\Debug\PartyHub.Properties.Resources.resources
-E:\P3 Projekt\PartyHub\obj\Debug\PartyHub.csproj.GenerateResource.cache
-E:\P3 Projekt\PartyHub\obj\Debug\PartyHub.csproj.CoreCompileInputs.cache
-E:\P3 Projekt\PartyHub\obj\Debug\PartyHub.exe.manifest
-E:\P3 Projekt\PartyHub\obj\Debug\PartyHub.application
-E:\P3 Projekt\PartyHub\obj\Debug\PartyHub.csproj.CopyComplete
-E:\P3 Projekt\PartyHub\obj\Debug\PartyHub.exe
-E:\P3 Projekt\PartyHub\obj\Debug\PartyHub.pdb
-E:\P3 Projekt\PartyHub\bin\Debug\SharpVectors.Converters.Wpf.dll
-E:\P3 Projekt\PartyHub\bin\Debug\SharpVectors.Core.dll
-E:\P3 Projekt\PartyHub\bin\Debug\SharpVectors.Css.dll
-E:\P3 Projekt\PartyHub\bin\Debug\SharpVectors.Dom.dll
-E:\P3 Projekt\PartyHub\bin\Debug\SharpVectors.Model.dll
-E:\P3 Projekt\PartyHub\bin\Debug\SharpVectors.Rendering.Gdi.dll
-E:\P3 Projekt\PartyHub\bin\Debug\SharpVectors.Rendering.Wpf.dll
-E:\P3 Projekt\PartyHub\bin\Debug\SharpVectors.Runtime.Wpf.dll
-E:\P3 Projekt\PartyHub\bin\Debug\SharpVectors.Converters.Wpf.xml
-E:\P3 Projekt\PartyHub\bin\Debug\SharpVectors.Core.xml
-E:\P3 Projekt\PartyHub\bin\Debug\SharpVectors.Css.xml
-E:\P3 Projekt\PartyHub\bin\Debug\SharpVectors.Dom.xml
-E:\P3 Projekt\PartyHub\bin\Debug\SharpVectors.Model.xml
-E:\P3 Projekt\PartyHub\bin\Debug\SharpVectors.Rendering.Gdi.xml
-E:\P3 Projekt\PartyHub\bin\Debug\SharpVectors.Rendering.Wpf.xml
-E:\P3 Projekt\PartyHub\bin\Debug\SharpVectors.Runtime.Wpf.xml
-E:\P3 Projekt\PartyHub\obj\Debug\PartyHub.csprojAssemblyReference.cache
-E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\CreatePartyWindow.g.cs
-E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\CreatePartyWindow.baml
-E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\JoinPartyWindow.g.cs
-E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\JoinPartyWindow.baml
 C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\PartyHub.exe.config
 C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\PartyHub.exe.manifest
 C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\PartyHub.application
@@ -106,7 +31,6 @@ C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\SharpVectors.Runtime.Wpf.xml
 C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\SpotifyAPI.Web.xml
 C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\Swan.Lite.xml
 C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\System.ValueTuple.xml
-C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\PartyHub.csprojAssemblyReference.cache
 C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\FontawsomeResources.baml
 C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\Content_Page\CreatePartyWindow.g.cs
 C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\Content_Page\Dashboard.g.cs

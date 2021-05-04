@@ -29,10 +29,9 @@ namespace PartyHub
         public MainWindow()
         {
             InitializeComponent();
-            MaxHeight = SystemParameters.VirtualScreenHeight -60;
-            MaxWidth = SystemParameters.VirtualScreenWidth -60;
-            MinHeight = SystemParameters.VirtualScreenHeight-60;
-            MinWidth = SystemParameters.VirtualScreenWidth-60;
+            MaxHeight = SystemParameters.FullPrimaryScreenHeight - 60;
+            MaxWidth = SystemParameters.FullPrimaryScreenWidth - 60;
+
             Frame_Partyhub.Content = new Content_Page.Dashboard();
             //Displayname
             headers.Add("Authorization", "Bearer " + LoginWindow.SpotifyLogin.AccessToken);
@@ -49,6 +48,7 @@ namespace PartyHub
             else
             {
                
+
                 userImage.ImageSource = GetImage(obj.Images[0].Url);
 
             }
