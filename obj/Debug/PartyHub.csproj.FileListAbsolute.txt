@@ -52,6 +52,7 @@ E:\P3 Projekt\PartyHub\obj\Debug\PartyHub.application
 E:\P3 Projekt\PartyHub\obj\Debug\PartyHub.csproj.CopyComplete
 E:\P3 Projekt\PartyHub\obj\Debug\PartyHub.exe
 E:\P3 Projekt\PartyHub\obj\Debug\PartyHub.pdb
+<<<<<<< Updated upstream
 E:\P3 Projekt\PartyHub\bin\Debug\SharpVectors.Converters.Wpf.dll
 E:\P3 Projekt\PartyHub\bin\Debug\SharpVectors.Core.dll
 E:\P3 Projekt\PartyHub\bin\Debug\SharpVectors.Css.dll
@@ -73,6 +74,8 @@ E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\CreatePartyWindow.g.cs
 E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\CreatePartyWindow.baml
 E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\JoinPartyWindow.g.cs
 E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\JoinPartyWindow.baml
+=======
+>>>>>>> Stashed changes
 C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\PartyHub.exe.config
 C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\PartyHub.exe.manifest
 C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\PartyHub.application
