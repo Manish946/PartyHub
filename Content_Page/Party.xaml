@@ -6,10 +6,21 @@
       xmlns:local="clr-namespace:PartyHub.Content_Page"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
+      HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0"
       Title="Party">
 
-    <Grid>
+    <Grid Background="#FF171717">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
         <TextBlock Text="Party" HorizontalAlignment="Center" Foreground="White" FontSize="55"></TextBlock>
+        <Grid Grid.Row="1" VerticalAlignment="Center">
+            <StackPanel >
+            <Button Content="JOIN PARTY" Width="200" Height="60" Margin="25" Click="Button_Click_1"></Button>
+            <Button Content="CREATE PARTY SESSION" Width="200" Height="60" Margin="25" Click="Button_Click"></Button>
+        </StackPanel>
+        </Grid>
 
     </Grid>
 </Page>
