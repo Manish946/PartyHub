@@ -55,7 +55,7 @@
                         </Style>
                     </Button.Style>
                     <StackPanel Orientation="Horizontal" Width="203" >
-                        <Image VerticalAlignment="Center" Source="C:\Users\msh\Documents\GitHub\PartyHub\Content\spotifylogo.png" Width="203" Height="125"></Image>
+                        <Image VerticalAlignment="Center" Source="/Content\spotifylogo.png" Width="203" Height="125"></Image>
                         <TextBlock Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="26" FontFamily="Candara Light"></TextBlock>
                     </StackPanel>
                 </Button>
@@ -96,7 +96,7 @@
                         </Style>
                     </Button.Style>
                     <StackPanel Orientation="Horizontal" Width="203" >
-                        <Image VerticalAlignment="Center" Source="C:\Users\msh\Documents\GitHub\PartyHub\Content\logo.PNG" Width="205" Height="55"></Image>
+                        <Image VerticalAlignment="Center" Source="/Content\logo.PNG" Width="205" Height="55"></Image>
                         <TextBlock Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="26" FontFamily="Candara Light"></TextBlock>
                     </StackPanel>
                 </Button>
