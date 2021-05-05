@@ -500,13 +500,9 @@
                 </Button>
 
 
-
-                <Image Source=".\Content\Indstillinger.png" Width="35" Height="35" Margin="10,0,10,0"></Image>
-
-                <StackPanel Orientation="Horizontal">
-                    <Button Background="Transparent" BorderBrush="Transparent" Height="35" Width="35" VerticalAlignment="Center" Click="Minimize_click">
+                    <Button Background="Transparent" BorderBrush="Transparent" Height="65" Width="35" VerticalAlignment="Center" Click="Minimize_click">
                         <Button.Content>
-                            <Image x:Name="support_image" Source="C:\Users\msh\Documents\GitHub\PartyHub\Content\Minimize.png" Width="35" Height="35" VerticalAlignment="Center"></Image>
+                            <Image x:Name="support_image" Source="/Content\Minimize.png" Margin="0,0,0,20" Width="35" Height="45" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Button.Content>
                         <Button.Style>
                             <Style TargetType="{x:Type Button}">
@@ -529,9 +525,31 @@
                             </Style>
                         </Button.Style>
                     </Button>
-                    <Label Content="" VerticalAlignment="Center" FontSize="20" Foreground="White"></Label>
-                </StackPanel>
+                <Label Content="" VerticalAlignment="Center" FontSize="20" Foreground="White"></Label>
 
+                <Button Background="Transparent" BorderBrush="Transparent" Width="35" Height="35" Margin="0,0,0,0" Click="OnAfslutClick">
+                    <Image Source=".\Content\close.png" Width="35" Height="35" ></Image>
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="myBorder" Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="Transparent"></Setter>
+                                            </Trigger>
+
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
             </StackPanel>
 
         </Grid>

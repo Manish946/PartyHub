@@ -40,6 +40,14 @@ namespace PartyHub {
     /// </summary>
     public partial class LoginWindow : System.Windows.Window, System.Windows.Markup.IComponentConnector {
         
+        
+        #line 36 "..\..\LoginWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Image support_image;
+        
+        #line default
+        #line hidden
+        
         private bool _contentLoaded;
         
         /// <summary>
@@ -72,15 +80,34 @@ namespace PartyHub {
             {
             case 1:
             
-            #line 51 "..\..\LoginWindow.xaml"
-            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.Login_Med_Spotify);
+            #line 34 "..\..\LoginWindow.xaml"
+            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.Minimize_click);
             
             #line default
             #line hidden
             return;
             case 2:
+            this.support_image = ((System.Windows.Controls.Image)(target));
+            return;
+            case 3:
             
             #line 61 "..\..\LoginWindow.xaml"
+            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.OnAfslutClick);
+            
+            #line default
+            #line hidden
+            return;
+            case 4:
+            
+            #line 102 "..\..\LoginWindow.xaml"
+            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.Login_Med_Spotify);
+            
+            #line default
+            #line hidden
+            return;
+            case 5:
+            
+            #line 112 "..\..\LoginWindow.xaml"
             ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.Afslut_click);
             
             #line default
