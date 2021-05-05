@@ -62,10 +62,16 @@ namespace PartyHub
                         MainWindow main = new MainWindow();
                         main.Show();
                         this.Visibility = Visibility.Hidden;
-
                         main.WindowState = WindowState.Normal;
-                        main.Focus();
-                        main.Activate();
+
+                        if (main.WindowState == WindowState.Normal)
+                        {
+                            main.Focus();
+                            main.Activate();
+                        }
+
+                        
+                        
 
                     }
                 });

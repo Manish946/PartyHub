@@ -121,6 +121,14 @@ namespace PartyHub
             Frame_Partyhub.Content = new Content_Page.Indstillinger();
 
         }
+
+        private void Minimize_click(object sender, RoutedEventArgs e)
+        {
+            this.ResizeMode = ResizeMode.CanMinimize;
+            this.Focusable = false;
+            this.ShowActivated = false;
+            this.WindowState = WindowState.Minimized;
+        }
     }
     [ValueConversion(typeof(string), typeof(BitmapImage))]
     public class ImageConverter : IValueConverter

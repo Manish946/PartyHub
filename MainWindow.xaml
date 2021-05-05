@@ -504,9 +504,9 @@
                 <Image Source=".\Content\Indstillinger.png" Width="35" Height="35" Margin="10,0,10,0"></Image>
 
                 <StackPanel Orientation="Horizontal">
-                    <Button Background="Transparent" BorderBrush="Transparent" Height="35" Width="35" >
+                    <Button Background="Transparent" BorderBrush="Transparent" Height="35" Width="35" VerticalAlignment="Center" Click="Minimize_click">
                         <Button.Content>
-                            <Image x:Name="support_image" Source=".\Content\support.png" Width="35" Height="35"></Image>
+                            <Image x:Name="support_image" Source="C:\Users\msh\Documents\GitHub\PartyHub\Content\Minimize.png" Width="35" Height="35" VerticalAlignment="Center"></Image>
                         </Button.Content>
                         <Button.Style>
                             <Style TargetType="{x:Type Button}">

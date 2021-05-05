@@ -12,74 +12,161 @@
     
     <Grid Background="#FF171717">
         <Grid.RowDefinitions>
-            <RowDefinition Height="60"></RowDefinition>
             <RowDefinition Height="9*"></RowDefinition>
             <RowDefinition Height="50*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" >
 
-            <Label Content="Global Liste" Foreground="White" HorizontalAlignment="Center" FontSize="35"></Label>
-        </Grid>
-        <Grid Grid.Row="1" Margin="0" >
+        <Grid Grid.Row="0" Margin="0,20,0,0" >
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Button Margin="0,0,295,0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="60" Width="203" Click="Button_Click"  >
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="Transparent"></Setter>
+                            <Setter Property="BorderBrush" Value="Orange"></Setter>
+                            <Setter Property="BorderThickness" Value="0"></Setter>
+                            <Setter Property="Foreground" Value="White"></Setter>
+                            <Setter Property="Opacity" Value="0.8"></Setter>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="myBorder" Background="{TemplateBinding Background}" BorderBrush="#FF52AEEE" BorderThickness="0" Margin="0" Padding="0">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="BorderThickness" TargetName="myBorder" Value="5,0,0,0"></Setter>
+                                                <Setter Property="BorderBrush" TargetName="myBorder" Value="#FF52AEEE"></Setter>
+                                                <Setter Property="Opacity" Value="1"></Setter>
+                                                <Setter Property="Cursor" Value="Hand"></Setter>
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Background" Value="#FF5392BD"></Setter>
+                                            </Trigger>
+                                            <Trigger Property="IsFocused" Value="True">
+                                                <Setter Property="BorderThickness" TargetName="myBorder" Value="5,0,0,0"></Setter>
+                                                <Setter Property="Opacity" Value="1"></Setter>
 
-                <Button Content="Spotify" Height="50" Width="180" Margin="0,0,105,0">
-
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                    <StackPanel Orientation="Horizontal" Width="203" >
+                        <Image VerticalAlignment="Center" Source="C:\Users\msh\Documents\GitHub\PartyHub\Content\spotifylogo.png" Width="203" Height="125"></Image>
+                        <TextBlock Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="26" FontFamily="Candara Light"></TextBlock>
+                    </StackPanel>
                 </Button>
 
-                <Button Content="Party Hub" Height="50" Width="180" >
+                <Button Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="60" Width="203" Click="Button_Click_1"  >
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="Transparent"></Setter>
+                            <Setter Property="BorderBrush" Value="Orange"></Setter>
+                            <Setter Property="BorderThickness" Value="0"></Setter>
+                            <Setter Property="Foreground" Value="White"></Setter>
+                            <Setter Property="Opacity" Value="0.8"></Setter>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="myBorder" Background="{TemplateBinding Background}" BorderBrush="#FF52AEEE" BorderThickness="0" Margin="0" Padding="0">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="BorderThickness" TargetName="myBorder" Value="5,0,0,0"></Setter>
+                                                <Setter Property="BorderBrush" TargetName="myBorder" Value="#FF52AEEE"></Setter>
+                                                <Setter Property="Opacity" Value="1"></Setter>
+                                                <Setter Property="Cursor" Value="Hand"></Setter>
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Background" Value="#FF5392BD"></Setter>
+                                            </Trigger>
+                                            <Trigger Property="IsFocused" Value="True">
+                                                <Setter Property="BorderThickness" TargetName="myBorder" Value="5,0,0,0"></Setter>
+                                                <Setter Property="Opacity" Value="1"></Setter>
+
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                    <StackPanel Orientation="Horizontal" Width="203" >
+                        <Image VerticalAlignment="Center" Source="C:\Users\msh\Documents\GitHub\PartyHub\Content\logo.PNG" Width="205" Height="55"></Image>
+                        <TextBlock Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="26" FontFamily="Candara Light"></TextBlock>
+                    </StackPanel>
                 </Button>
+
             </StackPanel>
             <Separator Height="8" Background="#FF5392BD" VerticalAlignment="Bottom"></Separator>
 
         </Grid>
-        <Grid Grid.Row="2">
-            <DataGrid x:Name="GlobalTop50"  RowHeight="100" Margin="0,0,0,0" AutoGenerateColumns="False" IsReadOnly="True" Background="Transparent" RowBackground="Transparent" FontSize="16" GridLinesVisibility="None" HeadersVisibility="None" VerticalScrollBarVisibility="Hidden" BorderThickness="0">
+        <Grid Grid.Row="1">
+            <DataGrid x:Name="GlobalTop50"  RowHeight="130" Margin="0,0,0,0" EnableRowVirtualization="False" RowHeaderWidth="45" 
+                      LoadingRow="DataGrid_LoadingRow" Foreground="White" IsReadOnly="True" Background="Transparent" 
+                      RowBackground="Transparent" FontSize="16" GridLinesVisibility="None" HeadersVisibility="All" VerticalScrollBarVisibility="Hidden"
+                      BorderThickness="0" AutoGenerateColumns="False" CanUserResizeRows="False" CanUserReorderColumns="False"
+                      CanUserResizeColumns="False" CanUserSortColumns="False" SelectionMode="Single"
+                      >
+                
+                <DataGrid.RowHeaderStyle>
+                    <Style  TargetType="{x:Type DataGridRowHeader}">
+                        <Setter Property="ItemsControl.Background" Value="Transparent"></Setter>
+                        <Setter Property="Margin" Value="25,0,0,0"></Setter>
+                        <Setter Property="Opacity" Value="0.6"></Setter>
+                        
+                    </Style>
+                    
+                </DataGrid.RowHeaderStyle>
+                
+                <DataGrid.ColumnHeaderStyle>
+                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="ItemsControl.Background" Value="Transparent"></Setter>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                        <Setter Property="Opacity" Value="0.6"></Setter>
+                    </Style>
+                </DataGrid.ColumnHeaderStyle>
+                
                 <DataGrid.Columns>
-
-                    <DataGridTextColumn  Header="" Width="55" Binding="{Binding Track.Popularity}" Foreground="White">
-
-                        <DataGridTextColumn.ElementStyle>
-                            <Style TargetType="TextBlock">
-                                <Setter Property="TextAlignment" Value="Center"></Setter>
-                                <Setter Property="VerticalAlignment" Value="Center"></Setter>
-                            </Style>
-                        </DataGridTextColumn.ElementStyle>
-                    </DataGridTextColumn>
-
-
-                    <DataGridTemplateColumn Header="" Width="100" IsReadOnly="True" >
+                    <DataGridTemplateColumn Header="" Width="120" IsReadOnly="True" >
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Image Width="100" Height="100" x:Name="ImageTemp" Source="{Binding Track.Album.UrlImage}" ></Image>
+                                <Image Width="120" Height="120" x:Name="ImageTemp" Source="{Binding Track.Album.UrlImage}" ></Image>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTextColumn  Header="" Width="490" Binding="{Binding Track.Name}" Foreground="White">
+                    
+                    <DataGridTextColumn  Header="TITLE" Width="470" Binding="{Binding Track.Name}" Foreground="White">
                        
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="TextBlock">
                                 <Setter Property="TextAlignment" Value="Center"></Setter>
                                 <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                                <Setter Property="Opacity" Value="0.9"></Setter>
                             </Style>
                         </DataGridTextColumn.ElementStyle>
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn  Header="" Width="220" Binding="{Binding Track.Artists[0].Name}"  Foreground="White">
+                    <DataGridTextColumn  Header="ARTIST" Width="300" Binding="{Binding Track.Artists[0].Name}"  Foreground="White">
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="TextBlock">
                                 <Setter Property="TextAlignment" Value="Center"></Setter>
                                 <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                                <Setter Property="Opacity" Value="0.9"></Setter>
                             </Style>
                         </DataGridTextColumn.ElementStyle>
                     </DataGridTextColumn>
                     
-                    <DataGridTextColumn Header="" Width="270" Binding="{Binding Track.GetDuration}" Foreground="White">
+                    <DataGridTextColumn Header="DURATION" Width="245" Binding="{Binding Track.GetDuration}" Foreground="White">
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="TextBlock">
                                 <Setter Property="TextAlignment" Value="Center"></Setter>
                                 <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                                <Setter Property="Opacity" Value="0.8"></Setter>
                             </Style>
                         </DataGridTextColumn.ElementStyle>
                     </DataGridTextColumn>

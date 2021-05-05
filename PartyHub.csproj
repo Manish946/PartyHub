@@ -269,6 +269,7 @@
     <Resource Include="Content\crowd.png" />
     <Resource Include="Content\crowd1.png" />
     <Resource Include="Content\PartyIcon.png" />
+    <Resource Include="Content\Minimize.png" />
     <Content Include="Content\Partyicon.svg" />
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="fonts\fontawesome-webfont.ttf" />

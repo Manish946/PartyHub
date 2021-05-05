@@ -71,3 +71,4 @@ C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\PartyHub.application
 C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\PartyHub.csproj.CopyComplete
 C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\PartyHub.exe
 C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\PartyHub.pdb
+C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\PartyHub.csprojAssemblyReference.cache

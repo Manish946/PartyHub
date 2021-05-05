@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PartyHub"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="680" Width="450" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" WindowStyle="None">
+        Title="LoginWindow" Height="680" Width="450" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" WindowStyle="None" Icon="logo.PNG">
     <Border BorderBrush="#FF5392BD" BorderThickness="6">
 
         <Grid Background="White">
