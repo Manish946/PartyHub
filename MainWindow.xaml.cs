@@ -56,12 +56,13 @@ namespace PartyHub
             //userImage.Source = GetImage(obj.Images[0].Url.ToString());
 
         }
+        /*
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
         }
-
+        */
         private void Dashboard_Click(object sender, RoutedEventArgs e)
         {
             Frame_Partyhub.Content = new Content_Page.Dashboard();

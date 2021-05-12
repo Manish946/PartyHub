@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PartyHub"       
         mc:Ignorable="d"
-        MouseDown="Window_MouseDown"
+          
         Title="Party Hub" Height="900" Width="1820" WindowStartupLocation="CenterScreen" Background="#FF1D1D1D" Icon="logo.PNG" MinHeight="700" MinWidth="1100" ResizeMode="CanMinimize" WindowStyle="None">
     <Window.Resources>
         <ImageBrush x:Key="notification_hover_image" ImageSource=".\Content\notificationHover.png" Stretch="None"></ImageBrush>
@@ -528,7 +528,7 @@
                 <Label Content="" VerticalAlignment="Center" FontSize="20" Foreground="White"></Label>
 
                 <Button Background="Transparent" BorderBrush="Transparent" Width="35" Height="35" Margin="0,0,0,0" Click="OnAfslutClick">
-                    <Image Source=".\Content\close.png" Width="35" Height="35" ></Image>
+                    <Image Width="35" Source="/Content\Close.png"  Height="35" ></Image>
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Template">

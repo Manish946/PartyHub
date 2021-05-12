@@ -7,14 +7,14 @@
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="PartyHub.exe.manifest" size="17328">
+    <dependentAssembly dependencyType="install" codebase="PartyHub.exe.manifest" size="24179">
       <assemblyIdentity name="PartyHub.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>5Maw5IrZ49a/t9I1Bd5u8ijCeQt5I2nAKxQInK/Qw2k=</dsig:DigestValue>
+        <dsig:DigestValue>06UV5QaQyxb4k1uVY2pDQs9XOJbtptcroxKvizw6OzM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

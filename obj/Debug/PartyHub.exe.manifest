@@ -54,6 +54,18 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.Win32.Registry.dll" size="23112">
+      <assemblyIdentity name="Microsoft.Win32.Registry" version="4.1.3.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>YZc34q+PtxMIVyZjHdLlIv4TDKwdOIpZw4kHpH16reo=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MusConv.Lib.Spotify.dll" size="145408">
       <assemblyIdentity name="MusConv.Lib.Spotify" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -62,6 +74,90 @@
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
         <dsig:DigestValue>QzX81/90pJPkoTdlU55L17a25wAuUAMP50GDJC+bZS8=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NAudio.dll" size="7680">
+      <assemblyIdentity name="NAudio" version="2.0.0.0" publicKeyToken="E279AA5131008A41" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>ffb7JrBmmDK3Ce/s8sHVVjlbOuEz2ssxcDjrW5Gjdnc=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NAudio.Asio.dll" size="33792">
+      <assemblyIdentity name="NAudio.Asio" version="2.0.0.0" publicKeyToken="E279AA5131008A41" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>LYA2cZkNr8/t2iiD9MeBHG3p2DBZZDPsSK9aEUxxKOw=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NAudio.Core.dll" size="187904">
+      <assemblyIdentity name="NAudio.Core" version="2.0.0.0" publicKeyToken="E279AA5131008A41" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>Fx/mXDCyrHV+gEfcab9b13LR7KkgovCG8Sfga0oQVZ0=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NAudio.Midi.dll" size="45056">
+      <assemblyIdentity name="NAudio.Midi" version="2.0.0.0" publicKeyToken="E279AA5131008A41" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>H513VN9zl65ErBBVBPrNLpXgJTEl30uQLEhhqAmVu30=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NAudio.Wasapi.dll" size="167424">
+      <assemblyIdentity name="NAudio.Wasapi" version="2.0.0.0" publicKeyToken="E279AA5131008A41" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>VznwlninYQV2aXRP2dGnQAYsa8gd4c+DreKUHL23Epw=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NAudio.WinForms.dll" size="40960">
+      <assemblyIdentity name="NAudio.WinForms" version="2.0.0.0" publicKeyToken="E279AA5131008A41" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>ErfA9WzPZ8OOd7zrh6l4I/uxNVpezXXA8xD9Tz2mVNU=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NAudio.WinMM.dll" size="57344">
+      <assemblyIdentity name="NAudio.WinMM" version="2.0.0.0" publicKeyToken="E279AA5131008A41" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>BqIrFbRzwytrRpHiicSeBHr/7YKrNfseC3LAjxsOYP8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -78,14 +174,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PartyHub.exe" size="1277432">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PartyHub.exe" size="1289208">
       <assemblyIdentity name="PartyHub" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>DQKbgoFaWbeBninBBAZEU3X0dLUQ7lKULbNPttt34Kk=</dsig:DigestValue>
+        <dsig:DigestValue>PW9P5s70x7/slre2/owpByT1u6JguEma8mFgLUxyMKY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -222,6 +318,30 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Security.AccessControl.dll" size="30792">
+      <assemblyIdentity name="System.Security.AccessControl" version="4.1.3.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>rO1SJUqMPLatMPmfi3RSlpJsSTc8qwCCTCxMEK0yWxA=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Security.Principal.Windows.dll" size="15224">
+      <assemblyIdentity name="System.Security.Principal.Windows" version="4.1.3.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>w65Zm1IYUWkV9lQnee9XfVrV3j2EoRbmccCeFeRZEoU=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.ValueTuple.dll" size="25232">
       <assemblyIdentity name="System.ValueTuple" version="4.0.3.0" publicKeyToken="CC7B13FFCD2DDD51" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -233,22 +353,22 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Content\font-awesome.css" size="39751">
+  <file name="Content\font-awesome.css" size="37414">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>YIHlqxkiJtENTMuzIHC9EfZaB5RniGr7kF7juUQJUuc=</dsig:DigestValue>
+      <dsig:DigestValue>NuCn4IvuZXdBaFKJOAcsU2Q3ZpwbdFisd5dux4jkQ5w=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\font-awesome.min.css" size="31004">
+  <file name="Content\font-awesome.min.css" size="31000">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>gg4WnOJIJAZtmXP9S2Vhqunc1tvvZDXakF1aHWSCmXw=</dsig:DigestValue>
+      <dsig:DigestValue>eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Partyicon.svg" size="18533">
@@ -278,13 +398,13 @@
       <dsig:DigestValue>e/yrbbmdXPvxcFygU23ceFhUMsxfpBu9etDwCQM7KXk=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="fonts\fontawesome-webfont.svg" size="447050">
+  <file name="fonts\fontawesome-webfont.svg" size="444379">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>/DeCMvna1QCJCqngvdAwpT0vMX1Rc5OjuRQAtN3OTHw=</dsig:DigestValue>
+      <dsig:DigestValue>rWFXkmwWIrpOHQPUePFUE2hSS/xG9R5C/g2UX37zI+Q=</dsig:DigestValue>
     </hash>
   </file>
   <file name="fonts\fontawesome-webfont.ttf" size="165548">
