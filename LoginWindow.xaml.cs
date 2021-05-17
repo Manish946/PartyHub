@@ -62,10 +62,16 @@ namespace PartyHub
                         MainWindow main = new MainWindow();
                         main.Show();
                         this.Visibility = Visibility.Hidden;
-
                         main.WindowState = WindowState.Normal;
-                        main.Focus();
-                        main.Activate();
+
+                        if (main.WindowState == WindowState.Normal)
+                        {
+                            main.Focus();
+                            main.Activate();
+                        }
+
+                        
+                        
 
                     }
                 });
@@ -108,6 +114,8 @@ namespace PartyHub
             public static string IdCurrentUser { get; set; }
 
             public static string CurrentLocation { get; set; }
+         
+
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)

@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PartyHub"       
         mc:Ignorable="d"
-        MouseDown="Window_MouseDown"
-        Title="Party Hub" Height="900" Width="1820" WindowStartupLocation="CenterScreen" Background="#FF1D1D1D" Icon="logo.PNG" MinHeight="700" MinWidth="1100" ResizeMode="CanMinimize" WindowStyle="None">
+        WindowStyle="None"
+        Title="Party Hub" Height="900" Width="1820" WindowStartupLocation="CenterScreen" Background="#FF1D1D1D" Icon="logo.PNG" MinHeight="700" MinWidth="1100" ResizeMode="CanMinimize">
     <Window.Resources>
         <ImageBrush x:Key="notification_hover_image" ImageSource=".\Content\notificationHover.png" Stretch="None"></ImageBrush>
         <local:ImageConverter x:Key="ImageConverter"/>
@@ -26,7 +26,10 @@
             <ColumnDefinition Width="12*"/>
 
         </Grid.ColumnDefinitions>
-        <Grid Grid.Row="0" Grid.Column="0" Background="#FF171717">
+        <Grid Grid.Row="0" Grid.Column="2" Background="Transparent"  MouseDown="Window_MouseDown">
+            
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="0" Background="#FF171717" MouseDown="Window_MouseDown">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Border Background="#FF00C2FB" BorderThickness="1" CornerRadius="7">
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="45" Foreground="white"  Padding="5,0,5,0" Height="63">Party</TextBlock>
@@ -500,13 +503,9 @@
                 </Button>
 
 
-
-                <Image Source=".\Content\Indstillinger.png" Width="35" Height="35" Margin="10,0,10,0"></Image>
-
-                <StackPanel Orientation="Horizontal">
-                    <Button Background="Transparent" BorderBrush="Transparent" Height="35" Width="35" >
+                    <Button Background="Transparent" BorderBrush="Transparent" Height="65" Width="35" VerticalAlignment="Center" Click="Minimize_click">
                         <Button.Content>
-                            <Image x:Name="support_image" Source=".\Content\support.png" Width="35" Height="35"></Image>
+                            <Image x:Name="support_image" Source="/Content\Minimize.png" Margin="0,0,0,20" Width="35" Height="45" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Button.Content>
                         <Button.Style>
                             <Style TargetType="{x:Type Button}">
@@ -529,9 +528,31 @@
                             </Style>
                         </Button.Style>
                     </Button>
-                    <Label Content="" VerticalAlignment="Center" FontSize="20" Foreground="White"></Label>
-                </StackPanel>
+                <Label Content="" VerticalAlignment="Center" FontSize="20" Foreground="White"></Label>
 
+                <Button Background="Transparent" BorderBrush="Transparent" Width="35" Height="35" Margin="0,0,0,0" Click="OnAfslutClick">
+                    <Image Width="35" Source="/Content\Close.png"  Height="35" ></Image>
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="myBorder" Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="Transparent"></Setter>
+                                            </Trigger>
+
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
             </StackPanel>
 
         </Grid>
