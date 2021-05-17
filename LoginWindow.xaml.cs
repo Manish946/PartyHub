@@ -114,6 +114,8 @@ namespace PartyHub
             public static string IdCurrentUser { get; set; }
 
             public static string CurrentLocation { get; set; }
+         
+
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)

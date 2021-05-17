@@ -21,7 +21,7 @@
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0" Grid.Column="0" Background="#FF5392BD">
+            <Grid Grid.Row="0" Grid.Column="0" Background="#FF5392BD" MouseDown="Window_MouseDown">
 
                 <Border CornerRadius="8" Background="#FF5392BD">
 

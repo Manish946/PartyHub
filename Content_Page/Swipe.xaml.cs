@@ -34,22 +34,24 @@ namespace PartyHub.Content_Page
         SpotifyWebClient client = new SpotifyWebClient();
         SpotifyWebBuilder builder = new SpotifyWebBuilder();
         private Point _positionInBlock;
-        private MediaPlayer mediaplayer = new MediaPlayer();
         public string songPreview;
         WMPLib.WindowsMediaPlayer player = new WMPLib.WindowsMediaPlayer();
         public double curpos = 0;
+        MainWindow mainwin = new MainWindow();
         public Swipe()
         {
-
-
-
-            InitializeComponent();
+            this.InitializeComponent();
             ContentUsercontrol.RenderTransform = new TranslateTransform(0, 0);
             headers.Add("Authorization", "Bearer " + LoginWindow.SpotifyLogin.AccessToken);
             Tuple<ResponseInfo, string> Profile = client.Download(builder.GetPrivateProfile(), headers);
             var Profileobj = JsonConvert.DeserializeObject<PrivateProfile>(Profile.Item2);
+            //Random Track
+            Tuple<ResponseInfo, string> Search = client.Download(builder.SearchItems("Body",Spotify.Enums.SearchType.Track,10,5,"US"), headers);
+            var searchObj = JsonConvert.DeserializeObject<SearchItem>(Search.Item2);
+            var sob = searchObj.Tracks.Items[0].Name;
+            //MessageBox.Show(sob.ToString());
 
-            Tuple<ResponseInfo, string> Track = client.Download(builder.GetTrack("5nujrmhLynf4yMoMtj8AQF"), headers);
+            Tuple<ResponseInfo, string> Track = client.Download(builder.GetTrack("3CVb6hkMrlF7eHhXi5B3PZ"), headers);
             var Trackobj = JsonConvert.DeserializeObject<FullTrack>(Track.Item2);
             TrackName.Text = Trackobj.Name;
             AlbumImage.Source = GetImage(Trackobj.Album.UrlImage); 
@@ -59,8 +61,18 @@ namespace PartyHub.Content_Page
             ArtistNameSmall.Text = Trackobj.Artists[0].Name;
             songPreview = Trackobj.PreviewUrl;
 
-            
+            if (mainwin.Frame_Partyhub.Content is Swipe)
+            {
+                MessageBox.Show("ok");
+            }
+
+
         }
+        public void getRandomSearch()
+        {
+            const string Characters = "abcdefghijklmnopqrstuvwxyz";
+        }
+
 
         private void btnPlayPreview(object sender, RoutedEventArgs e)
         {
@@ -73,9 +85,11 @@ namespace PartyHub.Content_Page
             }
             else
             {
+
+                    playmp3(songPreview, "Play");
+                    PlayandPause.Source = new BitmapImage(new Uri(@"/Content\Pause.png", UriKind.Relative));
                 
-                playmp3(songPreview, "Play");
-                PlayandPause.Source = new BitmapImage(new Uri(@"/Content\Pause.png", UriKind.Relative));
+
 
             }
         }
@@ -86,6 +100,7 @@ namespace PartyHub.Content_Page
             player.settings.setMode("Loop",true);
             if (playState.Equals("Play"))
             {
+
                 player.controls.currentPosition = curpos;
                 player.controls.play();
                 
@@ -135,10 +150,6 @@ namespace PartyHub.Content_Page
                     Choice.Text = "Liked";
                     ContentUsercontrol.RenderTransform = new TranslateTransform(0, 0);
                     //ContentGrid.Children.Clear();
-
-
-
-
                 }
 
             }
@@ -149,10 +160,12 @@ namespace PartyHub.Content_Page
             ContentUsercontrol.ReleaseMouseCapture();
             ContentUsercontrol.Opacity = 1;
             ContentUsercontrol.RenderTransform = new TranslateTransform(0, 0);
-
-
         }
 
-       
+        private void lostPageFocus(object sender, RoutedEventArgs e)
+        {
+            player.controls.stop();
+            this.KeepAlive = false;
+        }
     }
 }
