@@ -37,10 +37,8 @@ namespace PartyHub
         public MainWindow()
         {
             InitializeComponent();
-
             MaxHeight = SystemParameters.FullPrimaryScreenHeight - 60;
             MaxWidth = SystemParameters.FullPrimaryScreenWidth - 60;
-
             Frame_Partyhub.Content = new Content_Page.Dashboard();
             //Displayname
             headers.Add("Authorization", "Bearer " + LoginWindow.SpotifyLogin.AccessToken);
@@ -56,16 +54,11 @@ namespace PartyHub
             }
             else
             {
-
-
                 userImage.ImageSource = GetImage(obj.Images[0].Url);
-
             }
             //SQL CONNECTION SETUP IMPLEMENT!
             AddUserToDatabase(obj);
-
         }
-
         private void AddUserToDatabase(Spotify.Models.PrivateProfile User)
         {
             string sql = "";
@@ -95,7 +88,7 @@ namespace PartyHub
                 Command.Dispose();
                 sqlAzureConnection.Close();
             }
-           
+
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)

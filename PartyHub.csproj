@@ -313,6 +313,9 @@
     <Content Include="Content\Partyicon.svg" />
     <Resource Include="Content\Play.png" />
     <Resource Include="Content\Pause.png" />
+    <Resource Include="Content\VolumeDown.png" />
+    <Resource Include="Content\VolumeUp.png" />
+    <Resource Include="Content\VolumeMute.png" />
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />

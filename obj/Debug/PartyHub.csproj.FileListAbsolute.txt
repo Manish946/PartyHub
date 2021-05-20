@@ -173,7 +173,6 @@ E:\P3 Projekt\PartyHub\bin\Debug\ru\Microsoft.Build.resources.dll
 E:\P3 Projekt\PartyHub\bin\Debug\tr\Microsoft.Build.resources.dll
 E:\P3 Projekt\PartyHub\bin\Debug\zh-Hans\Microsoft.Build.resources.dll
 E:\P3 Projekt\PartyHub\bin\Debug\zh-Hant\Microsoft.Build.resources.dll
-E:\P3 Projekt\PartyHub\obj\Debug\PartyHub.csprojAssemblyReference.cache
 E:\P3 Projekt\PartyHub\obj\Debug\App.baml
 E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\CreatePartyWindow.baml
 E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\Dashboard.baml
@@ -196,3 +195,4 @@ E:\P3 Projekt\PartyHub\obj\Debug\PartyHub.application
 E:\P3 Projekt\PartyHub\obj\Debug\PartyHub.csproj.CopyComplete
 E:\P3 Projekt\PartyHub\obj\Debug\PartyHub.exe
 E:\P3 Projekt\PartyHub\obj\Debug\PartyHub.pdb
+E:\P3 Projekt\PartyHub\obj\Debug\PartyHub.csprojAssemblyReference.cache

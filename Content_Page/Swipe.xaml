@@ -5,18 +5,19 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PartyHub.Content_Page"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="850" d:DesignWidth="800"
        MouseDown="UserControl_MouseDown" MouseUp="UserControl_MouseUp" MouseMove="UserControl_MouseMove"
-      LostFocus="lostPageFocus"
+      LostFocus="lostPageFocus" 
       Title="Swipe">
-    
+
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.90*"></ColumnDefinition>
             <ColumnDefinition Width="0.85*"></ColumnDefinition>
             <ColumnDefinition Width="1*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        
+
         <Grid.RowDefinitions>
             <RowDefinition Height="35"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
@@ -30,28 +31,27 @@
             <UserControl x:Name="ContentUsercontrol">
                 <Grid x:Name="RandomMusic" Background="#FF282828">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="2*"></RowDefinition>
-                        <RowDefinition Height="45"></RowDefinition>
-                        <RowDefinition Height="25"></RowDefinition>
+                        <RowDefinition Height="2.1*"></RowDefinition>
+                        <RowDefinition Height="42"></RowDefinition>
+                        <RowDefinition Height="26"></RowDefinition>
                         <RowDefinition Height="1*"></RowDefinition>
                     </Grid.RowDefinitions>
 
                     <Grid Grid.Row="0" Margin="0,15,0,0">
-                        <Image x:Name="AlbumImage" Source="https://m.media-amazon.com/images/I/71yq3QQ-x3L.jpg" Width="415" ></Image>
+                        <Image x:Name="AlbumImage" Source="https://m.media-amazon.com/images/I/71yq3QQ-x3L.jpg" Width="425" ></Image>
+                    </Grid>
+
+                    <Grid Grid.Row="1" >
+                        <TextBlock x:Name="TrackName" Text="This Is NF" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="25"></TextBlock>
                     </Grid>
                     
-                    <Grid Grid.Row="1">
-                        <TextBlock x:Name="TrackName" Text="This Is NF" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="25"></TextBlock>
-                        
-                    </Grid>
-                    <Grid Grid.Row="2">
+                    <Grid Grid.Row="2" >
                         <TextBlock x:Name="TrackArtist" Text="NF" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Gray" FontSize="20"></TextBlock>
-                        
                     </Grid>
-                    
-                    <Grid Grid.Row="3" Margin="10,50,10,0" Background="#FF181818" Height="140">                        
+
+                    <Grid Grid.Row="3" Margin="10,50,10,0" Background="#FF181818" Height="140">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                            <Button x:Name="PlayPreview" Click="btnPlayPreview" Background="Transparent" HorizontalAlignment="Center" Height="60" Margin="15,0,0,0">
+                            <Button x:Name="PlayPreview" Click="btnPlayPreview" ToolTip="Play Preview" Background="Transparent" HorizontalAlignment="Center" Height="60" Margin="15,0,0,0">
                                 <Button.Style>
                                     <Style TargetType="{x:Type Button}">
                                         <Setter Property="Background" Value="Transparent"></Setter>
@@ -67,11 +67,11 @@
                                                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                                     </Border>
                                                     <ControlTemplate.Triggers>
-                                                        <Trigger Property="IsMouseOver" Value="True">                                                            
+                                                        <Trigger Property="IsMouseOver" Value="True">
                                                             <Setter Property="BorderBrush" TargetName="myBorder" Value="#FF52AEEE"></Setter>
                                                             <Setter Property="Opacity" Value="1"></Setter>
                                                             <Setter Property="Cursor" Value="Hand"></Setter>
-                                                                                                                        
+
                                                         </Trigger>
                                                     </ControlTemplate.Triggers>
                                                 </ControlTemplate>
@@ -90,13 +90,24 @@
                                 <TextBlock x:Name="TrackNameSmall" Text="This Is NF" TextWrapping="Wrap" Foreground="White" FontSize="19" Width="200"></TextBlock>
                                 <TextBlock x:Name="ArtistNameSmall" Text="NF" Foreground="Gray" TextWrapping="Wrap"  FontSize="15" Width="195" FontWeight="Light"></TextBlock>
                             </StackPanel>
+
+
+                            <!-- 
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Center" GotFocus="OnSliderFocus">
+                                <Slider Foreground="Green" Value="50" x:Name="MusicVolumeControl" TickPlacement="None" Maximum="100" Height="100" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical">
+                                </Slider>
+                                <Image Source="/Content\VolumeDown.png" Height="25" Width="25" ></Image>
+
+                            </StackPanel>
+                            
+                            -->
                         </StackPanel>
-                        
+
                     </Grid>
                 </Grid>
             </UserControl>
         </Grid>
-        
+
     </Grid>
-    
+
 </Page>
