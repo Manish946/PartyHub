@@ -60,7 +60,7 @@ namespace PartyHub.Content_Page
             var sob = searchObj.Tracks.Items[0].Name;
             //MessageBox.Show(sob.ToString());
 
-            Tuple<ResponseInfo, string> Track = client.Download(builder.GetTrack("6PERP62TejQjgHu81OHxgM"), headers);
+            Tuple<ResponseInfo, string> Track = client.Download(builder.GetTrack("3VT8hOC5vuDXBsHrR53WFh"), headers);
             var Trackobj = JsonConvert.DeserializeObject<FullTrack>(Track.Item2);
             PrintTrackAsSwipe(Trackobj, Profileobj);
         }
@@ -276,7 +276,7 @@ namespace PartyHub.Content_Page
         {
             player.controls.stop();
             this.KeepAlive = false;
-            player.close();
+            
             PlayandPause.Source = new BitmapImage(new Uri(@"/Content\Play.png", UriKind.Relative));
         }
         /*
