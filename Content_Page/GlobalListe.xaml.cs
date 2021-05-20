@@ -35,6 +35,8 @@ namespace PartyHub.Content_Page
         SqlDataAdapter adapter = new SqlDataAdapter();
         public string profileID = "";
         public string TrackID = "";
+        private Brush BackgroundColor;
+
         public GlobalListe()
         {
             InitializeComponent();
@@ -154,6 +156,9 @@ namespace PartyHub.Content_Page
             var grid = (Grid)VisualTreeHelper.GetChild(scrollViewer, 0);
             var button = (Button)VisualTreeHelper.GetChild(grid, 0);
             button.IsEnabled = false;
+            button.Content = "#";
+           // button.Background = Brushes.Black;
+           button.Visibility = Visibility.Hidden;
         }
 
     }

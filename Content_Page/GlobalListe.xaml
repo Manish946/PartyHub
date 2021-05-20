@@ -8,7 +8,11 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="GlobalListe">
 
-        
+    <Page.Resources>
+        <Style TargetType="Button" x:Key="{ComponentResourceKey ResourceId=DataGridSelectAllButtonStyle, TypeInTargetAssembly={x:Type DataGrid}}">
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+    </Page.Resources>    
     
     <Grid Background="#FF171717">
         <Grid.RowDefinitions>
@@ -116,7 +120,7 @@
                       BorderThickness="0" AutoGenerateColumns="False" CanUserResizeRows="False" CanUserReorderColumns="False"
                       CanUserResizeColumns="False" CanUserSortColumns="False" SelectionMode="Single"
                       >
-                
+
                 <DataGrid.RowHeaderStyle>
                     <Style  TargetType="{x:Type DataGridRowHeader}">
                         <Setter Property="ItemsControl.Background" Value="Transparent"></Setter>
@@ -189,8 +193,29 @@
             <DataGrid x:Name="PartyHubTopListe"  RowHeight="130" Margin="0,0,0,0" EnableRowVirtualization="False" RowHeaderWidth="45" 
                        Foreground="White" IsReadOnly="True" Background="Transparent" LoadingRow="DataGrid_LoadingRow"
                       RowBackground="Transparent" FontSize="16" GridLinesVisibility="None" HeadersVisibility="All" VerticalScrollBarVisibility="Hidden"
-                      BorderThickness="0" AutoGenerateColumns="False" CanUserResizeRows="False" CanUserReorderColumns="False" 
-                      CanUserResizeColumns="False" CanUserSortColumns="False" SelectionMode="Single">
+                      BorderThickness="0" AutoGenerateColumns="False" CanUserResizeRows="False" CanUserReorderColumns="False"
+                      CanUserResizeColumns="False" CanUserSortColumns="False" SelectionMode="Single" >
+
+
+                <DataGrid.Resources>
+                    <Style TargetType="{x:Type DataGridCell}">
+                        <Style.Triggers>
+                            <Trigger Property="DataGridCell.IsSelected" Value="True">
+                                <Setter Property="Background" Value="Aqua" />
+                            </Trigger>                            
+                        </Style.Triggers>
+                       
+                    </Style>
+                    <Style TargetType="{x:Type DataGridRow}">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="gray" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.Resources>
+                
+                
                 <DataGrid.RowHeaderStyle>
                     <Style  TargetType="{x:Type DataGridRowHeader}">
                         <Setter Property="ItemsControl.Background" Value="Transparent"></Setter>
@@ -207,12 +232,13 @@
                         <Setter Property="ItemsControl.Background" Value="Transparent"></Setter>
                         <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
                         <Setter Property="Opacity" Value="0.6"></Setter>
+                        
                     </Style>
                 </DataGrid.ColumnHeaderStyle>
 
 
                 <DataGrid.Columns>
-                    <DataGridTemplateColumn Header="" Width="120" IsReadOnly="True" >
+                    <DataGridTemplateColumn Header="" Width="120" IsReadOnly="True"  >
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <Image Width="120" Height="120" x:Name="ImageTemp" Source="{Binding Track[0].Album.UrlImage}" ></Image>
