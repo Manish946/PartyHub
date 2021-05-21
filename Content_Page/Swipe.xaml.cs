@@ -60,9 +60,11 @@ namespace PartyHub.Content_Page
             var sob = searchObj.Tracks.Items[0].Name;
             //MessageBox.Show(sob.ToString());
 
-            Tuple<ResponseInfo, string> Track = client.Download(builder.GetTrack("3VT8hOC5vuDXBsHrR53WFh"), headers);
+            Tuple<ResponseInfo, string> Track = client.Download(builder.GetTrack("6uvMKqNlrSvcC4NaKnrwjZ"), headers);
             var Trackobj = JsonConvert.DeserializeObject<FullTrack>(Track.Item2);
             PrintTrackAsSwipe(Trackobj, Profileobj);
+            player.settings.volume = 70;
+            
         }
 
         private void PrintTrackAsSwipe(FullTrack Track, PrivateProfile Profile)
@@ -205,7 +207,7 @@ namespace PartyHub.Content_Page
                 var mousePosition = e.GetPosition(container);
                 ContentUsercontrol.RenderTransform = new TranslateTransform(mousePosition.X - _positionInBlock.X, 0);
 
-                if (ContentUsercontrol.RenderTransform.Value.OffsetX <= ContentGrid.ActualWidth * -1)
+                if (ContentUsercontrol.RenderTransform.Value.OffsetX <= (ContentGrid.ActualWidth * -1)+60)
                 {
 
                     ContentUsercontrol.RenderTransform = new TranslateTransform(mousePosition.X - _positionInBlock.X, 0);
@@ -217,7 +219,7 @@ namespace PartyHub.Content_Page
                     //ContentGrid.Children.Clear();
                     Choice.Text = "Not Liked";
                 }
-                else if (ContentUsercontrol.RenderTransform.Value.OffsetX >= ContentGrid.ActualWidth)
+                else if (ContentUsercontrol.RenderTransform.Value.OffsetX >= ContentGrid.ActualWidth-40)
                 {
                     AddTrackToGlobal(TrackID);
 
@@ -230,8 +232,10 @@ namespace PartyHub.Content_Page
                     AddLikedTrackToDataBase(TrackID, profileID);
                     //ContentGrid.Children.Clear();
                     // Stupid Error fixing with stupid Solution. Might delete Later. Cause of +1 becoming +2 while liking a track.
-                    AutoClosingMessageBox.Show("","",10);
+                    AutoClosingMessageBox.Show("Track Liked!","",10);
                     ContentGrid.Focus();
+                    ContentUsercontrol.Focus();
+                    
                 }
 
             }
@@ -264,6 +268,7 @@ namespace PartyHub.Content_Page
             static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
             [System.Runtime.InteropServices.DllImport("user32.dll", CharSet = System.Runtime.InteropServices.CharSet.Auto)]
             static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, IntPtr wParam, IntPtr lParam);
+            
         }
         private void UserControl_MouseUp(object sender, MouseButtonEventArgs e)
         {

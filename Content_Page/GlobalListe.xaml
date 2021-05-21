@@ -120,7 +120,29 @@
                       BorderThickness="0" AutoGenerateColumns="False" CanUserResizeRows="False" CanUserReorderColumns="False"
                       CanUserResizeColumns="False" CanUserSortColumns="False" SelectionMode="Single"
                       >
+                <DataGrid.Resources>
+                    <Style TargetType="{x:Type DataGridCell}">
+                        <Style.Triggers>
+                            <Trigger Property="DataGridCell.IsSelected" Value="True">
+                                <Setter Property="Background" Value="#FF595A5C" />
+                                <Setter Property="BorderBrush" Value="#FF595A5C"></Setter>
+                            </Trigger>
+                        </Style.Triggers>
 
+                    </Style>
+
+                    <Style TargetType="{x:Type DataGridRow}">
+                        <Setter Property="Opacity" Value="0.8"></Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="#FF5392BD"></Setter>
+                                <Setter Property="Opacity" Value="1"></Setter>
+
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+
+                </DataGrid.Resources>
                 <DataGrid.RowHeaderStyle>
                     <Style  TargetType="{x:Type DataGridRowHeader}">
                         <Setter Property="ItemsControl.Background" Value="Transparent"></Setter>
@@ -194,28 +216,33 @@
                        Foreground="White" IsReadOnly="True" Background="Transparent" LoadingRow="DataGrid_LoadingRow"
                       RowBackground="Transparent" FontSize="16" GridLinesVisibility="None" HeadersVisibility="All" VerticalScrollBarVisibility="Hidden"
                       BorderThickness="0" AutoGenerateColumns="False" CanUserResizeRows="False" CanUserReorderColumns="False"
-                      CanUserResizeColumns="False" CanUserSortColumns="False" SelectionMode="Single" >
+                      CanUserResizeColumns="False" CanUserSortColumns="False" SelectionMode="Single" SelectionUnit="FullRow">
 
 
                 <DataGrid.Resources>
                     <Style TargetType="{x:Type DataGridCell}">
                         <Style.Triggers>
                             <Trigger Property="DataGridCell.IsSelected" Value="True">
-                                <Setter Property="Background" Value="Aqua" />
+                                <Setter Property="Background" Value="#FF595A5C" />
+                                <Setter Property="BorderBrush" Value="#FF595A5C"></Setter>
                             </Trigger>                            
                         </Style.Triggers>
                        
                     </Style>
+
                     <Style TargetType="{x:Type DataGridRow}">
+                        <Setter Property="Opacity" Value="0.8"></Setter>
                         <Style.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="gray" />
+                                <Setter Property="Foreground" Value="#FF5392BD"></Setter>
+                                <Setter Property="Opacity" Value="1"></Setter>
+
                             </Trigger>
                         </Style.Triggers>
+
                     </Style>
                 </DataGrid.Resources>
-                
-                
+
                 <DataGrid.RowHeaderStyle>
                     <Style  TargetType="{x:Type DataGridRowHeader}">
                         <Setter Property="ItemsControl.Background" Value="Transparent"></Setter>

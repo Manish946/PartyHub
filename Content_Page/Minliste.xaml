@@ -63,10 +63,33 @@
 
         <Grid Grid.Row="1">
             <DataGrid x:Name="MinListeGrid" RowHeight="130" Margin="0,0,0,0" EnableRowVirtualization="False" RowHeaderWidth="45" 
-                      Foreground="White" IsReadOnly="True" Background="Transparent"  LoadingRow="DataGrid_LoadingRow"
+                      Foreground="White" IsReadOnly="True" LoadingRow="DataGrid_LoadingRow" Background="Transparent"
                       RowBackground="Transparent" FontSize="16" GridLinesVisibility="None" HeadersVisibility="all" VerticalScrollBarVisibility="Hidden"
                       BorderThickness="0" AutoGenerateColumns="False" CanUserResizeRows="False" CanUserReorderColumns="False"
                       CanUserResizeColumns="False" CanUserSortColumns="False" SelectionMode="Single">
+                <DataGrid.Resources>
+                    <Style TargetType="{x:Type DataGridCell}">
+                        <Style.Triggers>
+                            <Trigger Property="DataGridCell.IsSelected" Value="True">
+                                <Setter Property="Background" Value="#FF595A5C" />
+                                <Setter Property="BorderBrush" Value="#FF595A5C"></Setter>
+                            </Trigger>
+
+                        </Style.Triggers>
+
+                    </Style>
+                    <Style TargetType="{x:Type DataGridRow}">
+                        <Setter Property="Opacity" Value="0.8"></Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="#FF5392BD"></Setter>
+                                <Setter Property="Opacity" Value="1"></Setter>
+                                
+                            </Trigger>
+                        </Style.Triggers>
+                        
+                    </Style>
+                </DataGrid.Resources>
                 <DataGrid.RowHeaderStyle>
                     <Style  TargetType="{x:Type DataGridRowHeader}">
                         <Setter Property="ItemsControl.Background" Value="Transparent"></Setter>
@@ -77,6 +100,8 @@
 
                 </DataGrid.RowHeaderStyle>
 
+
+
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="ItemsControl.Background" Value="Transparent"></Setter>
@@ -84,10 +109,9 @@
                         <Setter Property="Opacity" Value="0.6"></Setter>
                     </Style>
                 </DataGrid.ColumnHeaderStyle>
-                
-                <DataGrid.Columns>
+                <DataGrid.Columns>                    
                     <DataGridTemplateColumn Header="" Width="120"  IsReadOnly="True" >
-                        <DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellTemplate >
                             <DataTemplate>
                                 <Image Width="120" Height="120" x:Name="ImageTemp" Source="{Binding Album.UrlImage}" ></Image>
                             </DataTemplate>
