@@ -14,14 +14,14 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.90*"></ColumnDefinition>
-            <ColumnDefinition Width="0.85*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
             <ColumnDefinition Width="1*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="35"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="11*"></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0" Grid.Column="1">
@@ -31,10 +31,11 @@
             <UserControl x:Name="ContentUsercontrol">
                 <Grid x:Name="RandomMusic" Background="#FF282828">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="2.1*"></RowDefinition>
-                        <RowDefinition Height="42"></RowDefinition>
-                        <RowDefinition Height="26"></RowDefinition>
-                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="6.4*"></RowDefinition>
+                        <RowDefinition Height="0.6*"></RowDefinition>
+                        <RowDefinition Height="0.6*"></RowDefinition>
+                        <RowDefinition Height="2.77*"></RowDefinition>
+                        <RowDefinition Height="0.05*"></RowDefinition>
                     </Grid.RowDefinitions>
 
                     <Grid Grid.Row="0" Margin="0,15,0,0">
@@ -46,10 +47,10 @@
                     </Grid>
                     
                     <Grid Grid.Row="2" >
-                        <TextBlock x:Name="TrackArtist" Text="NF" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Gray" FontSize="20"></TextBlock>
+                        <TextBlock x:Name="TrackArtist" Text="NF" TextAlignment="Center" HorizontalAlignment="Center" Foreground="Gray" FontSize="20"></TextBlock>
                     </Grid>
 
-                    <Grid Grid.Row="3" Margin="10,50,10,0" Background="#FF181818" Height="140">
+                    <Grid Grid.Row="3" Margin="10,0,10,0" Background="#FF181818" Height="140">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                             <Button x:Name="PlayPreview" Click="btnPlayPreview" ToolTip="Play Preview" Background="Transparent" HorizontalAlignment="Center" Height="60" Margin="15,0,0,0">
                                 <Button.Style>

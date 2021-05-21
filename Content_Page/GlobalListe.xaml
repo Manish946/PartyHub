@@ -147,8 +147,8 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    
-                    <DataGridTextColumn  Header="TITLE" Width="470" Binding="{Binding Track.Name}" Foreground="White">
+
+                    <DataGridTextColumn  Header="TITLE" Width="450" Binding="{Binding Track.Name}" Foreground="White">
                        
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="TextBlock">
@@ -159,7 +159,7 @@
                         </DataGridTextColumn.ElementStyle>
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn  Header="ARTIST" Width="300" Binding="{Binding Track.Artists[0].Name}"  Foreground="White">
+                    <DataGridTextColumn  Header="ARTIST" Width="*" Binding="{Binding Track.Artists[0].Name}"  Foreground="White">
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="TextBlock">
                                 <Setter Property="TextAlignment" Value="Center"></Setter>
@@ -168,7 +168,7 @@
                             </Style>
                         </DataGridTextColumn.ElementStyle>
                     </DataGridTextColumn>
-                    <DataGridTextColumn  Header="ALBUM" Width="340" Binding="{Binding Track.Album.Name}"  Foreground="White">
+                    <DataGridTextColumn  Header="ALBUM" Width="*" Binding="{Binding Track.Album.Name}"  Foreground="White">
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="TextBlock">
                                 <Setter Property="TextAlignment" Value="Center"></Setter>
@@ -178,7 +178,7 @@
                         </DataGridTextColumn.ElementStyle>
                     </DataGridTextColumn>
                     
-                    <DataGridTextColumn Header="DURATION" Width="105" Binding="{Binding Track.GetDuration}" Foreground="White">
+                    <DataGridTextColumn Header="DURATION" Width="*" Binding="{Binding Track.GetDuration}" Foreground="White">
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="TextBlock">
                                 <Setter Property="TextAlignment" Value="Center"></Setter>
@@ -246,7 +246,7 @@
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
 
-                    <DataGridTextColumn  Header="TITLE" Width="470" Binding="{Binding Track[0].Name}" IsReadOnly="True"  Foreground="White">
+                    <DataGridTextColumn  Header="TITLE" Width="450" Binding="{Binding Track[0].Name}" IsReadOnly="True"  Foreground="White">
 
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="TextBlock">
@@ -257,7 +257,7 @@
                         </DataGridTextColumn.ElementStyle>
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn  Header="ARTIST" Width="300" Binding="{Binding Track[0].Artists[0].Name}" IsReadOnly="True"   Foreground="White">
+                    <DataGridTextColumn  Header="ARTIST" Width="*" Binding="{Binding Track[0].Artists[0].Name}" IsReadOnly="True"   Foreground="White">
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="TextBlock">
                                 <Setter Property="TextAlignment" Value="Center"></Setter>
@@ -266,7 +266,7 @@
                             </Style>
                         </DataGridTextColumn.ElementStyle>
                     </DataGridTextColumn>
-                    <DataGridTextColumn  Header="LIKES" Width="340" Binding="{Binding Likes[0]}" IsReadOnly="True" SortDirection="Ascending" Foreground="White">
+                    <DataGridTextColumn  Header="LIKES" Width="*" Binding="{Binding Likes[0]}" IsReadOnly="True" SortDirection="Ascending" Foreground="White">
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="TextBlock">
                                 <Setter Property="TextAlignment" Value="Center"></Setter>
@@ -276,7 +276,7 @@
                         </DataGridTextColumn.ElementStyle>
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="DURATION" Width="105" Binding="{Binding Track[0].GetDuration}" IsReadOnly="True"  Foreground="White">
+                    <DataGridTextColumn Header="DURATION" Width="*" Binding="{Binding Track[0].GetDuration}" IsReadOnly="True"  Foreground="White">
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="TextBlock">
                                 <Setter Property="TextAlignment" Value="Center"></Setter>
