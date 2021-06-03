@@ -170,23 +170,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Content_Page\CreatePartyWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Content_Page\Dashboard.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Content_Page\GlobalListe.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Content_Page\Indstillinger.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Content_Page\JoinPartyWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -195,10 +179,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Content_Page\Minprofil.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Content_Page\Party.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -226,29 +206,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Content_Page\CreatePartyWindow.xaml.cs">
-      <DependentUpon>CreatePartyWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Content_Page\Dashboard.xaml.cs">
-      <DependentUpon>Dashboard.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Content_Page\GlobalListe.xaml.cs">
       <DependentUpon>GlobalListe.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Content_Page\Indstillinger.xaml.cs">
-      <DependentUpon>Indstillinger.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Content_Page\JoinPartyWindow.xaml.cs">
-      <DependentUpon>JoinPartyWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Content_Page\Minliste.xaml.cs">
       <DependentUpon>Minliste.xaml</DependentUpon>
     </Compile>
     <Compile Include="Content_Page\Minprofil.xaml.cs">
       <DependentUpon>Minprofil.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Content_Page\Party.xaml.cs">
-      <DependentUpon>Party.xaml</DependentUpon>
     </Compile>
     <Compile Include="Content_Page\Swipe.xaml.cs">
       <DependentUpon>Swipe.xaml</DependentUpon>

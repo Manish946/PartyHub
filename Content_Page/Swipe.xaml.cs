@@ -47,28 +47,85 @@ namespace PartyHub.Content_Page
         SqlDataAdapter adapter = new SqlDataAdapter();
         public string profileID = "";
         public string TrackID = "";
+        public int CurrentTrackNum;
+        bool FirstRandom = true;
         public Swipe()
         {
+           
             this.InitializeComponent();
             ContentUsercontrol.RenderTransform = new TranslateTransform(0, 0);
             headers.Add("Authorization", "Bearer " + LoginWindow.SpotifyLogin.AccessToken);
             Tuple<ResponseInfo, string> Profile = client.Download(builder.GetPrivateProfile(), headers);
             var Profileobj = JsonConvert.DeserializeObject<PrivateProfile>(Profile.Item2);
-            //Random Track
-            Tuple<ResponseInfo, string> Search = client.Download(builder.SearchItems("Body", Spotify.Enums.SearchType.Track, 10, 5, "US"), headers);
-            var searchObj = JsonConvert.DeserializeObject<SearchItem>(Search.Item2);
-            var sob = searchObj.Tracks.Items[0].Name;
-            //MessageBox.Show(sob.ToString());
+            //Playing Current Track
+            if (FirstRandom == true)
+            {
+                string CurrentTrack = RandomTrackFromPlaylist(Profileobj);
+                Tuple<ResponseInfo, string> Track = client.Download(builder.GetTrack(CurrentTrack), headers);
+                var Trackobj = JsonConvert.DeserializeObject<FullTrack>(Track.Item2);
+                PrintTrackAsSwipe(Trackobj, Profileobj);
 
-            Tuple<ResponseInfo, string> Track = client.Download(builder.GetTrack("6uvMKqNlrSvcC4NaKnrwjZ"), headers);
-            var Trackobj = JsonConvert.DeserializeObject<FullTrack>(Track.Item2);
-            PrintTrackAsSwipe(Trackobj, Profileobj);
+            }
+
             player.settings.volume = 70;
             
+
         }
 
+        private string RandomTrackFromPlaylist(PrivateProfile Profileobj)
+        {
+            //Random Track
+            Random random = new Random();
+
+            Tuple<ResponseInfo, string> Search = client.Download(builder.SearchItems("TOP 50", Spotify.Enums.SearchType.Playlist, 50, 0, "US"), headers);
+            var searchObj = JsonConvert.DeserializeObject<SearchItem>(Search.Item2);
+            int Playlistnumber = random.Next(1, 20);
+            if (Playlistnumber > searchObj.Playlists.Items.Count)
+            {
+                Playlistnumber = random.Next(1, 20);
+
+            }
+            var PlaylistId = searchObj.Playlists.Items[Playlistnumber].Id;
+            if (searchObj.Playlists.Items[Playlistnumber].Tracks.Total > 50)
+            {
+                Playlistnumber = random.Next(1, 20);
+                PlaylistId = searchObj.Playlists.Items[Playlistnumber].Id;
+            }
+            //Converting Playlist Id to tracks of playlist.
+            Tuple<ResponseInfo, string> PlaylistTop50 = client.Download(builder.GetPlaylistTracks(Profileobj.Id, PlaylistId), headers);
+            var Playlistobj = JsonConvert.DeserializeObject<Paging<PlaylistTrack>>(PlaylistTop50.Item2);
+            var playlistTracks = searchObj.Playlists.Items[Playlistnumber].Tracks.Total;
+            if (playlistTracks >= 50)
+            {
+                playlistTracks = random.Next(1, 49);
+            }
+            int number = random.Next(0, playlistTracks - 1);
+            CurrentTrackNum = number;
+            // MessageBox.Show(Playlistobj.Total.ToString()+" "+ searchObj.Playlists.Items[Playlistnumber].Name +" "+ searchObj.Playlists.Items[Playlistnumber].Tracks.Total+" trackn : "+ CurrentTrackNum);
+            var CurrentTrack = Playlistobj.Items[CurrentTrackNum].Track.Id;
+            return CurrentTrack;
+        }
+
+        private int ChangeTrack(int number)
+        {
+
+            return number;
+
+        }
         private void PrintTrackAsSwipe(FullTrack Track, PrivateProfile Profile)
         {
+            //Reset before new track
+            TrackName.Text = null;
+            AlbumImage.Source = null;
+            TrackArtist.Text = null;
+            TrackNameSmall.Text = null;
+            AlbumImageSmall.Source = null;
+            ArtistNameSmall.Text = null;
+            songPreview = null;
+            profileID = null;
+            TrackID = null;
+
+            //New track
             TrackName.Text = Track.Name;
             if (Track.Name.Length >= 45)
             {
@@ -84,10 +141,17 @@ namespace PartyHub.Content_Page
             AlbumImageSmall.Source = GetImage(Track.Album.UrlImage);
             ArtistNameSmall.Text = Track.Artists[0].Name;
             songPreview = Track.PreviewUrl;
+            if (songPreview == null)
+            {
+                NextSongTrackPreview();
+
+            }
             profileID = Profile.Id;
             TrackID = Track.Id;
+            ContentGrid.Visibility = Visibility.Visible;
+
         }
-        public  void AddLikedTrackToDataBase(string trackId, string userID)
+        public void AddLikedTrackToDataBase(string trackId, string userID)
         {
             string sql = "";
             string CheckSql = "";
@@ -136,7 +200,6 @@ namespace PartyHub.Content_Page
             }
             else
             {
-
                 dataReader.Close();
                 sql = $"INSERT INTO partyhubGlobal (TrackId,Likes) values ('{trackId}',1);";
                 Command = new SqlCommand(sql, sqlAzureConnection);
@@ -158,7 +221,6 @@ namespace PartyHub.Content_Page
             }
             else
             {
-
                 playmp3(songPreview, "Play");
                 PlayandPause.Source = new BitmapImage(new Uri(@"/Content\Pause.png", UriKind.Relative));
                 PlayandPause.ToolTip = "Pause";
@@ -170,7 +232,9 @@ namespace PartyHub.Content_Page
         private void playmp3(string path, string playState)
         {
 
-            player.URL = path;
+                player.URL = path;
+
+
             player.settings.setMode("Loop", true);
             if (playState.Equals("Play"))
             {
@@ -209,37 +273,60 @@ namespace PartyHub.Content_Page
 
                 if (ContentUsercontrol.RenderTransform.Value.OffsetX <= (ContentGrid.ActualWidth * -1)+60)
                 {
+                    ContentGrid.Visibility = Visibility.Hidden;
 
+                    FirstRandom = false;
                     ContentUsercontrol.RenderTransform = new TranslateTransform(mousePosition.X - _positionInBlock.X, 0);
                     playmp3(songPreview, "Stop");
                     PlayandPause.Source = new BitmapImage(new Uri(@"/Content\Play.png", UriKind.Relative));
-                    Thread.Sleep(200);
                     ContentUsercontrol.Visibility = Visibility.Visible;
                     ContentUsercontrol.RenderTransform = new TranslateTransform(0, 0);
                     //ContentGrid.Children.Clear();
-                    Choice.Text = "Not Liked";
+                    //Play next Song.
+                    NextSongTrackPreview();
+                    // Thread.Sleep(1000);
+
                 }
                 else if (ContentUsercontrol.RenderTransform.Value.OffsetX >= ContentGrid.ActualWidth-40)
                 {
-                    AddTrackToGlobal(TrackID);
+                    ContentGrid.Visibility = Visibility.Hidden;
 
+                    AddTrackToGlobal(TrackID);
+                    FirstRandom = false;
                     ContentUsercontrol.RenderTransform = new TranslateTransform(mousePosition.X - _positionInBlock.X, 0);
                     playmp3(songPreview, "Stop");
                     PlayandPause.Source = new BitmapImage(new Uri(@"/Content\Play.png", UriKind.Relative));
-                    Thread.Sleep(200);
-                    Choice.Text = "Liked";
+
                     ContentUsercontrol.RenderTransform = new TranslateTransform(0, 0);
                     AddLikedTrackToDataBase(TrackID, profileID);
-                    //ContentGrid.Children.Clear();
+                    //
                     // Stupid Error fixing with stupid Solution. Might delete Later. Cause of +1 becoming +2 while liking a track.
-                    AutoClosingMessageBox.Show("Track Liked!","",10);
+                    //AutoClosingMessageBox.Show("Track Liked!","",10);
                     ContentGrid.Focus();
                     ContentUsercontrol.Focus();
+                    //Play next Song.
+                    NextSongTrackPreview();
+                    // Thread.Sleep(1000);
                     
+
                 }
 
+
             }
+
+            
         }
+        public void NextSongTrackPreview()
+        {
+            Tuple<ResponseInfo, string> Profile = client.Download(builder.GetPrivateProfile(), headers);
+            var Profileobj = JsonConvert.DeserializeObject<PrivateProfile>(Profile.Item2);
+            string CurrentTrack = RandomTrackFromPlaylist(Profileobj);
+            Tuple<ResponseInfo, string> Track = client.Download(builder.GetTrack(CurrentTrack), headers);
+            var Trackobj = JsonConvert.DeserializeObject<FullTrack>(Track.Item2);
+            PrintTrackAsSwipe(Trackobj, Profileobj);
+
+        }
+
         public class AutoClosingMessageBox
         {
             System.Threading.Timer _timeoutTimer;
@@ -279,9 +366,8 @@ namespace PartyHub.Content_Page
 
         private void lostPageFocus(object sender, RoutedEventArgs e)
         {
-            player.controls.stop();
-            this.KeepAlive = false;
-            
+            playmp3(songPreview, "Stop");
+            this.KeepAlive = false;            
             PlayandPause.Source = new BitmapImage(new Uri(@"/Content\Play.png", UriKind.Relative));
         }
         /*

@@ -31,11 +31,8 @@ namespace PartyHub.Content_Page
         private string connectionString = @"Server=tcp:partyhubserver.database.windows.net,1433;Initial Catalog=Partyhub_Database;Persist Security Info=False;User ID=partyhublogin;Password=Passw0rd;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         SqlConnection sqlAzureConnection;
         SqlDataReader dataReader;
-        SqlCommand Command;
-        SqlDataAdapter adapter = new SqlDataAdapter();
         public string profileID = "";
         public string TrackID = "";
-        private Brush BackgroundColor;
 
         public GlobalListe()
         {
@@ -100,9 +97,7 @@ namespace PartyHub.Content_Page
         }
         private void PrintPartyHubGlobalList()
         {
-            string sql = "";
             string CheckSql = "";
-            string testdata = "";
             List<Spotify.Models.FullTrack> LikedUserTracksList = new List<FullTrack>();
             List<long> Likes = new List<long>();
 

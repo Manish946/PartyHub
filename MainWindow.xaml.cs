@@ -39,7 +39,6 @@ namespace PartyHub
             InitializeComponent();
             MaxHeight = SystemParameters.FullPrimaryScreenHeight - 60;
             MaxWidth = SystemParameters.FullPrimaryScreenWidth - 60;
-            Frame_Partyhub.Content = new Content_Page.Dashboard();
             //Displayname
             headers.Add("Authorization", "Bearer " + LoginWindow.SpotifyLogin.AccessToken);
             Tuple<ResponseInfo, string> tuple = client.Download(builder.GetPrivateProfile(), headers);
@@ -58,6 +57,8 @@ namespace PartyHub
             }
             //SQL CONNECTION SETUP IMPLEMENT!
             AddUserToDatabase(obj);
+            //Frame_Partyhub.Content = new Content_Page.GlobalListe();
+
         }
         private void AddUserToDatabase(Spotify.Models.PrivateProfile User)
         {
@@ -98,13 +99,6 @@ namespace PartyHub
         }
 
 
-
-        private void Dashboard_Click(object sender, RoutedEventArgs e)
-        {
-
-            Frame_Partyhub.Content = new Content_Page.Dashboard();
-        }
-
         public ImageSource GetImage(string Link)
         {
             return BitmapFrame.Create(new Uri(Link));
@@ -140,15 +134,10 @@ namespace PartyHub
             ((MainWindow)Application.Current.Windows[2]).Frame_Partyhub.Content = target;
         }
 
-        private void Party_click(object sender, RoutedEventArgs e)
-        {
-            Frame_Partyhub.Content = new Content_Page.Party();
-
-        }
-
         private void Globalliste_click(object sender, RoutedEventArgs e)
         {
 
+            Frame_Partyhub.Content = null;
 
             Frame_Partyhub.Content = new Content_Page.GlobalListe();
 
@@ -157,6 +146,7 @@ namespace PartyHub
         private void Minliste_click(object sender, RoutedEventArgs e)
         {
 
+            Frame_Partyhub.Content = null;
 
             Frame_Partyhub.Content = new Content_Page.Minliste();
 
@@ -164,17 +154,11 @@ namespace PartyHub
 
         private void Minprofil_click(object sender, RoutedEventArgs e)
         {
-
+            Frame_Partyhub.Content = null;
             Frame_Partyhub.Content = new Content_Page.Minprofil();
 
         }
 
-        private void Indstillinger_click(object sender, RoutedEventArgs e)
-        {
-
-            Frame_Partyhub.Content = new Content_Page.Indstillinger();
-
-        }
 
         private void Minimize_click(object sender, RoutedEventArgs e)
         {
