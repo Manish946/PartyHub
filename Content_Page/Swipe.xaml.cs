@@ -77,7 +77,7 @@ namespace PartyHub.Content_Page
             //Random Track
             Random random = new Random();
 
-            Tuple<ResponseInfo, string> Search = client.Download(builder.SearchItems("TOP 50", Spotify.Enums.SearchType.Playlist, 50, 0, "US"), headers);
+            Tuple<ResponseInfo, string> Search = client.Download(builder.SearchItems("TOP 50", Spotify.Enums.SearchType.Playlist, 22, 0, "US"), headers);
             var searchObj = JsonConvert.DeserializeObject<SearchItem>(Search.Item2);
             int Playlistnumber = random.Next(1, 20);
             if (Playlistnumber > searchObj.Playlists.Items.Count)
@@ -148,7 +148,6 @@ namespace PartyHub.Content_Page
             }
             profileID = Profile.Id;
             TrackID = Track.Id;
-            ContentGrid.Visibility = Visibility.Visible;
 
         }
         public void AddLikedTrackToDataBase(string trackId, string userID)
@@ -324,6 +323,7 @@ namespace PartyHub.Content_Page
             Tuple<ResponseInfo, string> Track = client.Download(builder.GetTrack(CurrentTrack), headers);
             var Trackobj = JsonConvert.DeserializeObject<FullTrack>(Track.Item2);
             PrintTrackAsSwipe(Trackobj, Profileobj);
+            ContentGrid.Visibility = Visibility.Visible;
 
         }
 

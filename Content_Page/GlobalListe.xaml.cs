@@ -109,9 +109,10 @@ namespace PartyHub.Content_Page
             dataReader = CommandCheck.ExecuteReader();
             if (dataReader.HasRows)
             {
-
+                int i = 0;
                 while (dataReader.Read())
                 {
+                    i++;
                     GlobalListClass PartyHubTopList = new GlobalListClass();
                     PartyHubTopList.Track = new List<FullTrack>();
                     PartyHubTopList.Likes = new List<long>();

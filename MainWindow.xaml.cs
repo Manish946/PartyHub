@@ -58,6 +58,7 @@ namespace PartyHub
             //SQL CONNECTION SETUP IMPLEMENT!
             AddUserToDatabase(obj);
             //Frame_Partyhub.Content = new Content_Page.GlobalListe();
+            Frame_Partyhub.Content = new Content_Page.Dashboard();
 
         }
         private void AddUserToDatabase(Spotify.Models.PrivateProfile User)
@@ -121,8 +122,7 @@ namespace PartyHub
 
         private void Swipe_click(object sender, RoutedEventArgs e)
         {
-            Frame_Partyhub.Content = null;
-            while (Frame_Partyhub.NavigationService.RemoveBackEntry() != null) ;
+
             Frame_Partyhub.NavigationService.Navigate(new Content_Page.Swipe());
 
             // Content_Page.Swipe swipePage = new Content_Page.Swipe();
@@ -137,25 +137,24 @@ namespace PartyHub
         private void Globalliste_click(object sender, RoutedEventArgs e)
         {
 
-            Frame_Partyhub.Content = null;
 
-            Frame_Partyhub.Content = new Content_Page.GlobalListe();
+            Frame_Partyhub.NavigationService.Navigate(new Content_Page.GlobalListe());
+
 
         }
 
         private void Minliste_click(object sender, RoutedEventArgs e)
         {
 
-            Frame_Partyhub.Content = null;
+            Frame_Partyhub.NavigationService.Navigate(new Content_Page.Minliste());
 
-            Frame_Partyhub.Content = new Content_Page.Minliste();
+           
 
         }
 
         private void Minprofil_click(object sender, RoutedEventArgs e)
         {
-            Frame_Partyhub.Content = null;
-            Frame_Partyhub.Content = new Content_Page.Minprofil();
+            Frame_Partyhub.NavigationService.Navigate(new Content_Page.Minprofil());
 
         }
 
@@ -166,6 +165,12 @@ namespace PartyHub
             this.Focusable = false;
             this.ShowActivated = false;
             this.WindowState = WindowState.Minimized;
+        }
+
+        private void DashBoard_Click(object sender, RoutedEventArgs e)
+        {
+            Frame_Partyhub.NavigationService.Navigate(new Content_Page.Dashboard());
+
         }
     }
     [ValueConversion(typeof(string), typeof(BitmapImage))]
