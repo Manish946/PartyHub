@@ -8,7 +8,173 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Dashboard">
 
-    <Grid> 
-        <TextBlock Text="DASHBOARD" Foreground="White" HorizontalAlignment="Center"></TextBlock>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.Column="1">
+            <TextBlock Text="DASHBOARD" FontSize="30" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,0,0,0"></TextBlock>
+
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="1" Margin="10" >
+            <Button Click="Swipe_click" >
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#FF4799B8"></Setter>
+                        <Setter Property="Opacity" Value="0.7"></Setter>
+
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border x:Name="myBorder" Background="{TemplateBinding Background}" BorderBrush="#FF52AEEE" BorderThickness="0" Margin="0" Padding="0">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Cursor" Value="Hand"></Setter>
+                                            <Setter Property="Opacity" Value="1"></Setter>
+
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter Property="Background" Value="LightSkyBlue"></Setter>
+                                        </Trigger>
+                                        <Trigger Property="IsFocused" Value="True">
+                                            <Setter Property="Opacity" Value="0.9"></Setter>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="28"/>
+    
+                    </Style>
+                </Button.Resources>
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="#FF3891A4" Offset="0.692"/>
+                        <GradientStop Color="#FF036487" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <StackPanel HorizontalAlignment="Left">
+                    <TextBlock Text="PRØVE SWIPE" Height="50" FontSize="30" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top"></TextBlock>
+                    <Image HorizontalAlignment="Center" VerticalAlignment="Center" Source="/Content\Swipe.png" Height="45" ></Image>
+                </StackPanel>
+            </Button>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="2" Margin="10" >
+            <Button Click="GlobalListe_click" >
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#FF4799B8"></Setter>
+                        <Setter Property="Opacity" Value="0.7"></Setter>
+
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border x:Name="myBorder" Background="{TemplateBinding Background}" BorderBrush="#FF52AEEE" BorderThickness="0" Margin="0" Padding="0">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Cursor" Value="Hand"></Setter>
+                                            <Setter Property="Opacity" Value="1"></Setter>
+
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter Property="Background" Value="LightSkyBlue"></Setter>
+                                        </Trigger>
+                                        <Trigger Property="IsFocused" Value="True">
+                                            <Setter Property="Opacity" Value="0.9"></Setter>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="28"/>
+
+                    </Style>
+                </Button.Resources>
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="#FF3EB258" Offset="0.692"/>
+                        <GradientStop Color="#FF12805D" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <StackPanel HorizontalAlignment="Left">
+                    <TextBlock Text="GLOBAL LISTE" Height="50" FontSize="30" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top"></TextBlock>
+                    <Image HorizontalAlignment="Center" VerticalAlignment="Center" Source="/Content\GlobalListe.png" Height="45" ></Image>
+                </StackPanel>
+            </Button>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="3" Margin="10" >
+            <Button Click="MinListe_click" >
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#FF4799B8"></Setter>
+                        <Setter Property="Opacity" Value="0.7"></Setter>
+
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border x:Name="myBorder" Background="{TemplateBinding Background}" BorderBrush="#FF52AEEE" BorderThickness="0" Margin="0" Padding="0">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Cursor" Value="Hand"></Setter>
+                                            <Setter Property="Opacity" Value="1"></Setter>
+
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter Property="Background" Value="LightSkyBlue"></Setter>
+                                        </Trigger>
+                                        <Trigger Property="IsFocused" Value="True">
+                                            <Setter Property="Opacity" Value="0.9"></Setter>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="28"/>
+
+                    </Style>
+                </Button.Resources>
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="#FF5339AE" Offset="0.692"/>
+                        <GradientStop Color="#FF231170" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <StackPanel HorizontalAlignment="Left">
+                    <TextBlock Text="MIN LISTE" Height="50" FontSize="30" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top"></TextBlock>
+                    <Image HorizontalAlignment="Center" VerticalAlignment="Center" Source="/Content\GlobalListe.png" Height="45" ></Image>
+                </StackPanel>
+            </Button>
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="10">
+            
+        </Grid>
     </Grid>
 </Page>

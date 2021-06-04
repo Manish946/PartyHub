@@ -25,11 +25,15 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0" Grid.Column="1">
-            <TextBlock x:Name="Choice" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="25"></TextBlock>
+            <TextBlock x:Name="Choice" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="25"></TextBlock>
         </Grid>
+        
         <Grid Grid.Column="1" Grid.Row="1" x:Name="ContentGrid">
+
             <UserControl x:Name="ContentUsercontrol">
-                <Grid x:Name="RandomMusic" Background="#FF282828">
+
+                <Grid x:Name="RandomMusic" Background="#FF282828"  >
+                    
                     <Grid.RowDefinitions>
                         <RowDefinition Height="6.4*"></RowDefinition>
                         <RowDefinition Height="0.6*"></RowDefinition>
@@ -38,8 +42,11 @@
                         <RowDefinition Height="0.01*"></RowDefinition>
                     </Grid.RowDefinitions>
 
-                    <Grid Grid.Row="0" Margin="0,15,0,0">
-                        <Image x:Name="AlbumImage" Source="https://m.media-amazon.com/images/I/71yq3QQ-x3L.jpg" Width="425" ></Image>
+                    <TextBlock x:Name="notliked" Text="NOT LIKED" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Red" FontSize="55" Visibility="Hidden"></TextBlock>
+                    <TextBlock x:Name="liked" Text="LIKED" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="ForestGreen" FontSize="55" Visibility="Hidden"></TextBlock>
+
+                    <Grid Grid.Row="0" Margin="0,15,0,0" >
+                        <Image x:Name="AlbumImage" Source="https://m.media-amazon.com/images/I/71yq3QQ-x3L.jpg" Width="425"  ></Image>
                     </Grid>
 
                     <Grid Grid.Row="1" >
@@ -82,8 +89,6 @@
                                 </Button.Style>
                                 <Image x:Name="PlayandPause" Source="/Content\Play.png" Width="60" Height="60"></Image>
                             </Button>
-
-
 
                             <Image  x:Name="AlbumImageSmall" Source="https://m.media-amazon.com/images/I/71yq3QQ-x3L.jpg" Height="100" Margin="15,0,15,0" ></Image>
 

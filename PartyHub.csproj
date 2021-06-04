@@ -170,7 +170,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Content_Page\Dashboard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Content_Page\GlobalListe.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Content_Page\LikedWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -206,8 +214,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Content_Page\Dashboard.xaml.cs">
+      <DependentUpon>Dashboard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Content_Page\GlobalListe.xaml.cs">
       <DependentUpon>GlobalListe.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content_Page\LikedWindow.xaml.cs">
+      <DependentUpon>LikedWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Content_Page\Minliste.xaml.cs">
       <DependentUpon>Minliste.xaml</DependentUpon>

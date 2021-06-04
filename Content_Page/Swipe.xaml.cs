@@ -114,16 +114,6 @@ namespace PartyHub.Content_Page
         }
         private void PrintTrackAsSwipe(FullTrack Track, PrivateProfile Profile)
         {
-            //Reset before new track
-            TrackName.Text = null;
-            AlbumImage.Source = null;
-            TrackArtist.Text = null;
-            TrackNameSmall.Text = null;
-            AlbumImageSmall.Source = null;
-            ArtistNameSmall.Text = null;
-            songPreview = null;
-            profileID = null;
-            TrackID = null;
 
             //New track
             TrackName.Text = Track.Name;
@@ -272,24 +262,44 @@ namespace PartyHub.Content_Page
 
                 if (ContentUsercontrol.RenderTransform.Value.OffsetX <= (ContentGrid.ActualWidth * -1)+60)
                 {
-                    ContentGrid.Visibility = Visibility.Hidden;
+                    /*
+                    liked.Visibility = Visibility.Hidden;
+                    if (notliked.Visibility == Visibility.Hidden)
+                    {
+                        notliked.Visibility = Visibility.Visible;
+                    }
+                    */
 
                     FirstRandom = false;
                     ContentUsercontrol.RenderTransform = new TranslateTransform(mousePosition.X - _positionInBlock.X, 0);
                     playmp3(songPreview, "Stop");
                     PlayandPause.Source = new BitmapImage(new Uri(@"/Content\Play.png", UriKind.Relative));
-                    ContentUsercontrol.Visibility = Visibility.Visible;
+                    
                     ContentUsercontrol.RenderTransform = new TranslateTransform(0, 0);
                     //ContentGrid.Children.Clear();
                     //Play next Song.
+                    //Thread.Sleep(200);
+
+                    MessageBox.Show("TRACK NOT LIKED!");
+
+
+
                     NextSongTrackPreview();
+
                     // Thread.Sleep(1000);
 
                 }
                 else if (ContentUsercontrol.RenderTransform.Value.OffsetX >= ContentGrid.ActualWidth-40)
                 {
-                    ContentGrid.Visibility = Visibility.Hidden;
-
+                    /*
+                     
+                      
+                    notliked.Visibility = Visibility.Hidden;
+                    if (liked.Visibility == Visibility.Hidden)
+                    {
+                        liked.Visibility = Visibility.Visible;
+                    }                    
+                    */
                     AddTrackToGlobal(TrackID);
                     FirstRandom = false;
                     ContentUsercontrol.RenderTransform = new TranslateTransform(mousePosition.X - _positionInBlock.X, 0);
@@ -304,9 +314,12 @@ namespace PartyHub.Content_Page
                     ContentGrid.Focus();
                     ContentUsercontrol.Focus();
                     //Play next Song.
+                    MessageBox.Show("TRACK LIKED!");
+                   // Thread.Sleep(200);
                     NextSongTrackPreview();
+
                     // Thread.Sleep(1000);
-                    
+
 
                 }
 
@@ -320,10 +333,13 @@ namespace PartyHub.Content_Page
             Tuple<ResponseInfo, string> Profile = client.Download(builder.GetPrivateProfile(), headers);
             var Profileobj = JsonConvert.DeserializeObject<PrivateProfile>(Profile.Item2);
             string CurrentTrack = RandomTrackFromPlaylist(Profileobj);
+            //AutoClosingMessageBox.Show("Track Liked!", "", 5);
             Tuple<ResponseInfo, string> Track = client.Download(builder.GetTrack(CurrentTrack), headers);
             var Trackobj = JsonConvert.DeserializeObject<FullTrack>(Track.Item2);
+            //AutoClosingMessageBox.Show("Track Liked!", "", 10);
+            
+            
             PrintTrackAsSwipe(Trackobj, Profileobj);
-            ContentGrid.Visibility = Visibility.Visible;
 
         }
 
@@ -336,8 +352,9 @@ namespace PartyHub.Content_Page
                 _caption = caption;
                 _timeoutTimer = new System.Threading.Timer(OnTimerElapsed,
                     null, timeout, System.Threading.Timeout.Infinite);
-                using (_timeoutTimer)
-                    MessageBox.Show(text, caption);
+                using (_timeoutTimer) { 
+                  MessageBox.Show(text, caption);
+                };
             }
             public static void Show(string text, string caption, int timeout)
             {
@@ -360,7 +377,7 @@ namespace PartyHub.Content_Page
         private void UserControl_MouseUp(object sender, MouseButtonEventArgs e)
         {
             ContentUsercontrol.ReleaseMouseCapture();
-            ContentUsercontrol.Opacity = 1;
+            ContentUsercontrol.Opacity = 0.8;
             ContentUsercontrol.RenderTransform = new TranslateTransform(0, 0);
         }
 
