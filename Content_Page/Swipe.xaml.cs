@@ -31,11 +31,16 @@ namespace PartyHub.Content_Page
     /// </summary>
     public partial class Swipe : Page
     {
+        //After receving token now we can Spotify API in our window Application.
         Dictionary<string, string> headers = new Dictionary<string, string>();
+        // Setting Client and builder to call Spotify API.
         SpotifyWebClient client = new SpotifyWebClient();
         SpotifyWebBuilder builder = new SpotifyWebBuilder();
+        // Mouse position
         private Point _positionInBlock;
+        // Current spotify applied songpreview uri. It will be used to play songs in Swipe Cardboard layout.
         public string songPreview;
+        // New player to play Current Tracks.
         WMPLib.WindowsMediaPlayer player = new WMPLib.WindowsMediaPlayer();
         public double curpos = 0;
         MainWindow mainwin = new MainWindow();
@@ -45,30 +50,34 @@ namespace PartyHub.Content_Page
         SqlDataReader dataReader;
         SqlCommand Command;
         SqlDataAdapter adapter = new SqlDataAdapter();
+        // User current iD and current tracknumber.
         public string profileID = "";
         public string TrackID = "";
         public int CurrentTrackNum;
         bool FirstRandom = true;
         public Swipe()
         {
-           
+
             this.InitializeComponent();
             ContentUsercontrol.RenderTransform = new TranslateTransform(0, 0);
+            //Headers is being added and builder is ready to use.
             headers.Add("Authorization", "Bearer " + LoginWindow.SpotifyLogin.AccessToken);
+            // Calling PrivateProfile Objects from Spotify.
             Tuple<ResponseInfo, string> Profile = client.Download(builder.GetPrivateProfile(), headers);
             var Profileobj = JsonConvert.DeserializeObject<PrivateProfile>(Profile.Item2);
             //Playing Current Track
             if (FirstRandom == true)
             {
+                // Callings methods to load Swipe function only once, so it does not override while loading next song.
                 string CurrentTrack = RandomTrackFromPlaylist(Profileobj);
                 Tuple<ResponseInfo, string> Track = client.Download(builder.GetTrack(CurrentTrack), headers);
                 var Trackobj = JsonConvert.DeserializeObject<FullTrack>(Track.Item2);
                 PrintTrackAsSwipe(Trackobj, Profileobj);
 
             }
-
+            // Volume of media to 70.
             player.settings.volume = 70;
-            
+
 
         }
 
@@ -76,15 +85,17 @@ namespace PartyHub.Content_Page
         {
             //Random Track
             Random random = new Random();
-
+            // Search Keyword "TOP 50" and type Playlist for random tracks after Swipe is done.
             Tuple<ResponseInfo, string> Search = client.Download(builder.SearchItems("TOP 50", Spotify.Enums.SearchType.Playlist, 22, 0, "US"), headers);
             var searchObj = JsonConvert.DeserializeObject<SearchItem>(Search.Item2);
+            // To make it random Both tracks and playlist are random. Playlist number from 1- 20 and track from 1-50.
             int Playlistnumber = random.Next(1, 20);
             if (Playlistnumber > searchObj.Playlists.Items.Count)
             {
                 Playlistnumber = random.Next(1, 20);
 
             }
+            // Get playlist Id from search object.
             var PlaylistId = searchObj.Playlists.Items[Playlistnumber].Id;
             if (searchObj.Playlists.Items[Playlistnumber].Tracks.Total > 50)
             {
@@ -95,6 +106,7 @@ namespace PartyHub.Content_Page
             Tuple<ResponseInfo, string> PlaylistTop50 = client.Download(builder.GetPlaylistTracks(Profileobj.Id, PlaylistId), headers);
             var Playlistobj = JsonConvert.DeserializeObject<Paging<PlaylistTrack>>(PlaylistTop50.Item2);
             var playlistTracks = searchObj.Playlists.Items[Playlistnumber].Tracks.Total;
+            // Get random Track Number To print on Swipe function after swipe.
             if (playlistTracks >= 50)
             {
                 playlistTracks = random.Next(1, 49);
@@ -105,13 +117,14 @@ namespace PartyHub.Content_Page
             var CurrentTrack = Playlistobj.Items[CurrentTrackNum].Track.Id;
             return CurrentTrack;
         }
-
+        // Number will be changed for track.
         private int ChangeTrack(int number)
         {
 
             return number;
 
         }
+        // This function will printout Swipe Function for user to swipe.
         private void PrintTrackAsSwipe(FullTrack Track, PrivateProfile Profile)
         {
 
@@ -121,6 +134,7 @@ namespace PartyHub.Content_Page
             {
                 TrackName.FontSize = 16;
             }
+            // Setting Api data to variables or objects from XAML to print out.
             AlbumImage.Source = GetImage(Track.Album.UrlImage);
             TrackArtist.Text = Track.Artists[0].Name;
             TrackNameSmall.Text = Track.Name;
@@ -128,9 +142,11 @@ namespace PartyHub.Content_Page
             {
                 TrackNameSmall.FontSize = 16;
             }
+            // User Profile Image and text
             AlbumImageSmall.Source = GetImage(Track.Album.UrlImage);
             ArtistNameSmall.Text = Track.Artists[0].Name;
             songPreview = Track.PreviewUrl;
+            // If song preview is not available , Random track again until preview song is available.
             if (songPreview == null)
             {
                 NextSongTrackPreview();
@@ -140,44 +156,55 @@ namespace PartyHub.Content_Page
             TrackID = Track.Id;
 
         }
+        // If User Swipe right this function will load which will add liked track to the database.
         public void AddLikedTrackToDataBase(string trackId, string userID)
         {
             string sql = "";
             string CheckSql = "";
+            // Opens new connection for database to add track.
             sqlAzureConnection = new SqlConnection(connectionString);
             sqlAzureConnection.Open();
+            // Checks if database already exists.
             CheckSql = $"select TrackID,Bruger_SpotifyID from ProfileLikedTrack WHERE TrackID  = '{trackId}' AND Bruger_SpotifyID = '{userID}'";
             SqlCommand CommandCheck = new SqlCommand(CheckSql, sqlAzureConnection);
             dataReader = CommandCheck.ExecuteReader();
             if (!dataReader.HasRows)
             {
+                // Closes datareader before using insertcommand from adapter.
                 dataReader.Close();
+                // Inserts tracks to database.
                 sql = $"insert into ProfileLikedTrack (TrackID,Bruger_SpotifyID) values('{trackId}','{userID}');";
                 Command = new SqlCommand(sql, sqlAzureConnection);
                 adapter.InsertCommand = new SqlCommand(sql, sqlAzureConnection);
                 adapter.InsertCommand.ExecuteNonQuery();
+                //Closes database connections.
                 Command.Dispose();
                 sqlAzureConnection.Close();
             }
 
         }
+        // Tracks is also added to global if it already does not exists.
         private void AddTrackToGlobal(string trackId)
         {
+            // Checks if track is already liked by someone and if it is then adds +1 Likes to it otherwise adds tracks to the database and +1 likes from user.
             string sql = "";
             string CheckSql = "";
+            // opens connections.
             sqlAzureConnection = new SqlConnection(connectionString);
             sqlAzureConnection.Open();
             CheckSql = $"SELECT TrackId,Likes from partyhubGlobal WHERE TrackId = '{trackId}'";
             SqlCommand CommandCheck = new SqlCommand(CheckSql, sqlAzureConnection);
             dataReader = CommandCheck.ExecuteReader();
+            // Runs until datareader is availabel.
             if (dataReader.HasRows)
             {
                 dataReader.Read();
+                // Updates likes to global playlist.
                 long likes = (long)dataReader.GetValue(1) + 1;
                 string updatedlike = likes.ToString();
                 long testlike = Int64.Parse(updatedlike);
                 sql = $"UPDATE PartyHubGlobal Set Likes = '{testlike}' where TrackId = '{trackId}'";
-
+                // After updating sends data to sql database and closes datareader and all the connections.
                 Command = new SqlCommand(sql, sqlAzureConnection);
                 adapter.InsertCommand = new SqlCommand(sql, sqlAzureConnection);
                 dataReader.Close();
@@ -189,6 +216,7 @@ namespace PartyHub.Content_Page
             }
             else
             {
+                // Else adds track to global data table and adds user +1 like.
                 dataReader.Close();
                 sql = $"INSERT INTO partyhubGlobal (TrackId,Likes) values ('{trackId}',1);";
                 Command = new SqlCommand(sql, sqlAzureConnection);
@@ -198,9 +226,10 @@ namespace PartyHub.Content_Page
                 sqlAzureConnection.Close();
             }
         }
-
+        // Button click will play the current swipe preview song.
         private void btnPlayPreview(object sender, RoutedEventArgs e)
         {
+            // Checks if mediaplayer is playing then it will stop the song and vice versa to else statement.
             if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
             {
                 curpos = player.controls.currentPosition;
@@ -214,16 +243,13 @@ namespace PartyHub.Content_Page
                 PlayandPause.Source = new BitmapImage(new Uri(@"/Content\Pause.png", UriKind.Relative));
                 PlayandPause.ToolTip = "Pause";
 
-
-
             }
         }
+        // Checks is play or stop setting is called.
         private void playmp3(string path, string playState)
         {
-
-                player.URL = path;
-
-
+            // Current song preview path.
+            player.URL = path;
             player.settings.setMode("Loop", true);
             if (playState.Equals("Play"))
             {
@@ -239,7 +265,7 @@ namespace PartyHub.Content_Page
 
             }
         }
-
+        // If user mouse down the swipe preview then user can drag the swipe preview to left or right. also called SWIPE.
         private void UserControl_MouseDown(object sender, MouseButtonEventArgs e)
         {
             _positionInBlock = Mouse.GetPosition(ContentUsercontrol);
@@ -247,20 +273,22 @@ namespace PartyHub.Content_Page
             ContentUsercontrol.Opacity = 0.7;
         }
 
-
+        // Image converter.
         public ImageSource GetImage(string Link)
         {
             return BitmapFrame.Create(new Uri(Link));
         }
+        // This is the head or main code to how Swipe works. We have used Translatetransform to check if user is dragging out of specific X-Axis value.
         private void UserControl_MouseMove(object sender, MouseEventArgs e)
         {
+            // If content is dragging, then it will select the page content.
             if (ContentUsercontrol.IsMouseCaptured)
             {
                 var container = VisualTreeHelper.GetParent(ContentUsercontrol) as UIElement;
                 var mousePosition = e.GetPosition(container);
                 ContentUsercontrol.RenderTransform = new TranslateTransform(mousePosition.X - _positionInBlock.X, 0);
-
-                if (ContentUsercontrol.RenderTransform.Value.OffsetX <= (ContentGrid.ActualWidth * -1)+60)
+                // This is where User swipes to Left. It is check if Swipe content is dragging to +60 X-axis value.
+                if (ContentUsercontrol.RenderTransform.Value.OffsetX <= (ContentGrid.ActualWidth * -1) + 60)
                 {
                     /*
                     liked.Visibility = Visibility.Hidden;
@@ -269,12 +297,12 @@ namespace PartyHub.Content_Page
                         notliked.Visibility = Visibility.Visible;
                     }
                     */
-
+                    // If it x-axis value meets then this code will run which will stop the song and call next Track to Swipe.
                     FirstRandom = false;
                     ContentUsercontrol.RenderTransform = new TranslateTransform(mousePosition.X - _positionInBlock.X, 0);
                     playmp3(songPreview, "Stop");
                     PlayandPause.Source = new BitmapImage(new Uri(@"/Content\Play.png", UriKind.Relative));
-                    
+
                     ContentUsercontrol.RenderTransform = new TranslateTransform(0, 0);
                     //ContentGrid.Children.Clear();
                     //Play next Song.
@@ -289,7 +317,9 @@ namespace PartyHub.Content_Page
                     // Thread.Sleep(1000);
 
                 }
-                else if (ContentUsercontrol.RenderTransform.Value.OffsetX >= ContentGrid.ActualWidth-40)
+                // This is where User swipes to Right. It is check if Swipe content is dragging to +60 X-axis value.
+
+                else if (ContentUsercontrol.RenderTransform.Value.OffsetX >= ContentGrid.ActualWidth - 40)
                 {
                     /*
                      
@@ -300,6 +330,7 @@ namespace PartyHub.Content_Page
                         liked.Visibility = Visibility.Visible;
                     }                    
                     */
+                    // If it x-axis value meets then this code will run which will stop the song and call next Track to Swipe.
                     AddTrackToGlobal(TrackID);
                     FirstRandom = false;
                     ContentUsercontrol.RenderTransform = new TranslateTransform(mousePosition.X - _positionInBlock.X, 0);
@@ -315,7 +346,7 @@ namespace PartyHub.Content_Page
                     ContentUsercontrol.Focus();
                     //Play next Song.
                     MessageBox.Show("TRACK LIKED!");
-                   // Thread.Sleep(200);
+                    // Thread.Sleep(200);
                     NextSongTrackPreview();
 
                     // Thread.Sleep(1000);
@@ -326,8 +357,9 @@ namespace PartyHub.Content_Page
 
             }
 
-            
+
         }
+        // Nextsongtrack methods will be called on both swipe left or right and it will call next random track from search playlist.
         public void NextSongTrackPreview()
         {
             Tuple<ResponseInfo, string> Profile = client.Download(builder.GetPrivateProfile(), headers);
@@ -337,12 +369,9 @@ namespace PartyHub.Content_Page
             Tuple<ResponseInfo, string> Track = client.Download(builder.GetTrack(CurrentTrack), headers);
             var Trackobj = JsonConvert.DeserializeObject<FullTrack>(Track.Item2);
             //AutoClosingMessageBox.Show("Track Liked!", "", 10);
-            
-            
             PrintTrackAsSwipe(Trackobj, Profileobj);
-
         }
-
+        // Autoclosing messagebox for temporary uses. 
         public class AutoClosingMessageBox
         {
             System.Threading.Timer _timeoutTimer;
@@ -352,8 +381,9 @@ namespace PartyHub.Content_Page
                 _caption = caption;
                 _timeoutTimer = new System.Threading.Timer(OnTimerElapsed,
                     null, timeout, System.Threading.Timeout.Infinite);
-                using (_timeoutTimer) { 
-                  MessageBox.Show(text, caption);
+                using (_timeoutTimer)
+                {
+                    MessageBox.Show(text, caption);
                 };
             }
             public static void Show(string text, string caption, int timeout)
@@ -372,19 +402,20 @@ namespace PartyHub.Content_Page
             static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
             [System.Runtime.InteropServices.DllImport("user32.dll", CharSet = System.Runtime.InteropServices.CharSet.Auto)]
             static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, IntPtr wParam, IntPtr lParam);
-            
+
         }
+        // If this swipe is mouseuped the it will release the content from mouse grip.
         private void UserControl_MouseUp(object sender, MouseButtonEventArgs e)
         {
             ContentUsercontrol.ReleaseMouseCapture();
             ContentUsercontrol.Opacity = 0.8;
             ContentUsercontrol.RenderTransform = new TranslateTransform(0, 0);
         }
-
+        // When user goes to another frame or loses focus from content then music will be stopped.
         private void lostPageFocus(object sender, RoutedEventArgs e)
         {
             playmp3(songPreview, "Stop");
-            this.KeepAlive = false;            
+            this.KeepAlive = false;
             PlayandPause.Source = new BitmapImage(new Uri(@"/Content\Play.png", UriKind.Relative));
         }
         /*

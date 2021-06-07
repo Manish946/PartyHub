@@ -73,7 +73,6 @@
                 </StackPanel>
             </Button>
         </Grid>
-
         <Grid Grid.Row="1" Grid.Column="2" Margin="10" >
             <Button Click="GlobalListe_click" >
                 <Button.Style>
@@ -168,13 +167,22 @@
                 </Button.Background>
                 <StackPanel HorizontalAlignment="Left">
                     <TextBlock Text="MIN LISTE" Height="50" FontSize="30" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top"></TextBlock>
-                    <Image HorizontalAlignment="Center" VerticalAlignment="Center" Source="/Content\GlobalListe.png" Height="45" ></Image>
+                    <Image HorizontalAlignment="Center" VerticalAlignment="Center" Source="/Content\Minliste.png" Height="45" ></Image>
                 </StackPanel>
             </Button>
         </Grid>
+        
+            <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="10" Opacity="0.7">
+            <Border CornerRadius="12,12,12,12" BorderThickness="6" Padding="4" Background="#FF282828" >
+                
+            </Border>
+            </Grid>
+        
 
-        <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="10">
-            
-        </Grid>
+            <Grid Grid.Row="2" Grid.Column="3" Margin="10" Opacity="0.7">
+            <Border CornerRadius="12,12,12,12" BorderThickness="6" Padding="4" Background="#FF282828" >
+                
+            </Border>
+            </Grid>
     </Grid>
 </Page>

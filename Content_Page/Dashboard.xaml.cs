@@ -32,7 +32,7 @@ namespace PartyHub.Content_Page
         {
             InitializeComponent();
         }
-
+        // Swipe Click to naviate to Content page swipe.
         private void Swipe_click(object sender, RoutedEventArgs e)
         {
             if (main != null)
@@ -40,11 +40,12 @@ namespace PartyHub.Content_Page
                 main.Frame_Partyhub.NavigationService.Navigate(new Content_Page.Swipe());
             }
         }
+        // Naviate method to navigte around different frame of pages.
         public static void Navigate(object target)
         {
             ((MainWindow)Application.Current.Windows[2]).Frame_Partyhub.Content = target;
         }
-
+        // Following methods to navigate to specific Pages.
         private void GlobalListe_click(object sender, RoutedEventArgs e)
         {
             if (main != null)
