@@ -358,7 +358,7 @@ namespace PartyHub.Content_Page
         {
             _positionInBlock = Mouse.GetPosition(ContentUsercontrol);
             ContentUsercontrol.CaptureMouse();
-            ContentUsercontrol.Opacity = 0.7;
+          //  ContentUsercontrol.Opacity = 0.7;
             notliked.Visibility = Visibility.Visible;
             liked.Visibility = Visibility.Visible;
         }
@@ -510,8 +510,8 @@ namespace PartyHub.Content_Page
             ContentUsercontrol.RenderTransform = new TranslateTransform(0, 0);
             notliked.Visibility = Visibility.Hidden;
             liked.Visibility = Visibility.Hidden;
-            FocusManager.SetFocusedElement(FocusManager.GetFocusScope(ContentUsercontrol), null);
-            Keyboard.ClearFocus();
+           // FocusManager.SetFocusedElement(FocusManager.GetFocusScope(ContentUsercontrol), null);
+           // Keyboard.ClearFocus();
         }
         // When user goes to another frame or loses focus from content then music will be stopped.
         private void lostPageFocus(object sender, RoutedEventArgs e)

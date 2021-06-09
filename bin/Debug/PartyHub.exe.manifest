@@ -463,14 +463,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PartyHub.exe" size="1626104">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PartyHub.exe" size="1625592">
       <assemblyIdentity name="PartyHub" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>AY7WqaVQrds74E/b4KswEWHnu62pfU7mS7FmtVR7oUI=</dsig:DigestValue>
+        <dsig:DigestValue>1KVGRto1emTnvZ20o5IG71Ycr3zX/1IoCmUQ1pAAV14=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
