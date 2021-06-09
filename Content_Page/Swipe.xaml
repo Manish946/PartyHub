@@ -24,8 +24,98 @@
             <RowDefinition Height="0.2*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" Grid.Column="1">
-            <TextBlock x:Name="Choice" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="25"></TextBlock>
+        <Grid Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="3">
+            <TextBlock x:Name="Choice" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="25" ></TextBlock>
+            <Button x:Name="partyhubPlaylist" Height="40" Width="280" VerticalAlignment="Top" HorizontalAlignment="Right" Click="partyhubPlaylistclick"  Margin="20" FontSize="18"  Opacity="0.6">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="Transparent"></Setter>
+                        <Setter Property="BorderBrush" Value="Orange"></Setter>
+                        <Setter Property="BorderThickness" Value="0"></Setter>
+                        <Setter Property="Foreground" Value="White"></Setter>
+                        <Setter Property="Opacity" Value="0.8"></Setter>
+
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border x:Name="myBorder" Background="{TemplateBinding Background}" BorderBrush="#FF52AEEE" BorderThickness="0" Margin="0" Padding="0">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="BorderThickness" TargetName="myBorder" Value="5,5,5,5"></Setter>
+                                            <Setter Property="BorderBrush" TargetName="myBorder" Value="green"></Setter>
+                                            <Setter Property="Opacity" Value="1"></Setter>
+                                            <Setter Property="Cursor" Value="Hand"></Setter>
+
+
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter Property="Background" Value="#FF5392BD"></Setter>
+                                        </Trigger>
+                                        <Trigger Property="IsFocused" Value="True">
+                                            <Setter Property="BorderThickness" TargetName="myBorder" Value="5,0,0,0"></Setter>
+                                            <Setter Property="Opacity" Value="1"></Setter>
+                                        </Trigger>
+                                        <Trigger Property="IsEnabled" Value="True">
+                                            <Setter Property="BorderThickness" TargetName="myBorder" Value="5,0,0,0"></Setter>
+                                            <Setter Property="Opacity" Value="1"></Setter>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+
+                <TextBlock x:Name="GlobalPlaylistText" Text="Global Top Playlist"></TextBlock></Button>
+            <Button x:Name="UserPlaylist" Height="40" Width="280" VerticalAlignment="Top" HorizontalAlignment="Left" Click="UserPlaylistclick" Margin="20" FontSize="18" Opacity="0.6">
+                 <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="Transparent"></Setter>
+                        <Setter Property="BorderBrush" Value="Orange"></Setter>
+                        <Setter Property="BorderThickness" Value="0"></Setter>
+                        <Setter Property="Foreground" Value="White"></Setter>
+                        <Setter Property="Opacity" Value="0.8"></Setter>
+
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border x:Name="myBorder" Background="{TemplateBinding Background}" BorderBrush="#FF52AEEE" BorderThickness="0" Margin="0" Padding="0">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="BorderThickness" TargetName="myBorder" Value="5,0,0,0"></Setter>
+                                            <Setter Property="BorderBrush" TargetName="myBorder" Value="green"></Setter>
+                                            <Setter Property="Opacity" Value="1"></Setter>
+                                            <Setter Property="Cursor" Value="Hand"></Setter>
+
+
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter Property="Background" Value="#FF5392BD"></Setter>
+                                        </Trigger>
+                                        <Trigger Property="IsFocused" Value="True">
+                                            <Setter Property="BorderThickness" TargetName="myBorder" Value="5,0,0,0"></Setter>
+                                            <Setter Property="Opacity" Value="1"></Setter>
+                                        </Trigger>
+                                        <Trigger Property="IsEnabled" Value="True">
+                                            <Setter Property="BorderThickness" TargetName="myBorder" Value="5,0,0,0"></Setter>
+                                            <Setter Property="Opacity" Value="1"></Setter>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+                <TextBlock x:Name="UserPlaylistText" Text="User Playlist"></TextBlock>
+            </Button>
+            
+            <Image Source="/Content\notlike.png" x:Name="notliked" HorizontalAlignment="Left" VerticalAlignment="Center" Panel.ZIndex="2" Opacity="0.06"  Height="80" Width="80" Margin="100" Visibility="Hidden"></Image>
+            <Image Source="/Content\like.png" x:Name="liked" HorizontalAlignment="Right" VerticalAlignment="Center" Panel.ZIndex="2" Opacity="0.06"  Height="80" Width="80" Margin="100" Visibility="Hidden"></Image>
+
         </Grid>
         
         <Grid Grid.Column="1" Grid.Row="1" x:Name="ContentGrid">
@@ -42,8 +132,7 @@
                         <RowDefinition Height="0.01*"></RowDefinition>
                     </Grid.RowDefinitions>
 
-                    <TextBlock x:Name="notliked" Text="NOT LIKED" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Red" FontSize="55" Visibility="Hidden"></TextBlock>
-                    <TextBlock x:Name="liked" Text="LIKED" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="ForestGreen" FontSize="55" Visibility="Hidden"></TextBlock>
+                   
 
                     <Grid Grid.Row="0" Margin="0,15,0,0" >
                         <Image x:Name="AlbumImage" Source="https://m.media-amazon.com/images/I/71yq3QQ-x3L.jpg" Width="425"  ></Image>

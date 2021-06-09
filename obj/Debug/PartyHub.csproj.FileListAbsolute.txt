@@ -229,6 +229,6 @@ C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\Interop.WMPLib.dll
 C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\PartyHub.csproj.ResolveComReference.cache
 C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\Content_Page\Dashboard.g.cs
 C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\Content_Page\Dashboard.baml
-C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\PartyHub.csprojAssemblyReference.cache
 C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\Content_Page\LikedWindow.g.cs
 C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\Content_Page\LikedWindow.baml
+C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\PartyHub.csprojAssemblyReference.cache

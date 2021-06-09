@@ -126,10 +126,11 @@ namespace PartyHub.Content_Page
             {
                 // If database has row upcoming while loop will be ran.
                 int i = 0;
-                while (dataReader.Read())
-                {
+                while (i < 50) {
+
+                    dataReader.Read();
                     //Following codes will add tracks from database global and add to a new list then later add likes list to make one merged list which will be displayed.
-                    i++;
+                     i++;
                     GlobalListClass PartyHubTopList = new GlobalListClass();
                     PartyHubTopList.Track = new List<FullTrack>();
                     PartyHubTopList.Likes = new List<long>();

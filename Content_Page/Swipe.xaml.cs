@@ -38,6 +38,7 @@ namespace PartyHub.Content_Page
         SpotifyWebBuilder builder = new SpotifyWebBuilder();
         // Mouse position
         private Point _positionInBlock;
+        public bool UserplaylistBool = false;
         // Current spotify applied songpreview uri. It will be used to play songs in Swipe Cardboard layout.
         public string songPreview;
         // New player to play Current Tracks.
@@ -73,11 +74,15 @@ namespace PartyHub.Content_Page
                 Tuple<ResponseInfo, string> Track = client.Download(builder.GetTrack(CurrentTrack), headers);
                 var Trackobj = JsonConvert.DeserializeObject<FullTrack>(Track.Item2);
                 PrintTrackAsSwipe(Trackobj, Profileobj);
+                PlayPreview.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+                PlayPreview.Focus();
+                GlobalPlaylistText.Text = "Playing From Global Top Playlists";
 
             }
             // Volume of media to 70.
             player.settings.volume = 70;
-
+            notliked.Visibility = Visibility.Hidden;
+            liked.Visibility = Visibility.Hidden;
 
         }
 
@@ -85,37 +90,116 @@ namespace PartyHub.Content_Page
         {
             //Random Track
             Random random = new Random();
+            var CurrentTrack = "";
             // Search Keyword "TOP 50" and type Playlist for random tracks after Swipe is done.
-            Tuple<ResponseInfo, string> Search = client.Download(builder.SearchItems("TOP 50", Spotify.Enums.SearchType.Playlist, 22, 0, "US"), headers);
-            var searchObj = JsonConvert.DeserializeObject<SearchItem>(Search.Item2);
-            // To make it random Both tracks and playlist are random. Playlist number from 1- 20 and track from 1-50.
-            int Playlistnumber = random.Next(1, 20);
-            if (Playlistnumber > searchObj.Playlists.Items.Count)
+            if (UserplaylistBool == true)
             {
-                Playlistnumber = random.Next(1, 20);
+                Tuple<ResponseInfo, string> ProfilePlaylist = client.Download(builder.GetUserPlaylists(Profileobj.Id), headers);
+                var ProfilePlaylistObj = JsonConvert.DeserializeObject<Paging<SimplePlaylist>>(ProfilePlaylist.Item2);
+                int Playlistnumber2 = random.Next(1, ProfilePlaylistObj.Items.Count - 1);
+
+                if (Playlistnumber2 > ProfilePlaylistObj.Items.Count)
+                {
+                    Playlistnumber2 = random.Next(1, 20);
+
+                }
+                // Get playlist Id from search object.
+                var UserPlaylistId = ProfilePlaylistObj.Items[Playlistnumber2].Id;
+                if (ProfilePlaylistObj.Items[Playlistnumber2].Tracks.Total > 50)
+                {
+                    Playlistnumber2 = random.Next(1, 20);
+                    UserPlaylistId = ProfilePlaylistObj.Items[Playlistnumber2].Id;
+                }
+                //Converting Playlist Id to tracks of playlist.
+                Tuple<ResponseInfo, string> PlaylistTop50 = client.Download(builder.GetPlaylistTracks(Profileobj.Id, UserPlaylistId), headers);
+                var Playlistobj = JsonConvert.DeserializeObject<Paging<PlaylistTrack>>(PlaylistTop50.Item2);
+                var playlistTracks = ProfilePlaylistObj.Items[Playlistnumber2].Tracks.Total;
+                //MessageBox.Show(playlistTracks.ToString());
+                // Get random Track Number To print on Swipe function after swipe.
+                if (playlistTracks >= 50)
+                {
+                    playlistTracks = random.Next(1, 49);
+                }
+                if (playlistTracks <= 0)
+                {
+                    playlistTracks = random.Next(1, 49);
+                }
+                int number = random.Next(0, playlistTracks - 1);
+                CurrentTrackNum = number;
+                // MessageBox.Show(Playlistobj.Total.ToString()+" "+ searchObj.Playlists.Items[Playlistnumber].Name +" "+ searchObj.Playlists.Items[Playlistnumber].Tracks.Total+" trackn : "+ CurrentTrackNum);
+                Test();
+                CurrentTrack = Playlistobj.Items[CurrentTrackNum].Track.Id;
+                //MessageBox.Show("Playing from User Playlist");
+
 
             }
-            // Get playlist Id from search object.
-            var PlaylistId = searchObj.Playlists.Items[Playlistnumber].Id;
-            if (searchObj.Playlists.Items[Playlistnumber].Tracks.Total > 50)
+            else
             {
-                Playlistnumber = random.Next(1, 20);
-                PlaylistId = searchObj.Playlists.Items[Playlistnumber].Id;
+                Tuple<ResponseInfo, string> Search = client.Download(builder.SearchItems("TOP 50", Spotify.Enums.SearchType.Playlist, 22, 0, "US"), headers);
+                var searchObj = JsonConvert.DeserializeObject<SearchItem>(Search.Item2);
+                // To make it random Both tracks and playlist are random. Playlist number from 1- 20 and track from 1-50.
+                int Playlistnumber = random.Next(1, 20);
+                if (Playlistnumber > searchObj.Playlists.Items.Count)
+                {
+                    Playlistnumber = random.Next(1, 20);
+
+                }
+                // Get playlist Id from search object.
+                var PlaylistId = searchObj.Playlists.Items[Playlistnumber].Id;
+
+                if (searchObj.Playlists.Items[Playlistnumber].Tracks.Total > 50)
+                {
+                    Playlistnumber = random.Next(1, 20);
+                    PlaylistId = searchObj.Playlists.Items[Playlistnumber].Id;
+                }
+                //Converting Playlist Id to tracks of playlist.
+                Tuple<ResponseInfo, string> PlaylistTop50 = client.Download(builder.GetPlaylistTracks(Profileobj.Id, PlaylistId), headers);
+                var Playlistobj = JsonConvert.DeserializeObject<Paging<PlaylistTrack>>(PlaylistTop50.Item2);
+                var playlistTracks = searchObj.Playlists.Items[Playlistnumber].Tracks.Total;
+                // Get random Track Number To print on Swipe function after swipe.
+                if (playlistTracks >= 50)
+                {
+                    playlistTracks = random.Next(1, 49);
+                }
+                int number = random.Next(0, playlistTracks - 1);
+                CurrentTrackNum = number;
+                // MessageBox.Show(Playlistobj.Total.ToString()+" "+ searchObj.Playlists.Items[Playlistnumber].Name +" "+ searchObj.Playlists.Items[Playlistnumber].Tracks.Total+" trackn : "+ CurrentTrackNum);
+                Test();
+                CurrentTrack = Playlistobj.Items[CurrentTrackNum].Track.Id;
+                //MessageBox.Show("Playing from party hub");
+
             }
-            //Converting Playlist Id to tracks of playlist.
-            Tuple<ResponseInfo, string> PlaylistTop50 = client.Download(builder.GetPlaylistTracks(Profileobj.Id, PlaylistId), headers);
-            var Playlistobj = JsonConvert.DeserializeObject<Paging<PlaylistTrack>>(PlaylistTop50.Item2);
-            var playlistTracks = searchObj.Playlists.Items[Playlistnumber].Tracks.Total;
-            // Get random Track Number To print on Swipe function after swipe.
-            if (playlistTracks >= 50)
-            {
-                playlistTracks = random.Next(1, 49);
-            }
-            int number = random.Next(0, playlistTracks - 1);
-            CurrentTrackNum = number;
-            // MessageBox.Show(Playlistobj.Total.ToString()+" "+ searchObj.Playlists.Items[Playlistnumber].Name +" "+ searchObj.Playlists.Items[Playlistnumber].Tracks.Total+" trackn : "+ CurrentTrackNum);
-            var CurrentTrack = Playlistobj.Items[CurrentTrackNum].Track.Id;
             return CurrentTrack;
+            //User Playlist
+
+
+        }
+        private void partyhubPlaylistclick(object sender, RoutedEventArgs e)
+        {
+           // NextSongTrackPreview();
+            UserplaylistBool = false;
+            UserPlaylistText.Text = "User Playlists";
+            GlobalPlaylistText.Text = "Playing From Global Top Playlists";
+        }
+        private void UserPlaylistclick(object sender, RoutedEventArgs e)
+        {
+           // NextSongTrackPreview();
+            UserplaylistBool = true;
+            UserPlaylistText.Text = "Playing From User Playlists";
+            GlobalPlaylistText.Text = "Global Top Playlists";
+
+        }
+        void Start()
+        {
+            // do stuff
+        }
+
+        void Test()
+        {
+            new Thread(new ThreadStart(Start)).Start();
+            new Thread(new ThreadStart(Start)).Abort();
+
+
         }
         // Number will be changed for track.
         private int ChangeTrack(int number)
@@ -147,15 +231,19 @@ namespace PartyHub.Content_Page
             ArtistNameSmall.Text = Track.Artists[0].Name;
             songPreview = Track.PreviewUrl;
             // If song preview is not available , Random track again until preview song is available.
-            if (songPreview == null)
-            {
-                NextSongTrackPreview();
+            
+             if (songPreview == null)
+             {
+                 NextSongTrackPreview();
 
-            }
+             }
+            
             profileID = Profile.Id;
+            TrackID = null;
             TrackID = Track.Id;
 
         }
+        
         // If User Swipe right this function will load which will add liked track to the database.
         public void AddLikedTrackToDataBase(string trackId, string userID)
         {
@@ -271,6 +359,8 @@ namespace PartyHub.Content_Page
             _positionInBlock = Mouse.GetPosition(ContentUsercontrol);
             ContentUsercontrol.CaptureMouse();
             ContentUsercontrol.Opacity = 0.7;
+            notliked.Visibility = Visibility.Visible;
+            liked.Visibility = Visibility.Visible;
         }
 
         // Image converter.
@@ -296,6 +386,11 @@ namespace PartyHub.Content_Page
                     {
                         notliked.Visibility = Visibility.Visible;
                     }
+                    else
+                    {
+                        notliked.Visibility = Visibility.Visible;
+
+                    }
                     */
                     // If it x-axis value meets then this code will run which will stop the song and call next Track to Swipe.
                     FirstRandom = false;
@@ -308,22 +403,18 @@ namespace PartyHub.Content_Page
                     //Play next Song.
                     //Thread.Sleep(200);
 
-                    MessageBox.Show("TRACK NOT LIKED!");
-
-
-
+                    //MessageBox.Show("TRACK NOT LIKED!");
+                    AutoClosingMessageBox.Show("Track Not Liked!", "", 03);
                     NextSongTrackPreview();
-
-                    // Thread.Sleep(1000);
-
+                    
                 }
                 // This is where User swipes to Right. It is check if Swipe content is dragging to +60 X-axis value.
 
                 else if (ContentUsercontrol.RenderTransform.Value.OffsetX >= ContentGrid.ActualWidth - 40)
                 {
-                    /*
+                    
                      
-                      
+                      /*
                     notliked.Visibility = Visibility.Hidden;
                     if (liked.Visibility == Visibility.Hidden)
                     {
@@ -345,10 +436,12 @@ namespace PartyHub.Content_Page
                     ContentGrid.Focus();
                     ContentUsercontrol.Focus();
                     //Play next Song.
-                    MessageBox.Show("TRACK LIKED!");
+                    // MessageBox.Show("TRACK LIKED!");
                     // Thread.Sleep(200);
-                    NextSongTrackPreview();
+                    AutoClosingMessageBox.Show("Track Liked!", "", 03);
 
+                    NextSongTrackPreview();
+                    
                     // Thread.Sleep(1000);
 
 
@@ -369,7 +462,12 @@ namespace PartyHub.Content_Page
             Tuple<ResponseInfo, string> Track = client.Download(builder.GetTrack(CurrentTrack), headers);
             var Trackobj = JsonConvert.DeserializeObject<FullTrack>(Track.Item2);
             //AutoClosingMessageBox.Show("Track Liked!", "", 10);
-            PrintTrackAsSwipe(Trackobj, Profileobj);
+
+                PrintTrackAsSwipe(Trackobj, Profileobj);
+            PlayPreview.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            PlayPreview.Focus();
+
+
         }
         // Autoclosing messagebox for temporary uses. 
         public class AutoClosingMessageBox
@@ -408,8 +506,12 @@ namespace PartyHub.Content_Page
         private void UserControl_MouseUp(object sender, MouseButtonEventArgs e)
         {
             ContentUsercontrol.ReleaseMouseCapture();
-            ContentUsercontrol.Opacity = 0.8;
+            ContentUsercontrol.Opacity = 1;
             ContentUsercontrol.RenderTransform = new TranslateTransform(0, 0);
+            notliked.Visibility = Visibility.Hidden;
+            liked.Visibility = Visibility.Hidden;
+            FocusManager.SetFocusedElement(FocusManager.GetFocusScope(ContentUsercontrol), null);
+            Keyboard.ClearFocus();
         }
         // When user goes to another frame or loses focus from content then music will be stopped.
         private void lostPageFocus(object sender, RoutedEventArgs e)
@@ -418,21 +520,25 @@ namespace PartyHub.Content_Page
             this.KeepAlive = false;
             PlayandPause.Source = new BitmapImage(new Uri(@"/Content\Play.png", UriKind.Relative));
         }
+
+
+
+
         /*
-        private void OnSliderFocus(object sender, RoutedEventArgs e)
-        {
-            if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
-            {
+private void OnSliderFocus(object sender, RoutedEventArgs e)
+{
+   if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
+   {
 
-            }
-            else
-            {
-                playmp3(songPreview, "Play");
-                PlayandPause.Source = new BitmapImage(new Uri(@"/Content\Pause.png", UriKind.Relative));
-                PlayandPause.ToolTip = "Play";
-            }
+   }
+   else
+   {
+       playmp3(songPreview, "Play");
+       PlayandPause.Source = new BitmapImage(new Uri(@"/Content\Pause.png", UriKind.Relative));
+       PlayandPause.ToolTip = "Play";
+   }
 
-        }
-        */
+}
+*/
     }
 }
