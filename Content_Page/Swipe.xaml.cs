@@ -264,13 +264,21 @@ namespace PartyHub.Content_Page
                 NextSongTrackPreview();
 
             }
-
+            
+            
             profileID = Profile.Id;
             TrackID = null;
             TrackID = Track.Id;
-
+            
         }
-
+        private void FulltrackLink(object sender, RoutedEventArgs e)
+        {
+            var spotifyOpen = "https://open.spotify.com/track/";
+            var TrackSpotifyLink = spotifyOpen + CurrentTrackDB.Id;
+            System.Diagnostics.Process.Start(TrackSpotifyLink);
+            // Tuple<ResponseInfo, string> createPlaylis1t = client.Download(builder.SaveTracks(), headers);
+            
+        }
         // If User Swipe right this function will load which will add liked track to the database.
         public void AddLikedTrackToDataBase(string userID)
         {
@@ -493,13 +501,14 @@ namespace PartyHub.Content_Page
             var Trackobj = JsonConvert.DeserializeObject<FullTrack>(Track.Item2);
             //AutoClosingMessageBox.Show("Track Liked!", "", 10);
             PrintTrackAsSwipe(Trackobj, Profileobj);
-            PlayPreview.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
             ContentUsercontrol.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
             PlayPreview.Focus();
             notliked.Visibility = Visibility.Hidden;
             liked.Visibility = Visibility.Hidden;
             partyhubPlaylist.Visibility = Visibility.Visible;
             UserPlaylist.Visibility = Visibility.Visible;
+            PlayPreview.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+
         }
         // Autoclosing messagebox for temporary uses. 
         public class AutoClosingMessageBox
@@ -554,6 +563,8 @@ namespace PartyHub.Content_Page
             this.KeepAlive = false;
             PlayandPause.Source = new BitmapImage(new Uri(@"/Content\Play.png", UriKind.Relative));
         }
+
+       
 
 
 

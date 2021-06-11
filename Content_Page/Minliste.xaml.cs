@@ -43,13 +43,10 @@ namespace PartyHub.Content_Page
             // Spotify User Objects.
             Tuple<ResponseInfo, string> Profile = client.Download(builder.GetPrivateProfile(), headers);
             var Profileobj = JsonConvert.DeserializeObject<PrivateProfile>(Profile.Item2);
-            // Get spotify track
-            Tuple<ResponseInfo, string> Track = client.Download(builder.GetTrack("3CVb6hkMrlF7eHhXi5B3PZ"), headers);
-            var Trackobj = JsonConvert.DeserializeObject<FullTrack>(Track.Item2);
-            getUserLikedTracks(Trackobj, Profileobj);
+            getUserLikedTracks(Profileobj);
 
         }
-        private void getUserLikedTracks(Spotify.Models.FullTrack Track, Spotify.Models.PrivateProfile User)
+        private void getUserLikedTracks(Spotify.Models.PrivateProfile User)
         {
 
             // Strings to help check if sql already exists and images.
@@ -67,7 +64,7 @@ namespace PartyHub.Content_Page
                 dataReader.Close();
 
                 // While loop will be ran until database items is available.
-                CmdString = "SELECT TrackID,TrackImage,TrackName,ArtistsName ,AlbumName ,TrackDuration,Bruger_SpotifyID FROM ProfileLikedTrack";
+                CmdString = $"SELECT TrackID,TrackImage,TrackName,ArtistsName ,AlbumName ,TrackDuration,Bruger_SpotifyID FROM ProfileLikedTrack WHERE Bruger_SpotifyID = '{User.Id}'";
 
                 SqlCommand cmd = new SqlCommand(CmdString, sqlAzureConnection);
 

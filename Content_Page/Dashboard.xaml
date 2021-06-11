@@ -181,7 +181,30 @@
 
             <Grid Grid.Row="2" Grid.Column="3" Margin="10" Opacity="0.7">
             <Border CornerRadius="12,12,12,12" BorderThickness="6" Padding="4" Background="#FF282828" >
-                
+                <Grid Grid.Row="0">
+
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                        <Ellipse Height="180" Width="180" HorizontalAlignment="Center" Margin="0,25,0,25" Stroke="Blue" StrokeThickness="0" >
+                            <Ellipse.Fill>
+                                <ImageBrush x:Name="userImage" ImageSource="/Content\Profile.png"></ImageBrush>
+                                
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <StackPanel VerticalAlignment="Center" >
+                            <TextBlock Text="Display Navn" Foreground="White"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" Opacity="0.9"></TextBlock>
+                            <TextBlock x:Name="UserDisplayNavn" Text="Display Navn" Foreground="White" HorizontalAlignment="Center" Margin="0,10,0,25" VerticalAlignment="Center" FontSize="39"  Opacity="1"></TextBlock>
+
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom"  >
+                                <TextBlock x:Name="ProfilePlaylist" Text=" User Playlist" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Opacity="0.6"></TextBlock>
+                                <TextBlock x:Name="Followers" Text=" Following" Foreground="White" Margin="22,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Opacity="0.9"></TextBlock>
+
+                            </StackPanel>
+                        </StackPanel>
+
+                    </StackPanel>
+
+                </Grid>
+
             </Border>
             </Grid>
     </Grid>

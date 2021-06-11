@@ -177,7 +177,6 @@ E:\P3 Projekt\PartyHub\obj\Debug\PartyHub.application
 E:\P3 Projekt\PartyHub\obj\Debug\PartyHub.csproj.CopyComplete
 E:\P3 Projekt\PartyHub\obj\Debug\PartyHub.exe
 E:\P3 Projekt\PartyHub\obj\Debug\PartyHub.pdb
-E:\P3 Projekt\PartyHub\obj\Debug\PartyHub.csprojAssemblyReference.cache
 C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\Microsoft.Data.Tools.Components.dll
 C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\Microsoft.Data.Tools.Schema.Sql.dll
 C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll

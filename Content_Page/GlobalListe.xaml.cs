@@ -47,7 +47,11 @@ namespace PartyHub.Content_Page
             //Profileobj is converted to json for easier uses. Profileobj Object is used to declare privateProfile API.
             var Profileobj = JsonConvert.DeserializeObject<PrivateProfile>(Profile.Item2);
             GlobalTop50.Visibility = Visibility.Hidden;
-            PrintPartyHubGlobalList();
+            partylistbtn.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            partylistbtn.Focus(); 
+           
+            
+            // PrintPartyHubGlobalList();
 
 
 
