@@ -232,3 +232,5 @@ C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\Content_Page\Dashboard.baml
 C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\Content_Page\LikedWindow.g.cs
 C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\Content_Page\LikedWindow.baml
 C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\PartyHub.csprojAssemblyReference.cache
+E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\LikedWindow.g.cs
+E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\LikedWindow.baml

@@ -111,6 +111,8 @@ namespace PartyHub.Content_Page
             // Strings to help check if sql already exists.
 
             string CheckSql = "";
+            string CmdString = string.Empty;
+            int maxRow = 100;
             List<Spotify.Models.FullTrack> LikedUserTracksList = new List<FullTrack>();
             // This will show likes from the databases.
             List<long> Likes = new List<long>();
@@ -122,42 +124,20 @@ namespace PartyHub.Content_Page
             CheckSql = $"SELECT TrackId,Likes FROM PartyhubGlobal order by  Likes  DESC";
             SqlCommand CommandCheck = new SqlCommand(CheckSql, sqlAzureConnection);
             dataReader = CommandCheck.ExecuteReader();
+            DataTable dt = new DataTable();
             if (dataReader.HasRows)
             {
                 // If database has row upcoming while loop will be ran.
-                int i = 0;
-                while (i < 50) {
-
-                    dataReader.Read();
-                    //Following codes will add tracks from database global and add to a new list then later add likes list to make one merged list which will be displayed.
-                     i++;
-                    GlobalListClass PartyHubTopList = new GlobalListClass();
-                    PartyHubTopList.Track = new List<FullTrack>();
-                    PartyHubTopList.Likes = new List<long>();
-                    var Track = dataReader.GetValue(0).ToString();
-                    long TrackLikes = (long)dataReader.GetValue(1);
-                    Tuple<ResponseInfo, string> TrackAPI = client.Download(builder.GetTrack(Track), headers);
-                    var Trackobj = JsonConvert.DeserializeObject<FullTrack>(TrackAPI.Item2);
-                    PartyHubTopList.Track.Add(Trackobj);
-                    PartyHubTopList.Likes.Add(TrackLikes);
-                    lst.Add(PartyHubTopList);
-
-                    // PartyHubTopList.Track.Add(Trackobj);
-                    //PartyHubTopList.Likes.Add(TrackLikes);
-
-                };
-                PartyHubTopListe.ItemsSource = lst;
-
-                /*
-                SqlDataAdapter data = new SqlDataAdapter(CheckSql, sqlAzureConnection) ;
-                DataTable FullTrack = new DataTable();
-                data.Fill(FullTrack);
-                MinListeGrid.ItemsSource = FullTrack.DefaultView;
-                */
                 dataReader.Close();
-                //
 
+                CmdString = "SELECT Top(50) TrackID,TrackImage,TrackName,ArtistsName ,AlbumName ,TrackDuration,Likes FROM PartyhubGlobal order by  Likes  DESC";
+                SqlCommand cmd = new SqlCommand(CmdString, sqlAzureConnection);
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                dt = new DataTable("PartyhubGlobal");
+                DataTable globalTable = new DataTable();
+                sda.Fill(dt);
 
+                PartyHubTopListe.ItemsSource = dt.DefaultView;
                 sqlAzureConnection.Close();
             }
         }
@@ -172,8 +152,8 @@ namespace PartyHub.Content_Page
             var button = (Button)VisualTreeHelper.GetChild(grid, 0);
             button.IsEnabled = false;
             button.Content = "#";
-           // button.Background = Brushes.Black;
-           button.Visibility = Visibility.Hidden;
+            // button.Background = Brushes.Black;
+            button.Visibility = Visibility.Hidden;
         }
 
     }

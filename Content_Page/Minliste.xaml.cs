@@ -54,6 +54,7 @@ namespace PartyHub.Content_Page
 
             // Strings to help check if sql already exists and images.
             string CheckSql = "";
+            string CmdString = string.Empty;
             List<Spotify.Models.FullTrack> LikedUserTracksList = new List<FullTrack>();
             // Database opening and making queries.
             sqlAzureConnection = new SqlConnection(connectionString);
@@ -63,18 +64,20 @@ namespace PartyHub.Content_Page
             dataReader = CommandCheck.ExecuteReader();
             if (dataReader.HasRows)
             {
-                // While loop will be ran until database items is available.
-                while (dataReader.Read())
-                {
-                    // User Swiped / Liked Tracks will be added and displayed on datagrid.
-                    var UserLikedTrack = dataReader.GetValue(0).ToString();
-                    Tuple<ResponseInfo, string> TrackAPI = client.Download(builder.GetTrack(UserLikedTrack), headers);
-                    var Trackobj = JsonConvert.DeserializeObject<FullTrack>(TrackAPI.Item2);
-                    LikedUserTracksList.Add(Trackobj);
+                dataReader.Close();
 
-                };
+                // While loop will be ran until database items is available.
+                CmdString = "SELECT TrackID,TrackImage,TrackName,ArtistsName ,AlbumName ,TrackDuration,Bruger_SpotifyID FROM ProfileLikedTrack";
+
+                SqlCommand cmd = new SqlCommand(CmdString, sqlAzureConnection);
+
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+
+                DataTable dt = new DataTable("ProfileLikedTrack");
+
+                sda.Fill(dt);
                 MinListeGrid.ItemsSource = null;
-                MinListeGrid.ItemsSource = LikedUserTracksList;
+                MinListeGrid.ItemsSource = dt.DefaultView;
                 /*
                 SqlDataAdapter data = new SqlDataAdapter(CheckSql, sqlAzureConnection) ;
                 DataTable FullTrack = new DataTable();
@@ -82,8 +85,8 @@ namespace PartyHub.Content_Page
                 MinListeGrid.ItemsSource = FullTrack.DefaultView;
                 */
                 // After executing query, we are closing connecting because we are not using it anymore and it is also good for the best practice.
-                dataReader.Close();
                 sqlAzureConnection.Close();
+                
             }
         }
         // When datagrid is loaded our data will received automated Number id.

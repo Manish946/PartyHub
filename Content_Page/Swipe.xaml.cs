@@ -54,6 +54,7 @@ namespace PartyHub.Content_Page
         // User current iD and current tracknumber.
         public string profileID = "";
         public string TrackID = "";
+        public FullTrack CurrentTrackDB;
         public int CurrentTrackNum;
         bool FirstRandom = true;
         public Swipe()
@@ -77,7 +78,8 @@ namespace PartyHub.Content_Page
                 PlayPreview.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
                 PlayPreview.Focus();
                 GlobalPlaylistText.Text = "Playing From Global Top Playlists";
-
+                UserPlaylist.Opacity = 0.6;
+                partyhubPlaylist.Opacity = 1;
             }
             // Volume of media to 70.
             player.settings.volume = 70;
@@ -97,40 +99,61 @@ namespace PartyHub.Content_Page
                 Tuple<ResponseInfo, string> ProfilePlaylist = client.Download(builder.GetUserPlaylists(Profileobj.Id), headers);
                 var ProfilePlaylistObj = JsonConvert.DeserializeObject<Paging<SimplePlaylist>>(ProfilePlaylist.Item2);
                 int Playlistnumber2 = random.Next(1, ProfilePlaylistObj.Items.Count - 1);
+                if (ProfilePlaylistObj.Items.Count <= 3)
+                {
+                    MessageBox.Show("NOT ENOUGH PLAYLISTS. ATLEAST MORE THAN 3 PLAYLISTS IS REQUIRED!");
 
-                if (Playlistnumber2 > ProfilePlaylistObj.Items.Count)
+                    CurrentTrack = "0zzVTGyRrWpQu8Fr28NRAv";
+                    UserplaylistBool = false;
+                    UserPlaylistText.Text = "User Playlists";
+                    GlobalPlaylistText.Text = "Playing From Global Top Playlists";
+                    UserPlaylist.Opacity = 0.6;
+                    partyhubPlaylist.Opacity = 1;
+                }
+                else
                 {
-                    Playlistnumber2 = random.Next(1, 20);
+
+                    if (Playlistnumber2 > ProfilePlaylistObj.Items.Count)
+                    {
+                        Playlistnumber2 = random.Next(1, ProfilePlaylistObj.Items.Count - 1);
+
+                    }
+                    // Get playlist Id from search object.
+                    var UserPlaylistId = ProfilePlaylistObj.Items[Playlistnumber2].Id;
+                    if (ProfilePlaylistObj.Items[Playlistnumber2].Tracks.Total > 50)
+                    {
+                        Playlistnumber2 = random.Next(1, ProfilePlaylistObj.Items.Count - 1);
+                        UserPlaylistId = ProfilePlaylistObj.Items[Playlistnumber2].Id;
+                    }
+                    if (ProfilePlaylistObj.Items[Playlistnumber2].Tracks.Total <= 0)
+                    {
+                        Playlistnumber2 = random.Next(1, ProfilePlaylistObj.Items.Count - 1);
+                        UserPlaylistId = ProfilePlaylistObj.Items[Playlistnumber2].Id;
+                    }
+                    //Converting Playlist Id to tracks of playlist.
+                    Tuple<ResponseInfo, string> PlaylistTop50 = client.Download(builder.GetPlaylistTracks(Profileobj.Id, UserPlaylistId), headers);
+                    var Playlistobj = JsonConvert.DeserializeObject<Paging<PlaylistTrack>>(PlaylistTop50.Item2);
+                    var playlistTrackstotal = Playlistobj.Items.Count;
+                    var playlistTracks = random.Next(1, playlistTrackstotal);
+                    //MessageBox.Show(playlistTracks.ToString());
+                    // Get random Track Number To print on Swipe function after swipe.
+
+                    if (playlistTracks >= playlistTrackstotal)
+                    {
+                        playlistTracks = random.Next(1, playlistTrackstotal);
+                    }
+                    if (playlistTracks <= 0)
+                    {
+                        playlistTracks = random.Next(1, playlistTrackstotal);
+                    }
+
+                    CurrentTrackNum = playlistTracks;
+                    // MessageBox.Show(Playlistobj.Total.ToString()+" "+ searchObj.Playlists.Items[Playlistnumber].Name +" "+ searchObj.Playlists.Items[Playlistnumber].Tracks.Total+" trackn : "+ CurrentTrackNum);
+                    Test();
+                    CurrentTrack = Playlistobj.Items[CurrentTrackNum].Track.Id;
+                    //MessageBox.Show("Playing from User Playlist");
 
                 }
-                // Get playlist Id from search object.
-                var UserPlaylistId = ProfilePlaylistObj.Items[Playlistnumber2].Id;
-                if (ProfilePlaylistObj.Items[Playlistnumber2].Tracks.Total > 50)
-                {
-                    Playlistnumber2 = random.Next(1, 20);
-                    UserPlaylistId = ProfilePlaylistObj.Items[Playlistnumber2].Id;
-                }
-                //Converting Playlist Id to tracks of playlist.
-                Tuple<ResponseInfo, string> PlaylistTop50 = client.Download(builder.GetPlaylistTracks(Profileobj.Id, UserPlaylistId), headers);
-                var Playlistobj = JsonConvert.DeserializeObject<Paging<PlaylistTrack>>(PlaylistTop50.Item2);
-                var playlistTracks = ProfilePlaylistObj.Items[Playlistnumber2].Tracks.Total;
-                //MessageBox.Show(playlistTracks.ToString());
-                // Get random Track Number To print on Swipe function after swipe.
-                if (playlistTracks >= 50)
-                {
-                    playlistTracks = random.Next(1, 49);
-                }
-                if (playlistTracks <= 0)
-                {
-                    playlistTracks = random.Next(1, 49);
-                }
-                int number = random.Next(0, playlistTracks - 1);
-                CurrentTrackNum = number;
-                // MessageBox.Show(Playlistobj.Total.ToString()+" "+ searchObj.Playlists.Items[Playlistnumber].Name +" "+ searchObj.Playlists.Items[Playlistnumber].Tracks.Total+" trackn : "+ CurrentTrackNum);
-                Test();
-                CurrentTrack = Playlistobj.Items[CurrentTrackNum].Track.Id;
-                //MessageBox.Show("Playing from User Playlist");
-
 
             }
             else
@@ -176,18 +199,21 @@ namespace PartyHub.Content_Page
         }
         private void partyhubPlaylistclick(object sender, RoutedEventArgs e)
         {
-           // NextSongTrackPreview();
+            // NextSongTrackPreview();
             UserplaylistBool = false;
             UserPlaylistText.Text = "User Playlists";
             GlobalPlaylistText.Text = "Playing From Global Top Playlists";
+            UserPlaylist.Opacity = 0.6;
+            partyhubPlaylist.Opacity = 1;
         }
         private void UserPlaylistclick(object sender, RoutedEventArgs e)
         {
-           // NextSongTrackPreview();
+            // NextSongTrackPreview();
             UserplaylistBool = true;
             UserPlaylistText.Text = "Playing From User Playlists";
             GlobalPlaylistText.Text = "Global Top Playlists";
-
+            UserPlaylist.Opacity = 1;
+            partyhubPlaylist.Opacity = 0.6;
         }
         void Start()
         {
@@ -213,6 +239,7 @@ namespace PartyHub.Content_Page
         {
 
             //New track
+            CurrentTrackDB = Track;
             TrackName.Text = Track.Name;
             if (Track.Name.Length >= 45)
             {
@@ -231,21 +258,21 @@ namespace PartyHub.Content_Page
             ArtistNameSmall.Text = Track.Artists[0].Name;
             songPreview = Track.PreviewUrl;
             // If song preview is not available , Random track again until preview song is available.
-            
-             if (songPreview == null)
-             {
-                 NextSongTrackPreview();
 
-             }
-            
+            if (songPreview == null)
+            {
+                NextSongTrackPreview();
+
+            }
+
             profileID = Profile.Id;
             TrackID = null;
             TrackID = Track.Id;
 
         }
-        
+
         // If User Swipe right this function will load which will add liked track to the database.
-        public void AddLikedTrackToDataBase(string trackId, string userID)
+        public void AddLikedTrackToDataBase(string userID)
         {
             string sql = "";
             string CheckSql = "";
@@ -253,7 +280,7 @@ namespace PartyHub.Content_Page
             sqlAzureConnection = new SqlConnection(connectionString);
             sqlAzureConnection.Open();
             // Checks if database already exists.
-            CheckSql = $"select TrackID,Bruger_SpotifyID from ProfileLikedTrack WHERE TrackID  = '{trackId}' AND Bruger_SpotifyID = '{userID}'";
+            CheckSql = $"select TrackID,Bruger_SpotifyID from ProfileLikedTrack WHERE TrackID  = '{CurrentTrackDB.Id}' AND Bruger_SpotifyID = '{userID}'";
             SqlCommand CommandCheck = new SqlCommand(CheckSql, sqlAzureConnection);
             dataReader = CommandCheck.ExecuteReader();
             if (!dataReader.HasRows)
@@ -261,18 +288,25 @@ namespace PartyHub.Content_Page
                 // Closes datareader before using insertcommand from adapter.
                 dataReader.Close();
                 // Inserts tracks to database.
-                sql = $"insert into ProfileLikedTrack (TrackID,Bruger_SpotifyID) values('{trackId}','{userID}');";
-                Command = new SqlCommand(sql, sqlAzureConnection);
-                adapter.InsertCommand = new SqlCommand(sql, sqlAzureConnection);
+
+                adapter.InsertCommand = new SqlCommand("INSERT INTO ProfileLikedTrack (TrackID,TrackImage,TrackName,ArtistsName ,AlbumName ,TrackDuration,Bruger_SpotifyID) values (@ID, @Image, @Name, @ArtistsName, @AlbumName, @Duration, @UserID)", sqlAzureConnection);
+
+                adapter.InsertCommand.Parameters.Add(new SqlParameter("@ID", CurrentTrackDB.Id));
+                adapter.InsertCommand.Parameters.Add(new SqlParameter("@Image", CurrentTrackDB.Album.UrlImage));
+                adapter.InsertCommand.Parameters.Add(new SqlParameter("@Name", CurrentTrackDB.Name));
+                adapter.InsertCommand.Parameters.Add(new SqlParameter("@ArtistsName", CurrentTrackDB.Artists[0].Name));
+                adapter.InsertCommand.Parameters.Add(new SqlParameter("@AlbumName", CurrentTrackDB.Album.Name));
+                adapter.InsertCommand.Parameters.Add(new SqlParameter("@Duration", CurrentTrackDB.GetDuration));
+                adapter.InsertCommand.Parameters.Add(new SqlParameter("@UserID", userID));
                 adapter.InsertCommand.ExecuteNonQuery();
+                adapter.InsertCommand.Dispose();
                 //Closes database connections.
-                Command.Dispose();
                 sqlAzureConnection.Close();
             }
 
         }
         // Tracks is also added to global if it already does not exists.
-        private void AddTrackToGlobal(string trackId)
+        private void AddTrackToGlobal()
         {
             // Checks if track is already liked by someone and if it is then adds +1 Likes to it otherwise adds tracks to the database and +1 likes from user.
             string sql = "";
@@ -280,7 +314,7 @@ namespace PartyHub.Content_Page
             // opens connections.
             sqlAzureConnection = new SqlConnection(connectionString);
             sqlAzureConnection.Open();
-            CheckSql = $"SELECT TrackId,Likes from partyhubGlobal WHERE TrackId = '{trackId}'";
+            CheckSql = $"SELECT TrackId,Likes from partyhubGlobal WHERE TrackId = '{CurrentTrackDB.Id}'";
             SqlCommand CommandCheck = new SqlCommand(CheckSql, sqlAzureConnection);
             dataReader = CommandCheck.ExecuteReader();
             // Runs until datareader is availabel.
@@ -291,7 +325,7 @@ namespace PartyHub.Content_Page
                 long likes = (long)dataReader.GetValue(1) + 1;
                 string updatedlike = likes.ToString();
                 long testlike = Int64.Parse(updatedlike);
-                sql = $"UPDATE PartyHubGlobal Set Likes = '{testlike}' where TrackId = '{trackId}'";
+                sql = $"UPDATE PartyHubGlobal Set Likes = '{testlike}' where TrackId = '{CurrentTrackDB.Id}'";
                 // After updating sends data to sql database and closes datareader and all the connections.
                 Command = new SqlCommand(sql, sqlAzureConnection);
                 adapter.InsertCommand = new SqlCommand(sql, sqlAzureConnection);
@@ -306,11 +340,19 @@ namespace PartyHub.Content_Page
             {
                 // Else adds track to global data table and adds user +1 like.
                 dataReader.Close();
-                sql = $"INSERT INTO partyhubGlobal (TrackId,Likes) values ('{trackId}',1);";
-                Command = new SqlCommand(sql, sqlAzureConnection);
-                adapter.InsertCommand = new SqlCommand(sql, sqlAzureConnection);
+                long likes = 1;
+
+                adapter.InsertCommand = new SqlCommand("INSERT INTO partyhubGlobal (TrackID,TrackImage,TrackName,ArtistsName ,AlbumName ,TrackDuration,Likes) values (@ID, @Image, @Name, @ArtistsName, @AlbumName, @Duration, @Likes)", sqlAzureConnection);
+                adapter.InsertCommand.Parameters.Add(new SqlParameter("@ID", CurrentTrackDB.Id));
+                adapter.InsertCommand.Parameters.Add(new SqlParameter("@Image", CurrentTrackDB.Album.UrlImage));
+                adapter.InsertCommand.Parameters.Add(new SqlParameter("@Name", CurrentTrackDB.Name));
+                adapter.InsertCommand.Parameters.Add(new SqlParameter("@ArtistsName", CurrentTrackDB.Artists[0].Name));
+                adapter.InsertCommand.Parameters.Add(new SqlParameter("@AlbumName", CurrentTrackDB.Album.Name));
+                adapter.InsertCommand.Parameters.Add(new SqlParameter("@Duration", CurrentTrackDB.GetDuration));
+                adapter.InsertCommand.Parameters.Add(new SqlParameter("@Likes", likes));
+
                 adapter.InsertCommand.ExecuteNonQuery();
-                Command.Dispose();
+                adapter.InsertCommand.Dispose();
                 sqlAzureConnection.Close();
             }
         }
@@ -358,9 +400,11 @@ namespace PartyHub.Content_Page
         {
             _positionInBlock = Mouse.GetPosition(ContentUsercontrol);
             ContentUsercontrol.CaptureMouse();
-          //  ContentUsercontrol.Opacity = 0.7;
+            //  ContentUsercontrol.Opacity = 0.7;
             notliked.Visibility = Visibility.Visible;
             liked.Visibility = Visibility.Visible;
+            partyhubPlaylist.Visibility = Visibility.Hidden;
+            UserPlaylist.Visibility = Visibility.Hidden;
         }
 
         // Image converter.
@@ -380,18 +424,8 @@ namespace PartyHub.Content_Page
                 // This is where User swipes to Left. It is check if Swipe content is dragging to +60 X-axis value.
                 if (ContentUsercontrol.RenderTransform.Value.OffsetX <= (ContentGrid.ActualWidth * -1) + 60)
                 {
-                    /*
-                    liked.Visibility = Visibility.Hidden;
-                    if (notliked.Visibility == Visibility.Hidden)
-                    {
-                        notliked.Visibility = Visibility.Visible;
-                    }
-                    else
-                    {
-                        notliked.Visibility = Visibility.Visible;
 
-                    }
-                    */
+
                     // If it x-axis value meets then this code will run which will stop the song and call next Track to Swipe.
                     FirstRandom = false;
                     ContentUsercontrol.RenderTransform = new TranslateTransform(mousePosition.X - _positionInBlock.X, 0);
@@ -404,32 +438,26 @@ namespace PartyHub.Content_Page
                     //Thread.Sleep(200);
 
                     //MessageBox.Show("TRACK NOT LIKED!");
-                    AutoClosingMessageBox.Show("Track Not Liked!", "", 03);
+                    //AutoClosingMessageBox.Show("Track Not Liked!", "", 03);
                     NextSongTrackPreview();
-                    
+                    ContentUsercontrol.ReleaseMouseCapture();
+                   
                 }
                 // This is where User swipes to Right. It is check if Swipe content is dragging to +60 X-axis value.
 
                 else if (ContentUsercontrol.RenderTransform.Value.OffsetX >= ContentGrid.ActualWidth - 40)
                 {
-                    
-                     
-                      /*
-                    notliked.Visibility = Visibility.Hidden;
-                    if (liked.Visibility == Visibility.Hidden)
-                    {
-                        liked.Visibility = Visibility.Visible;
-                    }                    
-                    */
+
+
                     // If it x-axis value meets then this code will run which will stop the song and call next Track to Swipe.
-                    AddTrackToGlobal(TrackID);
+                    AddTrackToGlobal();
                     FirstRandom = false;
                     ContentUsercontrol.RenderTransform = new TranslateTransform(mousePosition.X - _positionInBlock.X, 0);
                     playmp3(songPreview, "Stop");
                     PlayandPause.Source = new BitmapImage(new Uri(@"/Content\Play.png", UriKind.Relative));
 
                     ContentUsercontrol.RenderTransform = new TranslateTransform(0, 0);
-                    AddLikedTrackToDataBase(TrackID, profileID);
+                    AddLikedTrackToDataBase(profileID);
                     //
                     // Stupid Error fixing with stupid Solution. Might delete Later. Cause of +1 becoming +2 while liking a track.
                     //AutoClosingMessageBox.Show("Track Liked!","",10);
@@ -438,10 +466,12 @@ namespace PartyHub.Content_Page
                     //Play next Song.
                     // MessageBox.Show("TRACK LIKED!");
                     // Thread.Sleep(200);
-                    AutoClosingMessageBox.Show("Track Liked!", "", 03);
+                    //  AutoClosingMessageBox.Show("Track Liked!", "", 03);
 
                     NextSongTrackPreview();
-                    
+                    ContentUsercontrol.ReleaseMouseCapture();
+
+
                     // Thread.Sleep(1000);
 
 
@@ -462,12 +492,14 @@ namespace PartyHub.Content_Page
             Tuple<ResponseInfo, string> Track = client.Download(builder.GetTrack(CurrentTrack), headers);
             var Trackobj = JsonConvert.DeserializeObject<FullTrack>(Track.Item2);
             //AutoClosingMessageBox.Show("Track Liked!", "", 10);
-
-                PrintTrackAsSwipe(Trackobj, Profileobj);
+            PrintTrackAsSwipe(Trackobj, Profileobj);
             PlayPreview.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            ContentUsercontrol.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
             PlayPreview.Focus();
-
-
+            notliked.Visibility = Visibility.Hidden;
+            liked.Visibility = Visibility.Hidden;
+            partyhubPlaylist.Visibility = Visibility.Visible;
+            UserPlaylist.Visibility = Visibility.Visible;
         }
         // Autoclosing messagebox for temporary uses. 
         public class AutoClosingMessageBox
@@ -510,8 +542,10 @@ namespace PartyHub.Content_Page
             ContentUsercontrol.RenderTransform = new TranslateTransform(0, 0);
             notliked.Visibility = Visibility.Hidden;
             liked.Visibility = Visibility.Hidden;
-           // FocusManager.SetFocusedElement(FocusManager.GetFocusScope(ContentUsercontrol), null);
-           // Keyboard.ClearFocus();
+            partyhubPlaylist.Visibility = Visibility.Visible;
+            UserPlaylist.Visibility = Visibility.Visible;
+            // FocusManager.SetFocusedElement(FocusManager.GetFocusScope(ContentUsercontrol), null);
+            // Keyboard.ClearFocus();
         }
         // When user goes to another frame or loses focus from content then music will be stopped.
         private void lostPageFocus(object sender, RoutedEventArgs e)

@@ -269,12 +269,12 @@
                     <DataGridTemplateColumn Header="" Width="120" IsReadOnly="True"  >
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Image Width="120" Height="120" x:Name="ImageTemp" Source="{Binding Track[0].Album.UrlImage}" ></Image>
+                                <Image Width="120" Height="120" x:Name="ImageTemp" Source="{Binding TrackImage}" ></Image>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
 
-                    <DataGridTextColumn  Header="TITLE" Width="450" Binding="{Binding Track[0].Name}" IsReadOnly="True"  Foreground="White">
+                    <DataGridTextColumn  Header="TITLE" Width="450" Binding="{Binding TrackName}" IsReadOnly="True"  Foreground="White">
 
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="TextBlock">
@@ -285,7 +285,7 @@
                         </DataGridTextColumn.ElementStyle>
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn  Header="ARTIST" Width="*" Binding="{Binding Track[0].Artists[0].Name}" IsReadOnly="True"   Foreground="White">
+                    <DataGridTextColumn  Header="ARTIST" Width="*" Binding="{Binding ArtistsName}" IsReadOnly="True"   Foreground="White">
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="TextBlock">
                                 <Setter Property="TextAlignment" Value="Center"></Setter>
@@ -294,7 +294,7 @@
                             </Style>
                         </DataGridTextColumn.ElementStyle>
                     </DataGridTextColumn>
-                    <DataGridTextColumn  Header="LIKES" Width="*" Binding="{Binding Likes[0]}" IsReadOnly="True" SortDirection="Ascending" Foreground="White">
+                    <DataGridTextColumn  Header="LIKES" Width="*" Binding="{Binding Likes}" IsReadOnly="True" SortDirection="Ascending" Foreground="White">
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="TextBlock">
                                 <Setter Property="TextAlignment" Value="Center"></Setter>
@@ -304,7 +304,7 @@
                         </DataGridTextColumn.ElementStyle>
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="DURATION" Width="*" Binding="{Binding Track[0].GetDuration}" IsReadOnly="True"  Foreground="White">
+                    <DataGridTextColumn Header="DURATION" Width="*" Binding="{Binding TrackDuration}" IsReadOnly="True"  Foreground="White">
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="TextBlock">
                                 <Setter Property="TextAlignment" Value="Center"></Setter>
