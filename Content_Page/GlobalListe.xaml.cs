@@ -116,7 +116,6 @@ namespace PartyHub.Content_Page
 
             string CheckSql = "";
             string CmdString = string.Empty;
-            int maxRow = 100;
             List<Spotify.Models.FullTrack> LikedUserTracksList = new List<FullTrack>();
             // This will show likes from the databases.
             List<long> Likes = new List<long>();

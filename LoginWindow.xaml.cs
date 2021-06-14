@@ -56,7 +56,7 @@ namespace PartyHub
                 Application.Current.Dispatcher.Invoke((Action)delegate
                 {
                     // Here we have gotten auth code from redirecturi and have stopped the Http Server.
-                    auth.StopHttpServer();
+                    //auth.StopHttpServer();
                     // Token is received.
                     Token a = auth.ExchangeAuthCode(SpotifyLogin.GrantCode, SpotifyLogin.GetClient_Secret);
                     headers.Add("Authorization", "Bearer " + a.AccessToken);
@@ -66,18 +66,21 @@ namespace PartyHub
                         SpotifyLogin.AccessToken = a.AccessToken;
                         SpotifyLogin.RefreshToken = a.RefreshToken;
                         MainWindow main = new MainWindow();
+                        
                         main.Show();
+                        auth.StopHttpServer();
+
                         this.Visibility = Visibility.Hidden;
                         main.WindowState = WindowState.Normal;
                         // This code will make our main PartyHub window active and will be launched after spotify is logged in.
+
                         if (main.WindowState == WindowState.Normal)
                         {
                             main.Focus();
                             main.Activate();
                         }
 
-                        
-                        
+
 
                     }
                 });

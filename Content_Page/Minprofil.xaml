@@ -51,10 +51,59 @@
             </Grid>
         </Border>
 
-        <Grid Grid.Row="1" >
+        <Grid Grid.Row="1" Grid.RowSpan="2">
+            <StackPanel>
+                <Label Foreground="White" FontSize="25" HorizontalAlignment="Center" Content="Recently Played Playlists"></Label>
+                
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    
+                        <Grid Grid.Column="0"  Margin="10" Background="#FF2A2A2A">
+                            <StackPanel HorizontalAlignment="Center" Margin="10" >
+                                <Ellipse Height="250" Width="250" HorizontalAlignment="Center" >
+                                    <Ellipse.Fill>
+                                        <ImageBrush x:Name="playlistImage1" ></ImageBrush>
 
-        </Grid>
-        <Grid Grid.Row="2">
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                                <TextBlock Text="Playlist Not Available" HorizontalAlignment="Center" Foreground="White" FontSize="28" x:Name="PlaylistName1"></TextBlock>
+                                <TextBlock Text="PlaylistFollowers" HorizontalAlignment="Center"  Foreground="Gray" FontSize="24" x:Name="PlaylistFollowers1"></TextBlock>
+                            </StackPanel>
+                        </Grid>
+
+                    <Grid Grid.Column="1" Margin="10" Background="#FF2A2A2A">
+                            <StackPanel HorizontalAlignment="Center" Margin="10" >
+                                <Ellipse Height="250" Width="250" HorizontalAlignment="Center" >
+                                    <Ellipse.Fill>
+                                        <ImageBrush x:Name="playlistImage2" ></ImageBrush>
+
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                                <TextBlock Text="Playlist Not Available" HorizontalAlignment="Center" Foreground="White" FontSize="28" x:Name="PlaylistName2"></TextBlock>
+                                <TextBlock Text="PlaylistFollowers" HorizontalAlignment="Center"  Foreground="Gray" FontSize="24" x:Name="PlaylistFollowers2"></TextBlock>
+                            </StackPanel>
+                        </Grid>
+
+                    <Grid Grid.Column="2" Margin="10" Background="#FF2A2A2A">
+                            <StackPanel HorizontalAlignment="Center" Margin="10" >
+                                <Ellipse Height="250" Width="250" HorizontalAlignment="Center" >
+                                    <Ellipse.Fill>
+                                        <ImageBrush x:Name="playlistImage3" ></ImageBrush>
+
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                                <TextBlock Text="Playlist Not Available" HorizontalAlignment="Center" Foreground="White" FontSize="28" x:Name="PlaylistName3"></TextBlock>
+                                <TextBlock Text="PlaylistFollowers" HorizontalAlignment="Center"  Foreground="Gray" FontSize="24" x:Name="PlaylistFollowers3"></TextBlock>
+                            </StackPanel>
+                        </Grid>
+                </Grid>
+                    
+                    
+            </StackPanel>
 
         </Grid>
 

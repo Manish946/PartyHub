@@ -282,8 +282,7 @@ namespace PartyHub.Content_Page
         // If User Swipe right this function will load which will add liked track to the database.
         public void AddLikedTrackToDataBase(string userID)
         {
-            string sql = "";
-            string CheckSql = "";
+            string CheckSql;
             // Opens new connection for database to add track.
             sqlAzureConnection = new SqlConnection(connectionString);
             sqlAzureConnection.Open();

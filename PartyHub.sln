@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PartyHub", "PartyHub.csproj", "{FF3C080D-573A-4EBA-9D99-FDA3DDD1498B}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Party Hub Installation", "..\Party Hub Installation\Party Hub Installation.vdproj", "{4D803C5D-D554-4A01-9CAB-3BA0B3B2ABCA}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Party Hub", "..\Party Hub\Party Hub.vdproj", "{30EE4A1B-75D7-43E7-B664-7FC49EC785A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,9 +17,8 @@ Global
 		{FF3C080D-573A-4EBA-9D99-FDA3DDD1498B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF3C080D-573A-4EBA-9D99-FDA3DDD1498B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF3C080D-573A-4EBA-9D99-FDA3DDD1498B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4D803C5D-D554-4A01-9CAB-3BA0B3B2ABCA}.Debug|Any CPU.ActiveCfg = Release
-		{4D803C5D-D554-4A01-9CAB-3BA0B3B2ABCA}.Debug|Any CPU.Build.0 = Release
-		{4D803C5D-D554-4A01-9CAB-3BA0B3B2ABCA}.Release|Any CPU.ActiveCfg = Release
+		{30EE4A1B-75D7-43E7-B664-7FC49EC785A4}.Debug|Any CPU.ActiveCfg = Release
+		{30EE4A1B-75D7-43E7-B664-7FC49EC785A4}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

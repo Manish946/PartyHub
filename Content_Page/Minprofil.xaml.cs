@@ -62,6 +62,17 @@ namespace PartyHub.Content_Page
                 userImage.ImageSource = GetImage(User.Images[0].Url);
             }
 
+            //First Playlist
+            playlistImage1.ImageSource = GetImage(UserPlaylist.Items[0].UrlImage);
+            PlaylistName1.Text = UserPlaylist.Items[0].Name;
+            PlaylistFollowers1.Text = UserPlaylist.Items[0].Tracks.Total.ToString() + " Tracks";
+            playlistImage2.ImageSource = GetImage(UserPlaylist.Items[1].UrlImage);
+            PlaylistName2.Text = UserPlaylist.Items[1].Name;
+            PlaylistFollowers2.Text = UserPlaylist.Items[1].Tracks.Total.ToString() + " Tracks";
+            playlistImage3.ImageSource = GetImage(UserPlaylist.Items[2].UrlImage);
+            PlaylistName3.Text = UserPlaylist.Items[2].Name;
+            PlaylistFollowers3.Text = UserPlaylist.Items[2].Tracks.Total.ToString() + " Tracks";
+
         }
 
     }
