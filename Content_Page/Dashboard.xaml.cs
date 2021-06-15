@@ -96,6 +96,14 @@ namespace PartyHub.Content_Page
         {
             return BitmapFrame.Create(new Uri(Link));
         }
+
+        private void demoClick(object sender, RoutedEventArgs e)
+        {
+            swipeDemo.Height = demobtn.Height;
+            demobtn.Background = Brushes.Transparent;
+            swipeDemo.Visibility = Visibility.Visible;
+            stacktext.Visibility = Visibility.Collapsed;
+        }
     }
 
 }
