@@ -32,14 +32,9 @@ C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\SpotifyAPI.Web.xml
 C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\Swan.Lite.xml
 C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\System.ValueTuple.xml
 C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\FontawsomeResources.baml
-C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\Content_Page\CreatePartyWindow.g.cs
-C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\Content_Page\Dashboard.g.cs
 C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\Content_Page\GlobalListe.g.cs
-C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\Content_Page\Indstillinger.g.cs
-C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\Content_Page\JoinPartyWindow.g.cs
 C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\Content_Page\Minliste.g.cs
 C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\Content_Page\Minprofil.g.cs
-C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\Content_Page\Party.g.cs
 C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\Content_Page\Swipe.g.cs
 C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\Content_Page\UserLogin.g.cs
 C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\LoginWindow.g.cs
@@ -50,14 +45,9 @@ C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\GeneratedInternalTypeHelper.g.c
 C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\PartyHub_MarkupCompile.cache
 C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\PartyHub_MarkupCompile.lref
 C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\App.baml
-C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\Content_Page\CreatePartyWindow.baml
-C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\Content_Page\Dashboard.baml
 C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\Content_Page\GlobalListe.baml
-C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\Content_Page\Indstillinger.baml
-C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\Content_Page\JoinPartyWindow.baml
 C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\Content_Page\Minliste.baml
 C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\Content_Page\Minprofil.baml
-C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\Content_Page\Party.baml
 C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\Content_Page\Swipe.baml
 C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\Content_Page\UserLogin.baml
 C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\LoginWindow.baml
@@ -75,14 +65,10 @@ E:\P3 Projekt\PartyHub\obj\Debug\PartyHub.exe.config
 E:\P3 Projekt\PartyHub\obj\Debug\Interop.WMPLib.dll
 E:\P3 Projekt\PartyHub\obj\Debug\PartyHub.csproj.ResolveComReference.cache
 E:\P3 Projekt\PartyHub\obj\Debug\FontawsomeResources.baml
-E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\CreatePartyWindow.g.cs
 E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\Dashboard.g.cs
 E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\GlobalListe.g.cs
-E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\Indstillinger.g.cs
-E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\JoinPartyWindow.g.cs
 E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\Minliste.g.cs
 E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\Minprofil.g.cs
-E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\Party.g.cs
 E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\Swipe.g.cs
 E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\UserLogin.g.cs
 E:\P3 Projekt\PartyHub\obj\Debug\LoginWindow.g.cs
@@ -173,16 +159,11 @@ E:\P3 Projekt\PartyHub\bin\Debug\ru\Microsoft.Build.resources.dll
 E:\P3 Projekt\PartyHub\bin\Debug\tr\Microsoft.Build.resources.dll
 E:\P3 Projekt\PartyHub\bin\Debug\zh-Hans\Microsoft.Build.resources.dll
 E:\P3 Projekt\PartyHub\bin\Debug\zh-Hant\Microsoft.Build.resources.dll
-E:\P3 Projekt\PartyHub\obj\Debug\PartyHub.csprojAssemblyReference.cache
 E:\P3 Projekt\PartyHub\obj\Debug\App.baml
-E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\CreatePartyWindow.baml
 E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\Dashboard.baml
 E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\GlobalListe.baml
-E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\Indstillinger.baml
-E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\JoinPartyWindow.baml
 E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\Minliste.baml
 E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\Minprofil.baml
-E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\Party.baml
 E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\Swipe.baml
 E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\UserLogin.baml
 E:\P3 Projekt\PartyHub\obj\Debug\LoginWindow.baml
@@ -196,3 +177,62 @@ E:\P3 Projekt\PartyHub\obj\Debug\PartyHub.application
 E:\P3 Projekt\PartyHub\obj\Debug\PartyHub.csproj.CopyComplete
 E:\P3 Projekt\PartyHub\obj\Debug\PartyHub.exe
 E:\P3 Projekt\PartyHub\obj\Debug\PartyHub.pdb
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\Microsoft.Data.Tools.Components.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\Microsoft.Data.Tools.Schema.Sql.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\Microsoft.Win32.Registry.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\NAudio.Asio.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\NAudio.Core.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\NAudio.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\NAudio.Midi.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\NAudio.Wasapi.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\NAudio.WinForms.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\NAudio.WinMM.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\System.Security.AccessControl.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\Microsoft.Data.Tools.Utilities.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\Microsoft.Build.Framework.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\Microsoft.SqlServer.TransactSql.ScriptDom.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\Microsoft.Build.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\System.Collections.Immutable.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\System.Text.Json.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\System.Memory.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\System.Threading.Tasks.Dataflow.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\Microsoft.Win32.Registry.xml
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\NAudio.xml
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\System.Security.AccessControl.xml
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\cs\Microsoft.Build.resources.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\de\Microsoft.Build.resources.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\en\Microsoft.Build.resources.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\es\Microsoft.Build.resources.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\fr\Microsoft.Build.resources.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\it\Microsoft.Build.resources.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\ja\Microsoft.Build.resources.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\ko\Microsoft.Build.resources.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\pl\Microsoft.Build.resources.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\pt-BR\Microsoft.Build.resources.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\ru\Microsoft.Build.resources.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\tr\Microsoft.Build.resources.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\zh-Hans\Microsoft.Build.resources.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\zh-Hant\Microsoft.Build.resources.dll
+C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\PartyHub.exe.config
+C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\Interop.WMPLib.dll
+C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\PartyHub.csproj.ResolveComReference.cache
+C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\Content_Page\Dashboard.g.cs
+C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\Content_Page\Dashboard.baml
+C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\Content_Page\LikedWindow.g.cs
+C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\Content_Page\LikedWindow.baml
+E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\LikedWindow.g.cs
+E:\P3 Projekt\PartyHub\obj\Debug\Content_Page\LikedWindow.baml
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\WpfAnimatedGif.dll
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\WpfAnimatedGif.pdb
+C:\Users\msh\Documents\GitHub\PartyHub\bin\Debug\WpfAnimatedGif.xml
+C:\Users\msh\Documents\GitHub\PartyHub\obj\Debug\PartyHub.csprojAssemblyReference.cache
