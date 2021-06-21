@@ -384,6 +384,7 @@
 
 
         <Grid Grid.Column="2" Grid.Row="1" Background="Transparent">
+            
             <Border CornerRadius="12,12,12,12" BorderThickness="6" Padding="4" Background="#FF171717">
                 <Frame x:Name="Frame_Partyhub" NavigationUIVisibility="Hidden"  x:FieldModifier="public" >
                 </Frame>
