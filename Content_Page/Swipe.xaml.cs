@@ -175,6 +175,12 @@ namespace PartyHub.Content_Page
                     Playlistnumber = random.Next(1, 20);
                     PlaylistId = searchObj.Playlists.Items[Playlistnumber].Id;
                 }
+                if (searchObj.Playlists.Items[Playlistnumber].Tracks.Total <= 5)
+                {
+                    Playlistnumber = random.Next(1, 20);
+                    
+                    PlaylistId = searchObj.Playlists.Items[Playlistnumber].Id;
+                }
                 //Converting Playlist Id to tracks of playlist.
                 Tuple<ResponseInfo, string> PlaylistTop50 = client.Download(builder.GetPlaylistTracks(Profileobj.Id, PlaylistId), headers);
                 var Playlistobj = JsonConvert.DeserializeObject<Paging<PlaylistTrack>>(PlaylistTop50.Item2);

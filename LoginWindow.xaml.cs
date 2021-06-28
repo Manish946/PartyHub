@@ -108,9 +108,9 @@ namespace PartyHub
         // Spotify Login Class where User information and tokens are stored. We can use it later to call API.
         public class SpotifyLogin
         {
-            public static string GetClient_Id { get; } = "XXXXXXXX";
+            public static string GetClient_Id { get; } = "xxxxxxxxxxxxxxxxxxxxxxx";
 
-            public static string GetClient_Secret { get; } = "XXXXXXXXX";
+            public static string GetClient_Secret { get; } = "xxxxxxxxxxxxxxxxxxxxxx";
 
             public static string GetRedirect_Uri { get; } = "http://localhost:80";
 
