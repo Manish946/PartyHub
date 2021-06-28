@@ -15,6 +15,7 @@ using System.Globalization;
 using System.Data;
 using System.Windows.Input;
 using System.Net;
+using System.Data.SqlClient;
 
 namespace PartyHub.Content_Page
 {
@@ -23,31 +24,50 @@ namespace PartyHub.Content_Page
     /// </summary>
     public partial class GlobalListe : Page
     {
+
+        //After receving token now we can Spotify API in our window Application.
         Dictionary<string, string> headers = new Dictionary<string, string>();
+        // Setting Client and builder to call Spotify API.
         SpotifyWebClient client = new SpotifyWebClient();
         SpotifyWebBuilder builder = new SpotifyWebBuilder();
+        //Add Track To user Profile if Liked. From Database
+        private string connectionString = @"Server=tcp:partyhubserver.database.windows.net,1433;Initial Catalog=Partyhub_Database;Persist Security Info=False;User ID=partyhublogin;Password=Passw0rd;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        SqlConnection sqlAzureConnection;
+        SqlDataReader dataReader;
+        public string profileID = "";
+        public string TrackID = "";
+
         public GlobalListe()
         {
             InitializeComponent();
+            //Headers is being added and builder is ready to use.
             headers.Add("Authorization", "Bearer " + LoginWindow.SpotifyLogin.AccessToken);
+            // Calling PrivateProfile Objects from Spotify.
             Tuple<ResponseInfo, string> Profile = client.Download(builder.GetPrivateProfile(), headers);
+            //Profileobj is converted to json for easier uses. Profileobj Object is used to declare privateProfile API.
             var Profileobj = JsonConvert.DeserializeObject<PrivateProfile>(Profile.Item2);
-            string TopGlobalString = "37i9dQZEVXbMDoHDwVN2tF";
-            Tuple<ResponseInfo, string> PlaylistGlobal50 = client.Download(builder.GetPlaylistTracks(Profileobj.Id, TopGlobalString), headers);
-            var Playlistobj = JsonConvert.DeserializeObject<Paging<PlaylistTrack>>(PlaylistGlobal50.Item2);
-            GlobalTop50.ItemsSource = null;
-            GlobalTop50.ItemsSource = Playlistobj.Items;
+            GlobalTop50.Visibility = Visibility.Hidden;
+            partylistbtn.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            partylistbtn.Focus(); 
+           
+            
+            // PrintPartyHubGlobalList();
+
+
+
             //var image = Playlistobj2.Track.Popularit
             //GetImage(obj.Images[0].Url);
             // MessageBox.Show(image);
-            
+
 
         }
+        // Converts images link to bitmapFrame for WPF image uses.
         public ImageSource GetImage(string Link)
         {
             return BitmapFrame.Create(new Uri(Link));
         }
 
+        // Image converter.
         [ValueConversion(typeof(string), typeof(BitmapImage))]
         public class ImageConverter : IValueConverter
         {
@@ -65,39 +85,91 @@ namespace PartyHub.Content_Page
 
 
         }
-
+        // This Button will load top 50 tracks from Spotify playlist.
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            // this will hide previous list and load new.
+            PartyHubTopListe.Visibility = Visibility.Hidden;
+            GlobalTop50.Visibility = Visibility.Visible;
+            // Calling PrivateProfile Objects from Spotify.
             Tuple<ResponseInfo, string> Profile = client.Download(builder.GetPrivateProfile(), headers);
             var Profileobj = JsonConvert.DeserializeObject<PrivateProfile>(Profile.Item2);
+            // Top50 Playlist Id is being used and converted to json. We are using tracks to show as datagrid in our window.
             string TopGlobalString = "37i9dQZEVXbMDoHDwVN2tF";
             Tuple<ResponseInfo, string> PlaylistGlobal50 = client.Download(builder.GetPlaylistTracks(Profileobj.Id, TopGlobalString), headers);
             var Playlistobj = JsonConvert.DeserializeObject<Paging<PlaylistTrack>>(PlaylistGlobal50.Item2);
             GlobalTop50.ItemsSource = null;
             GlobalTop50.ItemsSource = Playlistobj.Items;
         }
+        // This Button will load top 50 tracks from PartyHub Global 50.
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Tuple<ResponseInfo, string> Profile = client.Download(builder.GetPrivateProfile(), headers);
-            var Profileobj = JsonConvert.DeserializeObject<PrivateProfile>(Profile.Item2);
-            string PartyHub = "37i9dQZEVXbLiRSasKsNU9";
-            Tuple<ResponseInfo, string> PlaylistPartyHub = client.Download(builder.GetPlaylistTracks(Profileobj.Id, PartyHub), headers);
-            var Playlistobj2 = JsonConvert.DeserializeObject<Paging<PlaylistTrack>>(PlaylistPartyHub.Item2);
-            GlobalTop50.ItemsSource = null;
-            GlobalTop50.ItemsSource = Playlistobj2.Items;
+            // this will hide previous list and load new.
+            PartyHubTopListe.Visibility = Visibility.Visible;
+            GlobalTop50.Visibility = Visibility.Hidden;
+            PrintPartyHubGlobalList();
         }
+        private void PrintPartyHubGlobalList()
+        {
+            // Strings to help check if sql already exists.
 
+            string CheckSql = "";
+            string CmdString = string.Empty;
+            List<Spotify.Models.FullTrack> LikedUserTracksList = new List<FullTrack>();
+            // This will show likes from the databases.
+            List<long> Likes = new List<long>();
+            // New list is being created to store tracks from global list. Later likes and this list are merged as One list.
+            List<GlobalListClass> lst = new List<GlobalListClass>();
+            // New Connection is being open to load database data.
+            sqlAzureConnection = new SqlConnection(connectionString);
+            sqlAzureConnection.Open();
+            CheckSql = $"SELECT TrackId,Likes FROM PartyhubGlobal order by  Likes  DESC";
+            SqlCommand CommandCheck = new SqlCommand(CheckSql, sqlAzureConnection);
+            dataReader = CommandCheck.ExecuteReader();
+            DataTable dt = new DataTable();
+            if (dataReader.HasRows)
+            {
+                // If database has row upcoming while loop will be ran.
+                dataReader.Close();
+
+                CmdString = "SELECT Top(50) TrackID,TrackImage,TrackName,ArtistsName ,AlbumName ,TrackDuration,Likes FROM PartyhubGlobal order by  Likes  DESC";
+                SqlCommand cmd = new SqlCommand(CmdString, sqlAzureConnection);
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                dt = new DataTable("PartyhubGlobal");
+                DataTable globalTable = new DataTable();
+                sda.Fill(dt);
+
+                PartyHubTopListe.ItemsSource = dt.DefaultView;
+                sqlAzureConnection.Close();
+            }
+        }
+        // When datagrid is loaded our data will received automated Number id.
         private void DataGrid_LoadingRow(object sender, DataGridRowEventArgs e)
         {
-            e.Row.Header = (e.Row.GetIndex()+1).ToString();
+            e.Row.Header = (e.Row.GetIndex() + 1).ToString();
             var dataGrid = (DataGrid)sender;
             var border = (Border)VisualTreeHelper.GetChild(dataGrid, 0);
             var scrollViewer = (ScrollViewer)VisualTreeHelper.GetChild(border, 0);
             var grid = (Grid)VisualTreeHelper.GetChild(scrollViewer, 0);
             var button = (Button)VisualTreeHelper.GetChild(grid, 0);
             button.IsEnabled = false;
+            button.Content = "#";
+            // button.Background = Brushes.Black;
+            button.Visibility = Visibility.Hidden;
         }
 
     }
+
+
+
+
 }
+// This class is used to marge 2 classes togehter and displayed later.
+public class GlobalListClass
+{
+    public List<Spotify.Models.FullTrack> Track { get; set; }
+    public List<long> Likes { get; set; }
+
+}
+

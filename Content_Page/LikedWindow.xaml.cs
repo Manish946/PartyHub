@@ -15,23 +15,13 @@ using System.Windows.Shapes;
 namespace PartyHub.Content_Page
 {
     /// <summary>
-    /// Interaction logic for JoinPartyWindow.xaml
+    /// Interaction logic for LikedWindow.xaml
     /// </summary>
-    public partial class JoinPartyWindow : Window
+    public partial class LikedWindow : Window
     {
-        public JoinPartyWindow()
+        public LikedWindow()
         {
             InitializeComponent();
-        }
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.ChangedButton == MouseButton.Left)
-                this.DragMove();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
         }
     }
 }
