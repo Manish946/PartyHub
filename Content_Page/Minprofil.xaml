@@ -7,9 +7,105 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Minprofil">
-
     <Grid>
-        <TextBlock Text="Min Profil" HorizontalAlignment="Center" Foreground="White" FontSize="55"></TextBlock>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.6*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border CornerRadius="12,12,12,12" BorderThickness="0" Padding="6">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FF2A2A2A" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Grid Grid.Row="0">
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="#FF2A2A2A" Offset="1"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <StackPanel Orientation="Horizontal">
+                    <Ellipse Height="180" Width="180" HorizontalAlignment="Left" Margin="40,20,0,0">
+                        <Ellipse.Fill>
+                            <ImageBrush x:Name="userImage" ImageSource="/Content\Profile.png"></ImageBrush>
+
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <StackPanel VerticalAlignment="Center" >
+                        <TextBlock Text="Profil" Foreground="White" Margin="22,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22" Opacity="0.9"></TextBlock>
+                        <TextBlock x:Name="UserDisplayNavn" Text="Display Navn" Foreground="White" Margin="22,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="39"  Opacity="1"></TextBlock>
+
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom"  >
+                            <TextBlock x:Name="ProfilePlaylist" Text=" User Playlist" Foreground="White" Margin="19,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Opacity="0.6"></TextBlock>
+                            <TextBlock x:Name="Followers" Text=" Following" Foreground="White" Margin="22,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Opacity="0.9"></TextBlock>
+
+                        </StackPanel>
+                    </StackPanel>
+
+                </StackPanel>
+
+            </Grid>
+        </Border>
+
+        <Grid Grid.Row="1" Grid.RowSpan="2">
+            <StackPanel>
+                <Label Foreground="White" FontSize="25" HorizontalAlignment="Center" Content="Recently Played Playlists"></Label>
+                
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    
+                        <Grid Grid.Column="0"  Margin="10" >
+                            <StackPanel HorizontalAlignment="Center" Margin="10" >
+                                <Ellipse Height="250" Width="250" HorizontalAlignment="Center" >
+                                    <Ellipse.Fill>
+                                        <ImageBrush x:Name="playlistImage1" ></ImageBrush>
+
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                                <TextBlock Text="Playlist Not Available" HorizontalAlignment="Center" Foreground="White" FontSize="28" x:Name="PlaylistName1"></TextBlock>
+                                <TextBlock Text="PlaylistFollowers" HorizontalAlignment="Center"  Foreground="Gray" FontSize="24" x:Name="PlaylistFollowers1"></TextBlock>
+                            </StackPanel>
+                        </Grid>
+
+                    <Grid Grid.Column="1" Margin="10" >
+                            <StackPanel HorizontalAlignment="Center" Margin="10" >
+                                <Ellipse Height="250" Width="250" HorizontalAlignment="Center" >
+                                    <Ellipse.Fill>
+                                        <ImageBrush x:Name="playlistImage2" ></ImageBrush>
+
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                                <TextBlock Text="Playlist Not Available" HorizontalAlignment="Center" Foreground="White" FontSize="28" x:Name="PlaylistName2"></TextBlock>
+                                <TextBlock Text="PlaylistFollowers" HorizontalAlignment="Center"  Foreground="Gray" FontSize="24" x:Name="PlaylistFollowers2"></TextBlock>
+                            </StackPanel>
+                        </Grid>
+
+                    <Grid Grid.Column="2" Margin="10" >
+                            <StackPanel HorizontalAlignment="Center" Margin="10" >
+                                <Ellipse Height="250" Width="250" HorizontalAlignment="Center" >
+                                    <Ellipse.Fill>
+                                        <ImageBrush x:Name="playlistImage3" ></ImageBrush>
+
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                                <TextBlock Text="Playlist Not Available" HorizontalAlignment="Center" Foreground="White" FontSize="28" x:Name="PlaylistName3"></TextBlock>
+                                <TextBlock Text="PlaylistFollowers" HorizontalAlignment="Center"  Foreground="Gray" FontSize="24" x:Name="PlaylistFollowers3"></TextBlock>
+                            </StackPanel>
+                        </Grid>
+                </Grid>
+                    
+                    
+            </StackPanel>
+
+        </Grid>
 
     </Grid>
 </Page>
