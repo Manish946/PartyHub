@@ -11,3 +11,5 @@ GetClient_Secret
 in Loginwindow.xaml.cs 
 
 || line 111 and Line 113
+
++ ADD http://localhost:80 on Redirect Uri on your Spotify Api Dashboard App.
