@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30804.86
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PartyHub", "PartyHub.csproj", "{FF3C080D-573A-4EBA-9D99-FDA3DDD1498B}"
-EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Party Hub Setup", "..\Party Hub Setup\Party Hub Setup.vdproj", "{37210AFF-63F5-44C5-8640-213277618CF6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,9 +15,6 @@ Global
 		{FF3C080D-573A-4EBA-9D99-FDA3DDD1498B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF3C080D-573A-4EBA-9D99-FDA3DDD1498B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF3C080D-573A-4EBA-9D99-FDA3DDD1498B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{37210AFF-63F5-44C5-8640-213277618CF6}.Debug|Any CPU.ActiveCfg = Release
-		{37210AFF-63F5-44C5-8640-213277618CF6}.Debug|Any CPU.Build.0 = Release
-		{37210AFF-63F5-44C5-8640-213277618CF6}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

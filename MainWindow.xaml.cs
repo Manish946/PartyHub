@@ -31,7 +31,7 @@ namespace PartyHub
         SpotifyWebClient client = new SpotifyWebClient();
         SpotifyWebBuilder builder = new SpotifyWebBuilder();
         //Database Connection Setup
-        private string connectionString = @"Server=tcp:partyhubserver.database.windows.net,1433;Initial Catalog=Partyhub_Database;Persist Security Info=False;User ID=partyhublogin;Password=Passw0rd;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        private string connectionString = @"Server=tcp:partyhubserver.database.windows.net,1433;Initial Catalog=Partyhub-Database;Persist Security Info=False;User ID=partyhub946;Password=PartyHub12;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         SqlConnection sqlAzureConnection;
         SqlDataReader dataReader;
         SqlCommand Command;
